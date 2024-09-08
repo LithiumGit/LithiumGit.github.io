@@ -8,8 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "copy_assets": "copyfiles -u 1 -a assets/**/* out",
-    "copy_output": "copyfiles -u 1 -a out/**/* ../docs",
-    "build_all": "npm run build && npm run copy_assets"
+    "copy_output": "copyfiles -u 1 -a out/**/* docs",
+    "copy_files":"npm run copy_assets && npm run copy_output",
+    "build_all": "npm run build && npm run copy_files"
   },
   "dependencies": {
     "bootstrap": "^5.3.3",
