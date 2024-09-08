@@ -1,5 +1,5 @@
-function T3(){
-    console.log("ok done");
+function T3(p:string){
+    console.log("ok done",p);
 }
 
 const name = "Jesse";

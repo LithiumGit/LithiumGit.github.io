@@ -1,7 +1,5 @@
-function T3() {
-    debugger;
-    alert("ok");
-    console.log("ok done");
+function T3(p) {
+    console.log("ok done", p);
 }
 const name = "Jesse";
 const age = 40;
