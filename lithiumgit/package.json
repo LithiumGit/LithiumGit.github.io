@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "copy_assets": "copyfiles -u 2 assets/**/* out",
+    "copy_output": "copyfiles -u 2 out/**/* ../docs",
+    "build_all": "npm run build && npm run copy_assets"
   },
   "dependencies": {
     "bootstrap": "^5.3.3",
@@ -19,6 +22,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "copyfiles": "^2.4.1",
     "sass": "^1.78.0",
     "typescript": "^5"
   }
