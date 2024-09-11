@@ -1,9 +1,10 @@
 nav{
-    background-color: var(--nav-color);
+    background-color: #563D7C;
+    color: #1a033c;    
     .nav-item{
-        a{
-            color: rgb(187, 171, 171);
-        }
-
+        font-size: 1.5em;
+        font-weight: bold;    
     }
-}
+  }
+  
+  
