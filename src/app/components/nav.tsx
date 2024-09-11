@@ -1,6 +1,5 @@
 import { Routes } from '../../lib';
 import icon from '../images/icon.png';
-import './nav.scss';
 
 export function Nav(){
 

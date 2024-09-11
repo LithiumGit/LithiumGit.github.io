@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Consolas';
-  src: url('./fonts/fonts/consolas/CONSOLA.TTF') format('truetype'),
+  src: url('../fonts/fonts/consolas/CONSOLA.TTF') format('truetype'),
 }
 
 html {
@@ -525,20 +525,8 @@ body {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-// ////////////////////////////custom css//////////////////
+/////////////////custom css files/////////////
+@import "./nav.scss";
 
 a{
   color: inherit;

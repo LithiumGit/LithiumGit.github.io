@@ -1,6 +1,5 @@
-import type { Metadata } from "next";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "./styles.scss";
+import "./styles/styles.scss";
 
 
 // export const metadata: Metadata = {
