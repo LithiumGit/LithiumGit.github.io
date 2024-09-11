@@ -1,11 +1,12 @@
 import { Routes } from '../../lib';
 import icon from '../images/icon.png';
+import './nav.scss';
 
 export function Nav(){
 
     return (
         <nav className="d-flex align-items-center" style={{height: '7rem'}}>
-            <a href="/" className="d-flex h-100 align-items-center">
+            <a href="/" className="d-flex h-100 align-items-center no-decoration">
                 <div className="h-100 d-flex align-items-center ps-5">
                     <img src={icon.src} style={{height: '75%', width: 'auto'}} alt="icon.png" />
                 </div>
@@ -20,13 +21,13 @@ export function Nav(){
             </a>
             
             <div className="nav-item ps-5">
-                <a href={Routes.Docs} className="">Docs</a>
+                <a href={Routes.Docs} className="no-decoration">Docs</a>
+            </div>
+            <div className="nav-item ps-5 no-decoration">
+                <a href="#" className="no-decoration">Download</a>
             </div>
             <div className="nav-item ps-5">
-                <a href="#" className="">Download</a>
-            </div>
-            <div className="nav-item ps-5">
-                <a href="#" className="">About</a>
+                <a href="#" className="no-decoration">About</a>
             </div>
     
         </nav>    
