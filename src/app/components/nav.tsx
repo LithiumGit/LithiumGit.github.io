@@ -1,5 +1,7 @@
+import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'react-bootstrap';
 import { Routes } from '../../lib';
 import icon from '../images/icon.png';
+import { FaBahai, FaEllipsisH } from 'react-icons/fa';
 
 export function Nav(){
 
@@ -29,6 +31,11 @@ export function Nav(){
                 <a href="#" className="no-decoration">About</a>
             </div>
     
+            <div className='flex-grow-1 text-end'>
+                <div className='pe-3'>
+                    <FaBahai title='Switch theme' className="h3 cur-point border border-secondary rounded-circle p-1" />
+                </div>
+            </div>
         </nav>    
       );
 

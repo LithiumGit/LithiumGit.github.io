@@ -178,7 +178,7 @@ body {
 
 .hover:hover,
 .hover:hover * {
-  cursor: default;
+  cursor: pointer;
   //opacity: 0.6;
   color: var(--hover);
 }
