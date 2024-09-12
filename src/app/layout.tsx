@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./styles/styles.scss";
+import { EnumTheme } from '../lib';
 
 
 // export const metadata: Metadata = {
@@ -13,7 +14,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme='dark'>
+    <html lang="en" data-theme={EnumTheme.Dark}>
       <body>
         {children}
       </body>

@@ -1,9 +1,33 @@
-import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'react-bootstrap';
-import { Routes } from '../../lib';
+"use client"
+
+import { useEffect, useRef } from 'react';
+import { EnumTheme, Routes, useMultiState } from '../../lib';
 import icon from '../images/icon.png';
-import { FaBahai, FaEllipsisH } from 'react-icons/fa';
+import { FaBahai } from 'react-icons/fa';
+
+interface IState{
+    isDarkMode:boolean;
+}
 
 export function Nav(){
+    const [state,setState] = useMultiState<IState>({isDarkMode:true});
+    const ref = useRef({isMounted:false});
+
+    const toogleTheme=()=>{
+        const theme = window.document.documentElement.getAttribute("data-theme");
+        if(theme){
+            window.document.documentElement.removeAttribute("data-theme");
+            setState({isDarkMode:false});
+        }else{
+            window.document.documentElement.setAttribute("data-theme",EnumTheme.Dark);
+            setState({isDarkMode:true});
+        }
+    }
+
+    useEffect(()=>{
+        ref.current.isMounted = true;
+    },[])
+    
 
     return (
         <nav className="d-flex align-items-center" style={{height: '7rem'}}>
@@ -33,7 +57,7 @@ export function Nav(){
     
             <div className='flex-grow-1 text-end'>
                 <div className='pe-3'>
-                    <FaBahai title='Switch theme' className="h3 cur-point border border-secondary rounded-circle p-1" />
+                    <FaBahai onClick={()=> toogleTheme()} title={`Switch to ${state.isDarkMode?"light":"dark"} theme.`} className={`h3 cur-point border border-secondary rounded-circle p-1 ${!state.isDarkMode?"text-light":""}`} />
                 </div>
             </div>
         </nav>    
