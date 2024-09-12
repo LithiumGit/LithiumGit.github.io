@@ -12,6 +12,7 @@ html {
   --hover: #56a696;
   --bg-color: rgb(241, 236, 236);
   --nav-color:#563D7C;
+  --brand-color:#563D7C;
   --bg-default-button: rgb(192, 193, 201);
   --border-color: rgba(0, 0, 0, .2);
   --gs-normal: white;
@@ -50,6 +51,7 @@ html[data-theme='dark'] {
   --font-color: #CCCCCC;
   --bg-color: #1F1F1F;
   --nav-color:#563D7C;
+  --brand-color:#563D7C;
   --bg-default-button: #76a198;
   --border-color: rgba(0, 0, 0, .2);
   --gs-normal: black;
@@ -143,6 +145,14 @@ textarea:focus {
 
 .minw-100 {
   min-width: 100%;
+}
+
+.brand-color{
+  color: var(--brand-color);
+}
+
+.bg-brand {
+  background-color: var(--brand-color);
 }
 
 body {

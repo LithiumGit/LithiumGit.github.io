@@ -6,6 +6,8 @@ import commitsImage from './images/commits.png';
 import stashImage from './images/stashes.png';
 import { Carousel,CarouselCaption,CarouselItem } from 'react-bootstrap';
 import './styles/home.scss';
+import { FaWindows } from 'react-icons/fa';
+import { Constants } from '../lib';
 
 
 export default function Home() {
@@ -13,8 +15,16 @@ export default function Home() {
     <Fragment>
       <Nav />
       <div className='d-flex align-items-center'>
-        <div className='w-25'>
+        <div className='w-25 text-center'>
             <h2 className='font-weight-bold' style={{fontSize:'2.5em'}}>No feare, just play with the Git</h2>
+            <div className="d-flex align-items-center justify-content-center pt-3">
+              <div className='d-flex bg-brand align-items-center px-3 py-2 hover'>
+                <a href={Constants.winInstallerUrl}>
+                  <FaWindows /> <span className='ps-2'>Download LithiumGit-{Constants.latestVersion}</span>
+                </a>                
+              </div>
+              
+            </div>
         </div>
         <div className='w-75 d-flex justify-content-center'>
             <Carousel className='text-center'>
