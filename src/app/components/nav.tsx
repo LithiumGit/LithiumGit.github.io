@@ -11,23 +11,15 @@ interface IState{
 
 export function Nav(){
     const [state,setState] = useMultiState<IState>({isDarkMode:true});
-    const ref = useRef({isMounted:false});
 
     const toogleTheme=()=>{
-        const theme = window.document.documentElement.getAttribute("data-theme");
-        if(theme){
+        if(state.isDarkMode){
             window.document.documentElement.removeAttribute("data-theme");
-            setState({isDarkMode:false});
         }else{
             window.document.documentElement.setAttribute("data-theme",EnumTheme.Dark);
-            setState({isDarkMode:true});
         }
-    }
-
-    useEffect(()=>{
-        ref.current.isMounted = true;
-    },[])
-    
+        setState({isDarkMode:!state.isDarkMode});
+    }    
 
     return (
         <nav className="d-flex align-items-center" style={{height: '7rem'}}>
