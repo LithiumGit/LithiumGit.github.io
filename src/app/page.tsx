@@ -1,11 +1,11 @@
 import { Fragment } from 'react';
 import { ExampleCarouselImage, Nav } from './components';
-import icon from './images/icon.png';
 import graphImage from './images/graph.png';
 import changesImage from './images/changes.png';
 import commitsImage from './images/commits.png';
 import stashImage from './images/stashes.png';
 import { Carousel,CarouselCaption,CarouselItem } from 'react-bootstrap';
+import './styles/home.scss';
 
 
 export default function Home() {

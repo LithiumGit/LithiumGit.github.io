@@ -83,19 +83,19 @@ html[data-theme='dark'] {
   --bg-change-accepted: #b9d5f6;
 }
 
-p,
-span,
-div,
-i,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: var(--font-color);
-  font-family: 'Consolas';
-}
+// p,
+// span,
+// div,
+// i,
+// h1,
+// h2,
+// h3,
+// h4,
+// h5,
+// h6 {
+//   color: var(--font-color);
+//   font-family: 'Consolas';
+// }
 
 input[type="text"],
 textarea,
@@ -147,6 +147,8 @@ textarea:focus {
 
 body {
   background-color: var(--bg-color);
+  color: var(--font-color);
+  font-family: 'Consolas';
 }
 
 #root {

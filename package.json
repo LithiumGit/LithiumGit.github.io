@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "start": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start_next": "next start",
     "lint": "next lint",
     "copy_assets": "copyfiles -u 1 -a assets/**/* out",
     "copy_output": "copyfiles -u 1 -a out/**/* docs",
