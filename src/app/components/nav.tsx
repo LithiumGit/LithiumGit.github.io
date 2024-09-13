@@ -1,25 +1,30 @@
 "use client"
 
 import { useEffect, useRef } from 'react';
-import { EnumTheme, Routes, useMultiState } from '../../lib';
+import { EnumTheme, Routes, StorageKey, StorageUtils, useMultiState } from '../../lib';
 import icon from '../images/icon.png';
 import { FaBahai } from 'react-icons/fa';
 
 interface IState{
-    isDarkMode:boolean;
+    theme:EnumTheme;
 }
 
 export function Nav(){
-    const [state,setState] = useMultiState<IState>({isDarkMode:true});
+    const [state,setState] = useMultiState<IState>({theme:StorageUtils.getTheme()});
 
     const toogleTheme=()=>{
-        if(state.isDarkMode){
-            window.document.documentElement.removeAttribute("data-theme");
+        let newTheme = state.theme === EnumTheme.Light? EnumTheme.Dark:EnumTheme.Light;        
+        setState({theme:newTheme});
+    }
+    
+    useEffect(()=>{
+        if(state.theme === EnumTheme.Light){
+            window.document.documentElement.setAttribute("data-theme",EnumTheme.Light);
         }else{
             window.document.documentElement.setAttribute("data-theme",EnumTheme.Dark);
         }
-        setState({isDarkMode:!state.isDarkMode});
-    }    
+        StorageUtils.setTheme(state.theme);
+    },[state.theme])
 
     return (
         <nav className="d-flex align-items-center" style={{height: '7rem'}}>
@@ -49,7 +54,7 @@ export function Nav(){
     
             <div className='flex-grow-1 text-end'>
                 <div className='pe-3'>
-                    <FaBahai onClick={()=> toogleTheme()} title={`Switch to ${state.isDarkMode?"light":"dark"} theme.`} className={`h3 cur-point border border-secondary rounded-circle p-1 ${!state.isDarkMode?"text-light":""}`} />
+                    <FaBahai onClick={()=> toogleTheme()} title={`Switch to ${state.theme?"light":"dark"} theme.`} className={`h3 cur-point border border-secondary rounded-circle p-1 ${!state.theme?"text-light":""}`} />
                 </div>
             </div>
         </nav>    
