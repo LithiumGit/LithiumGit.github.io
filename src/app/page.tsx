@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <Fragment>
       <Nav />
-      <div className='d-flex align-items-center'>
+      <main className='d-flex align-items-center'>
         <div className='w-25 text-center'>
             <h2 className='font-weight-bold' style={{fontSize:'2.5em'}}>No feare, just play with the Git</h2>
             <p className='pt-3'>
@@ -66,7 +66,7 @@ export default function Home() {
               </CarouselItem>
             </Carousel>
         </div>
-      </div>
+      </main>
     </Fragment>
   );
 }
