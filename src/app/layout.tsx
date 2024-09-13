@@ -1,7 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./styles/styles.scss";
-import { EnumTheme, StorageUtils } from '../lib';
+import { StorageUtils } from '../lib';
 import { Footer } from './components/footer';
+import { Nav } from './components';
 
 
 // export const metadata: Metadata = {
@@ -17,6 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme={StorageUtils.getTheme()}>
       <body>
+        <Nav />
         {children}
         <Footer />
       </body>
