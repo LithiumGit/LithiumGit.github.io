@@ -30,35 +30,35 @@ export default function Home() {
             <Carousel className='text-center'>
               <CarouselItem interval={3000}>
                 <ExampleCarouselImage text="First slide" src={graphImage.src} />
-                <CarouselCaption>
-                  <h3>First slide label</h3>
-                  <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                </CarouselCaption>
+                {/* <CarouselCaption className='text-danger'>
+                  <h3>Interactive Graph</h3>
+                  <p>Do your most regular git actions without hassle.</p>
+                </CarouselCaption> */}
               </CarouselItem>
-              <CarouselItem interval={1000}>
+              <CarouselItem interval={3000}>
                 <ExampleCarouselImage text="Second slide" src={changesImage.src} />
-                <CarouselCaption>
+                {/* <CarouselCaption>
                   <h3>Second slide label</h3>
                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </CarouselCaption>
+                </CarouselCaption> */}
               </CarouselItem>
-              <CarouselItem interval={1000}>
+              <CarouselItem interval={3000}>
                 <ExampleCarouselImage text="Third slide" src={commitsImage.src} />
-                <CarouselCaption>
+                {/* <CarouselCaption>
                   <h3>Third slide label</h3>
                   <p>
                     Praesent commodo cursus magna, vel scelerisque nisl consectetur.
                   </p>
-                </CarouselCaption>
+                </CarouselCaption> */}
               </CarouselItem>
-              <CarouselItem interval={1000}>
+              <CarouselItem interval={3000}>
                 <ExampleCarouselImage text="Third slide" src={stashImage.src} />
-                <CarouselCaption>
+                {/* <CarouselCaption>
                   <h3>Third slide label</h3>
                   <p>
                     Praesent commodo cursus magna, vel scelerisque nisl consectetur.
                   </p>
-                </CarouselCaption>
+                </CarouselCaption> */}
               </CarouselItem>
             </Carousel>
         </div>
