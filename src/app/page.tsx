@@ -17,6 +17,10 @@ export default function Home() {
       <div className='d-flex align-items-center'>
         <div className='w-25 text-center'>
             <h2 className='font-weight-bold' style={{fontSize:'2.5em'}}>No feare, just play with the Git</h2>
+            <p className='pt-3'>
+              LithiumGit is a Git client application which make the use of the git activities 
+              at most of your favour. And LithiumGit is free.
+            </p>
             <div className="d-flex align-items-center justify-content-center pt-3">
               <div className='d-flex bg-brand align-items-center px-3 py-2 hover'>
                 <a href={Constants.winInstallerUrl} className='text-light'>
