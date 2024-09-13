@@ -19,7 +19,7 @@ export default function Home() {
             <h2 className='font-weight-bold' style={{fontSize:'2.5em'}}>No feare, just play with the Git</h2>
             <div className="d-flex align-items-center justify-content-center pt-3">
               <div className='d-flex bg-brand align-items-center px-3 py-2 hover'>
-                <a href={Constants.winInstallerUrl}>
+                <a href={Constants.winInstallerUrl} className='text-light'>
                   <FaWindows /> <span className='ps-2'>Download LithiumGit-{Constants.latestVersion}</span>
                 </a>                
               </div>
