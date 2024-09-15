@@ -33,7 +33,7 @@ export function Nav(){
                     <img src={icon.src} style={{height: '75%', width: 'auto'}} alt="icon.png" />
                 </div>
                 <div className="">
-                    <div className="font-weight-bold" style={{fontSize: '2em'}}>
+                    <div title='The powerful git client' className="font-weight-bold" style={{fontSize: '2em'}}>
                         <span className="font-weight-bold">Lithium</span><span><i>Git</i></span>
                     </div>
                     <div>
@@ -54,7 +54,7 @@ export function Nav(){
     
             <div className='flex-grow-1 text-end'>
                 <div className='pe-3'>
-                    <FaBahai onClick={()=> toogleTheme()} title={`Switch to ${state.theme?"light":"dark"} theme.`} className={`h3 cur-point border border-secondary rounded-circle p-1 ${!state.theme?"text-light":""}`} />
+                    <FaBahai onClick={()=> toogleTheme()} title={`Switch to ${state.theme == EnumTheme.Dark?"light":"dark"} theme.`} className={`h3 cur-point border border-secondary rounded-circle p-1 ${state.theme === EnumTheme.Light?"text-light":""}`} />
                 </div>
             </div>
         </nav>    
