@@ -183,6 +183,10 @@ body {
   color: var(--hover);
 }
 
+.selected-color{
+  color: var(--hover);
+}
+
 .hover-brighter:hover {
   filter: brightness(105%);
 }

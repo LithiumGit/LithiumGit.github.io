@@ -7,11 +7,12 @@ import { FaBahai } from 'react-icons/fa';
 
 interface IState{
     theme:EnumTheme;
+    path:string;
 }
 
 export function Nav(){
     const ref = useRef({isMounted:false});
-    const [state,setState] = useMultiState<IState>({theme:EnumTheme.Dark});
+    const [state,setState] = useMultiState<IState>({theme:EnumTheme.Dark,path:""});
 
     const toogleTheme=()=>{
         let newTheme = state.theme === EnumTheme.Light? EnumTheme.Dark:EnumTheme.Light;        
@@ -36,6 +37,7 @@ export function Nav(){
             setState({theme});
         }
 
+        setState({path:window.location.pathname})
     },[])
 
     return (
@@ -54,14 +56,16 @@ export function Nav(){
                 </div>
             </a>
             
-            <div className="nav-item ps-5">
-                <a href={Routes.Docs} className="no-decoration">Docs</a>
+            <div className='px-2' />
+
+            <div className="nav-item px-3">
+                <a href={Routes.Docs} className={`no-decoration ${state.path === Routes.Docs?"selected-color":""}`}>Docs</a>
             </div>
-            <div className="nav-item ps-5 no-decoration">
-                <a href={Routes.Download} className="no-decoration">Download</a>
+            <div className="nav-item px-3 no-decoration">
+                <a href={Routes.Download} className={`no-decoration ${state.path === Routes.Download?"selected-color":""}`}>Download</a>
             </div>
-            <div className="nav-item ps-5">
-                <a href="#" className="no-decoration">About</a>
+            <div className="nav-item px-3">
+                <a href="#" className={`no-decoration ${state.path === Routes.About?"selected-color":""}`}>About</a>
             </div>
     
             <div className='flex-grow-1 text-end'>
