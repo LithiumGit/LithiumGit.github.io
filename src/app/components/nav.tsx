@@ -58,7 +58,7 @@ export function Nav(){
                 <a href={Routes.Docs} className="no-decoration">Docs</a>
             </div>
             <div className="nav-item ps-5 no-decoration">
-                <a href="#" className="no-decoration">Download</a>
+                <a href={Routes.Download} className="no-decoration">Download</a>
             </div>
             <div className="nav-item ps-5">
                 <a href="#" className="no-decoration">About</a>
