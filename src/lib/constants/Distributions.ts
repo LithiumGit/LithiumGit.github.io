@@ -1,0 +1,64 @@
+import { OSType } from "../enums";
+import { IDistribution } from "../interfaces";
+
+export class Distributions{
+    static readonly list:IDistribution[]=[
+        {
+            os:OSType.Windows,
+            releases:[
+                {
+                    version:"0.5.3-alpha.1(latest)",
+                    url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v0.5.3-alpha.1/LithiumGit-Setup-win-x64-0.5.3-alpha.1.exe",
+                },
+                {
+                    version:"0.5.2-alpha.1",
+                    url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v0.5.2-alpha.1/LithiumGit-Setup-win-x64-0.5.2-alpha.1.exe",
+                },
+                {
+                    version:"0.5.1-alpha.1",
+                    url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v0.5.1-alpha.1/LithiumGit-Setup-win-x64-0.5.1-alpha.1.exe",
+                },
+                {
+                    version:"0.5.0-alpha.1",
+                    url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v0.5.0-alpha.1/LithiumGit-Setup-win-x64-0.5.0-alpha.1.exe",
+                },
+                {
+                    version:"0.4.4-alpha.1",
+                    url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v0.4.4-alpha.1/LithiumGit-Setup-win-x64-0.4.4-alpha.1.exe",
+                },
+                {
+                    version:"0.4.3-alpha.1",
+                    url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v0.4.3-alpha.1/LithiumGit-Setup-win-x64-0.4.3-alpha.1.exe",
+                },
+                {
+                    version:"0.4.2-alpha.1",
+                    url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v0.4.2-alpha.1/LithiumGit-Setup-win-x64-0.4.2-alpha.1.exe",
+                },
+                {
+                    version:"0.4.1-alpha.1",
+                    url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v0.4.1-alpha.1/LithiumGit-Setup-win-x64-0.4.1-alpha.1.exe",
+                },
+                {
+                    version:"0.3.2-alpha.1",
+                    url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v0.3.2-alpha.1/LithiumGit-Setup-win-x64-0.3.2-alpha.1.exe",
+                },
+                {
+                    version:"0.3.1-alpha.1",
+                    url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v0.3.1-alpha.1/LithiumGit-Setup-win-x64-0.3.1-alpha.1.exe",
+                },
+                {
+                    version:"0.3.0-alpha.1",
+                    url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v0.3.0-alpha.1/LithiumGit-Setup-win-x64-0.3.0-alpha.1.exe",
+                },
+            ]
+        },
+        {
+            os:OSType.Mac,
+            releases:[]
+        },
+        {
+            os:OSType.Debian,
+            releases:[],
+        }
+    ];
+}
