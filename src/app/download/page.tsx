@@ -102,10 +102,6 @@ export default function Download(){
                 </div>
                 <div className='pt-3'>
                     <img src={inst3.src} alt="step2" />
-                    <h5>-Select the destination folder and click install.</h5>
-                </div>
-                <div className='pt-3'>
-                    <img src={inst3.src} alt="step2" />
                     <h5>-Select the destination folder, click install and wait some for a moment.</h5>
                 </div><div className='pt-3'>
                     <img src={inst5.src} alt="step2" />
