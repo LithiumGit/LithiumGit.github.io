@@ -70,7 +70,7 @@ export function Nav(){
     
             <div className='flex-grow-1 text-end'>
                 <div className='pe-3'>
-                    <FaBahai onClick={()=> toogleTheme()} title={`Switch to ${state.theme == EnumTheme.Dark?"light":"dark"} theme.`} className={`h3 cur-point border border-secondary rounded-circle p-1 ${state.theme === EnumTheme.Light?"text-light":""}`} />
+                    <FaBahai onClick={()=> toogleTheme()} title={`Switch to ${state.theme == EnumTheme.Dark?"light":"dark"} theme.`} className={`h3 cur-point border border-secondary rounded-circle p-1 ${state.theme === EnumTheme.Light?"":"text-slight"}`} />
                 </div>
             </div>
         </nav>    
