@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef } from 'react';
-import { EnumTheme, Routes, StorageKey, StorageUtils, useMultiState } from '../../lib';
+import { EnumTheme, Routes, StorageUtils, useMultiState } from '../../lib';
 import icon from '../images/icon.png';
 import { FaBahai } from 'react-icons/fa';
 
@@ -10,7 +10,8 @@ interface IState{
 }
 
 export function Nav(){
-    const [state,setState] = useMultiState<IState>({theme:StorageUtils.getTheme()});
+    const ref = useRef({isMounted:false});
+    const [state,setState] = useMultiState<IState>({theme:EnumTheme.Dark});
 
     const toogleTheme=()=>{
         let newTheme = state.theme === EnumTheme.Light? EnumTheme.Dark:EnumTheme.Light;        
@@ -18,6 +19,8 @@ export function Nav(){
     }
     
     useEffect(()=>{
+        if(!ref.current.isMounted)
+            return;
         if(state.theme === EnumTheme.Light){
             window.document.documentElement.setAttribute("data-theme",EnumTheme.Light);
         }else{
@@ -25,6 +28,15 @@ export function Nav(){
         }
         StorageUtils.setTheme(state.theme);
     },[state.theme])
+
+    useEffect(()=>{
+        ref.current.isMounted = true;
+        const theme = StorageUtils.getTheme();
+        if(state.theme !== theme){
+            setState({theme});
+        }
+
+    },[])
 
     return (
         <nav className="d-flex align-items-center" style={{height: '7rem'}}>
