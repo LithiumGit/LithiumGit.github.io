@@ -21,12 +21,12 @@ export class DocumentMenus{
         },
         {
             name:"Commits",
-            url:"#commits",
+            url:"#"+HtmlIds.commits,
             subMenus:[],
         },
         {
             name:"Stashes",
-            url:"#stashes",
+            url:"#"+HtmlIds.stash,
             subMenus:[],
         },
         {

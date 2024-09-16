@@ -2,8 +2,11 @@
 
 import { Constants, DocumentMenus } from "../../lib"
 import { ChangesView } from "./ChangesView"
+import { CommitsView } from "./CommitsView"
 import { GetStarted } from "./GetStarted"
+import { GraphView } from "./GraphView"
 import { SingleMenu } from "./SingleMenu"
+import { StashView } from "./StashView"
 
 export default function Docs(){
     const menuWidth = 200;
@@ -18,6 +21,9 @@ export default function Docs(){
         <div className="h-100 overflow-auto ps-3 border-start" style={{width:`100% - ${menuWidth}px`}}>
             <GetStarted />
             <ChangesView />
+            <GraphView />
+            <CommitsView />
+            <StashView />
         </div>
 
     </div>
