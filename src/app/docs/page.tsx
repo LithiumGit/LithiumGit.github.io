@@ -3,7 +3,7 @@
 import { DocumentMenus } from "../../lib"
 import { ChangesView } from "./ChangesView"
 import { GetStarted } from "./GetStarted"
-import { SingleMenu } from "./singleMenu"
+import { SingleMenu } from "./SingleMenu"
 
 export default function Docs(){
     return <div className="d-flex w-100">
