@@ -6,17 +6,17 @@ export class DocumentMenus{
     static readonly list:IMenu[]=[
         {
             name:"Getting Started",
-            url:HtmlIds.get_started,
+            url:"#"+HtmlIds.get_started,
             subMenus:[],
         },
         {
             name:"Changes",
-            url:"#changes",
+            url:"#"+ HtmlIds.changes,
             subMenus:[],
         },
         {
             name:"Graph",
-            url:"#graph",
+            url:"#"+HtmlIds.graph,
             subMenus:[],
         },
         {

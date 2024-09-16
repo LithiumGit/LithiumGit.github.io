@@ -1,6 +1,7 @@
 "use client"
 
 import { DocumentMenus } from "../../lib"
+import { ChangesView } from "./ChangesView"
 import { GetStarted } from "./GetStarted"
 import { SingleMenu } from "./singleMenu"
 
@@ -13,6 +14,7 @@ export default function Docs(){
         </div>
         <div className="ps-3 ">
             <GetStarted />
+            <ChangesView />
         </div>
     </div>
 }
