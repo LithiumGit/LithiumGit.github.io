@@ -5,7 +5,7 @@ import step3 from '../images/open/step3.png';
 import step4 from '../images/open/step4.png';
 
 export function GetStarted(){
-    const imgWidth = 700;
+    const imgWidth = "70%";
 
     return <div id={HtmlIds.get_started}>
         <h4>Getting started</h4>
