@@ -13,8 +13,10 @@ export default function RootLayout({
     <html lang="en" data-theme={StorageUtils.getTheme()}>
       <body>
         <Nav />
-        {children}
-        <Footer />
+        <div className='overflow-auto' style={{height:'calc(100% - 7rem)'}}>
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   );

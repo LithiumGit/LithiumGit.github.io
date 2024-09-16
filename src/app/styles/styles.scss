@@ -145,6 +145,8 @@ body {
   background-color: var(--bg-color);
   color: var(--font-color);
   font-family: 'Consolas';
+  height: 100vh;
+  overflow: auto;
 }
 
 #root {
