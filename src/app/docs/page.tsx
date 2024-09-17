@@ -3,6 +3,7 @@
 import { Constants, DocumentMenus } from "../../lib"
 import { ChangesView } from "./ChangesView"
 import { CommitsView } from "./CommitsView"
+import { ConfigView } from "./Config"
 import { GetStarted } from "./GetStarted"
 import { GraphView } from "./GraphView"
 import { SingleMenu } from "./SingleMenu"
@@ -24,6 +25,7 @@ export default function Docs(){
             <GraphView />
             <CommitsView />
             <StashView />
+            <ConfigView />
         </div>
 
     </div>

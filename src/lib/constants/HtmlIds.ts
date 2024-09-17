@@ -4,4 +4,5 @@ export class HtmlIds{
     static readonly graph = "graph";
     static readonly commits = "commits";
     static readonly stash = "stash";
+    static readonly config = "config";
 }

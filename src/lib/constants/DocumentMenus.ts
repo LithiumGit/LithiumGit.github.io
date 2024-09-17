@@ -31,7 +31,7 @@ export class DocumentMenus{
         },
         {
             name:"Configs",
-            url:"#stashes",
+            url:"#"+HtmlIds.config,
             subMenus:[],
         },
         {

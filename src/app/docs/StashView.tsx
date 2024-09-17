@@ -7,7 +7,7 @@ export function StashView(){
         <div id={HtmlIds.stash}>
         <h4>Stash list</h4>
         <img src={stashImg.src} alt="changes" style={{width:Constants.docsImageWidth,height:'auto'}} />
-        <p>All the stashes are listed. Stash actions such as pop, apply and delete can be performed here.</p>
+        <p>All the stashes are listed here. Stash actions such as pop, apply and delete can be performed here from this view.</p>
     </div>
     )
 }
