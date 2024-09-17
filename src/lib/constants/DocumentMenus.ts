@@ -36,7 +36,7 @@ export class DocumentMenus{
         },
         {
             name:"Clone",
-            url:"#clone",
+            url:"#"+HtmlIds.clone,
             subMenus:[],
         },
         {

@@ -5,4 +5,5 @@ export class HtmlIds{
     static readonly commits = "commits";
     static readonly stash = "stash";
     static readonly config = "config";
+    static readonly clone = "clone";
 }

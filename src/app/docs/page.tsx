@@ -2,6 +2,7 @@
 
 import { Constants, DocumentMenus } from "../../lib"
 import { ChangesView } from "./ChangesView"
+import { CloneView } from "./CloneView"
 import { CommitsView } from "./CommitsView"
 import { ConfigView } from "./Config"
 import { GetStarted } from "./GetStarted"
@@ -26,6 +27,7 @@ export default function Docs(){
             <CommitsView />
             <StashView />
             <ConfigView />
+            <CloneView />
         </div>
 
     </div>
