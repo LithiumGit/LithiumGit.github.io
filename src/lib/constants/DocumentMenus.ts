@@ -41,12 +41,12 @@ export class DocumentMenus{
         },
         {
             name:"Recents",
-            url:"#recents",
+            url:"#"+HtmlIds.recents,
             subMenus:[],
         },
         {
             name:"Create",
-            url:"#create",
+            url:"#"+HtmlIds.create,
             subMenus:[],
         }
     ]

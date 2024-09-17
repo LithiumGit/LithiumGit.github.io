@@ -6,4 +6,6 @@ export class HtmlIds{
     static readonly stash = "stash";
     static readonly config = "config";
     static readonly clone = "clone";
+    static readonly recents = "recents";
+    static readonly create = "create";
 }

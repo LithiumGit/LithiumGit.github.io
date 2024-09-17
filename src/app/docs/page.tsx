@@ -5,8 +5,10 @@ import { ChangesView } from "./ChangesView"
 import { CloneView } from "./CloneView"
 import { CommitsView } from "./CommitsView"
 import { ConfigView } from "./Config"
+import { CreateView } from "./CreateView"
 import { GetStarted } from "./GetStarted"
 import { GraphView } from "./GraphView"
+import { RecentsView } from "./Recents"
 import { SingleMenu } from "./SingleMenu"
 import { StashView } from "./StashView"
 
@@ -28,6 +30,8 @@ export default function Docs(){
             <StashView />
             <ConfigView />
             <CloneView />
+            <RecentsView />
+            <CreateView />
         </div>
 
     </div>
