@@ -1,4 +1,3 @@
-import { Fragment } from 'react';
 import { ExampleCarouselImage } from './components';
 import graphImage from './images/graph.png';
 import changesImage from './images/changes.png';
@@ -15,7 +14,6 @@ import stashesIcon from './images/stashes.png';
 
 export default function Home() {
   return (
-    <Fragment>
       <main>
         <div className='d-flex align-items-center'>
           <div className='w-25 text-center'>
@@ -122,6 +120,5 @@ export default function Home() {
           </div>
         </div>
       </main>
-    </Fragment>
   );
 }

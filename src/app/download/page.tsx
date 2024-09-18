@@ -54,7 +54,7 @@ export default function Download(){
     }
     
 
-    return <div>
+    return <main>
         <div className='d-flex align-items-center justify-content-center'>
             <Dropdown className=''>
                 <DropdownToggle variant="" id="" className="rounded-0 d-flex align-items-center">
@@ -110,5 +110,5 @@ export default function Download(){
                 <p className='pt-3'>NB:*Antivirus may prevent the download and installation process as the code signature not yet added to LithiumGit. In this case you have to download and install it forcely.</p>
             </div>
         </div>
-    </div>
+    </main>
 }

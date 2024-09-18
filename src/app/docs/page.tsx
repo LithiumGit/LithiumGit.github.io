@@ -14,7 +14,7 @@ import { StashView } from "./StashView"
 
 export default function Docs(){
     const menuWidth = 200;
-    return <div className="d-flex w-100 overflow-auto">
+    return <main className="d-flex w-100 overflow-auto">
         <div className="overflow-auto ps-1 position-absolute" 
             style={{top:Constants.navHeight,left:0,width:menuWidth , height:`calc(100% - ${Constants.navHeight} - ${Constants.footerHeight})`}} >
             {DocumentMenus.list.map(m=>(
@@ -34,5 +34,5 @@ export default function Docs(){
             <CreateView />
         </div>
 
-    </div>
+    </main>
 }
