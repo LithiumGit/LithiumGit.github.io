@@ -20,8 +20,14 @@ export default function About(){
                 <h3>How to Contribute</h3>
                 <p>To integrate any new changes or bug fixing to LithiumGit please submit a <a className="text-primary" href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request">pull request</a> to Github <a className="text-primary" target="_blank" href="https://github.com/TulshiDas39/LithiumGit">repository</a>.</p>
 
+                <br />
+                <h3>Background</h3>
+                <p>The author of LithiumGit started development this project at jun, 2021 for personal use.
+                    By continuous development it has become a real life application and published for all as open source.
+                </p>
+
             </div>
-            <div style={{height:400}} />
+            {/* <div style={{height:400}} /> */}
             
         </main>
     )
