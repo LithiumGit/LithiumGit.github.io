@@ -1,4 +1,12 @@
+import { FaLinkedin, FaMap } from 'react-icons/fa';
+import faiz from '../images/contributors/faiz.jpg';
+import zahid from '../images/contributors/zahid.jpg';
+import shafi from '../images/contributors/shafi.jpg';
+import { FaLocationPin, FaLocationPinLock } from 'react-icons/fa6';
+
 export default function About(){
+    const imageWidth = 200;
+    const imageContainerWidth = imageWidth + 50;
     return (
         <main className="px-5 pt-3">
             <div className="px-5">
@@ -25,9 +33,48 @@ export default function About(){
                 <p>The author of LithiumGit started development this project at jun, 2021 for personal use.
                     By continuous development it has become a real life application and published for all as open source.
                 </p>
+                <br />
+                <h3>Contributors</h3>
+                <p>Thanks to all contributors for the great support.</p>
+                <div className="d-flex align-items-stretch justify-content-center py-5">
+                    <div className='d-flex flex-column align-items-center' style={{width:imageContainerWidth}}>
+                        <div className="border rounded-circle overflow-hidden" style={{width:imageWidth,height:imageWidth}}>
+                            <img src={faiz.src} style={{width:imageWidth,height:'auto'}} />
+                        </div>
+                        <p>
+                            Faiz Ahmed, QA contributor <a target='_blank' href="https://www.linkedin.com/in/foyez-ahmed-rasel"><FaLinkedin /></a>
+                        </p>
+                        <p><FaLocationPin /> Dhaka, Bangladesh</p>
+
+                    </div>
+                    <div className='px-2'/>
+                    <div className='d-flex flex-column align-items-center' style={{width:imageContainerWidth}}>
+                        <div className="border rounded-circle overflow-hidden" style={{width:imageWidth,height:imageWidth}}>
+                            <img src={zahid.src} style={{width:imageWidth,height:'auto'}} />
+                        </div>
+                        <p>
+                            Zahid Hasan, Supporter / fan <a target='_blank' href="https://www.linkedin.com/in/zhdruvo"><FaLinkedin /></a>
+                        </p>
+                        <p><FaLocationPin /> Dhaka, Bangladesh</p>
+
+                    </div>
+                    <div className='px-2'/>
+                    <div className='d-flex flex-column align-items-center' style={{width:imageContainerWidth}}>
+                        <div className="border rounded-circle overflow-hidden" style={{width:imageWidth,height:imageWidth}}>
+                            <img src={shafi.src} style={{width:imageWidth,height:'auto'}} />
+                        </div>
+                        <p>
+                            Shafi Hossain, QA contributor <a target='_blank' href="https://www.linkedin.com/in/shafi-hossain"><FaLinkedin /></a>
+                        </p>
+                        <p><FaLocationPin /> Dhaka, Bangladesh</p>
+
+                    </div>
+                    
+                </div>
 
             </div>
-            {/* <div style={{height:400}} /> */}
+
+            <div className='py-5' />
             
         </main>
     )
