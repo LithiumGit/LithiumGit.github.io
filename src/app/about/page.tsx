@@ -53,7 +53,7 @@ export default function About(){
                             <img src={zahid.src} style={{width:imageWidth,height:'auto'}} />
                         </div>
                         <p>
-                            Zahid Hasan, Supporter / fan <a target='_blank' href="https://www.linkedin.com/in/zhdruvo"><FaLinkedin /></a>
+                            Zahid Hasan, Supporter/fan <a target='_blank' href="https://www.linkedin.com/in/zhdruvo"><FaLinkedin /></a>
                         </p>
                         <p><FaLocationPin /> Dhaka, Bangladesh</p>
 
