@@ -1,6 +1,7 @@
 "use client"
 
 import { Constants, DocumentMenus } from "../../lib"
+import { ZIndexes } from "../../lib/constants/ZIndexes"
 import { ChangesView } from "./ChangesView"
 import { CloneView } from "./CloneView"
 import { CommitsView } from "./CommitsView"
@@ -16,7 +17,8 @@ export default function Docs(){
     const menuWidth = 200;
     return <main className="d-flex w-100 overflow-auto">
         <div className="overflow-auto ps-1 position-absolute" 
-            style={{top:Constants.navHeight,left:0,width:menuWidth , height:`calc(100% - ${Constants.navHeight} - ${Constants.footerHeight})`}} >
+            style={{top:Constants.navHeight,left:0,width:menuWidth , height:`calc(100% - ${Constants.navHeight} - ${Constants.footerHeight})`
+            ,zIndex:ZIndexes.DocsNav}} >
             {DocumentMenus.list.map(m=>(
                 <SingleMenu key={m.name} menu={m} />
             ))}
