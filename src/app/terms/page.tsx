@@ -8,7 +8,7 @@ export default function TermsOfService(){
                 <p className="pt-2">
                     LithiumGit is allowed to use for users globally. Any misuse of the software or using source code to build maleware
                     or virus is strictly prohibited. LithiumGit is free and open source and before using it the user
-                    makes sure that he/she trust the License and <a href={Routes.Privacy} className="text-primary">privacy policy</a> of LithiumGit.
+                    makes sure that he/she trusts the <a href="https://github.com/TulshiDas39/LithiumGit/blob/master/LICENSE">License</a> and <a href={Routes.Privacy} className="text-primary">privacy policy</a> of LithiumGit.
                 </p>
                 <p>
                     LithiumGit is being contiously developed and new features integratation and bug fixing are happening.
