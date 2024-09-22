@@ -1,7 +1,6 @@
 import { Constants } from "../../lib"
 
 export default function Privacy(){
-    // const minWidth = 
     return (
         <main className="px-5 pt-3 d-flex justify-content-center" style={{minHeight:`calc(100vh - ${Constants.navHeight} - ${Constants.footerHeight})`}}>
             <div className="px-5" style={{maxWidth:700}}>

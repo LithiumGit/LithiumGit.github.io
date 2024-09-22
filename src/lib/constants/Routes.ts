@@ -3,4 +3,5 @@ export class Routes{
     static readonly Download = "/download";
     static readonly About = "/about";
     static readonly Privacy = "/privacy";
+    static readonly Terms = "/terms";
 }
