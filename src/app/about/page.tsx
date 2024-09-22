@@ -3,12 +3,13 @@ import faiz from '../images/contributors/faiz.jpg';
 import zahid from '../images/contributors/zahid.jpg';
 import shafi from '../images/contributors/shafi.jpg';
 import { FaLocationPin, FaLocationPinLock } from 'react-icons/fa6';
+import { Constants } from '../../lib';
 
 export default function About(){
     const imageWidth = 200;
     const imageContainerWidth = imageWidth + 50;
     return (
-        <main className="px-5 pt-3">
+        <main className="px-5 pt-3" style={{minHeight:`calc(100vh - ${Constants.navHeight} - ${Constants.footerHeight})`}}>
             <div className="px-5">
                 <h3>About LithiumGit</h3>
                 <p>LithiumGit is a Git client or GUI application which provide a user friendly interface 
