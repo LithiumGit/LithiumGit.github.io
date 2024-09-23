@@ -15,8 +15,8 @@ import stashesIcon from './images/stashes.png';
 export default function Home() {
   return (
       <main>
-        <div className='d-flex align-items-center'>
-          <div className='w-25 text-center'>
+        <div className='row g-0 align-items-center'>
+          <div className='col-sm-12 col-md-3 text-center pb-2'>
               <h2 className='font-weight-bold' style={{fontSize:'2.5em'}}>No feare, just play with the Git</h2>
               <p className='pt-3'>
                 LithiumGit is a Git client application which make the use of the git activities 
@@ -31,23 +31,23 @@ export default function Home() {
                 
               </div>
           </div>
-          <div className='w-75 d-flex justify-content-center'>
-              <Carousel className='text-center'>
-                <CarouselItem interval={3000}>
+          <div className='col-sm-12 col-md-9 d-flex justify-content-center'>
+              <Carousel className='text-center w-100'>
+                <CarouselItem interval={3000} className='w-100 text-center'>
                   <ExampleCarouselImage text="First slide" src={graphImage.src} />
                   {/* <CarouselCaption className='text-danger'>
                     <h3>Interactive Graph</h3>
                     <p>Do your most regular git actions without hassle.</p>
                   </CarouselCaption> */}
                 </CarouselItem>
-                <CarouselItem interval={3000}>
+                <CarouselItem interval={3000} className='w-100 text-center'>
                   <ExampleCarouselImage text="Second slide" src={changesImage.src} />
                   {/* <CarouselCaption>
                     <h3>Second slide label</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                   </CarouselCaption> */}
                 </CarouselItem>
-                <CarouselItem interval={3000}>
+                <CarouselItem interval={3000} className='w-100 text-center'>
                   <ExampleCarouselImage text="Third slide" src={commitsImage.src} />
                   {/* <CarouselCaption>
                     <h3>Third slide label</h3>
@@ -56,7 +56,7 @@ export default function Home() {
                     </p>
                   </CarouselCaption> */}
                 </CarouselItem>
-                <CarouselItem interval={3000}>
+                <CarouselItem interval={3000} className='w-100 text-center'>
                   <ExampleCarouselImage text="Third slide" src={stashImage.src} />
                   {/* <CarouselCaption>
                     <h3>Third slide label</h3>
