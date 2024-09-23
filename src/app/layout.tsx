@@ -1,4 +1,4 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import "./styles/styles.scss";
 import { StorageUtils } from '../lib';
 import { Footer } from './components/footer';
