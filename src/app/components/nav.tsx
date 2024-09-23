@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef } from 'react';
-import { EnumTheme, Routes, StorageUtils, useMultiState } from '../../lib';
+import { Constants, EnumTheme, Routes, StorageUtils, useMultiState } from '../../lib';
 import icon from '../images/icon.png';
 import { FaBahai } from 'react-icons/fa';
 import { Navbar, NavItem } from 'react-bootstrap';
@@ -43,11 +43,11 @@ export function Nav(){
     },[])
 
     return (
-        <Navbar collapseOnSelect expand="md" className="d-flex align-items-center" style={{zIndex:ZIndexes.Nav}}>
+        <Navbar collapseOnSelect expand="md" className="d-flex align-items-center position-relative" style={{zIndex:ZIndexes.Nav,height:Constants.navHeight}}>
             <Navbar.Brand href="/" className='h-100'>
                 <div className="d-flex h-100 align-items-center no-decoration">
                     <div className="h-100 d-flex align-items-center ps-2">
-                        <img src={icon.src} style={{height: '3.5em', width: 'auto'}} alt="icon.png" />
+                        <img src={icon.src} style={{height: '60%', width: 'auto'}} alt="icon.png" />
                     </div>
                     <div className="">
                         <div title='The powerful git client' className="font-weight-bold" style={{fontSize: '2em'}}>
@@ -61,7 +61,7 @@ export function Nav(){
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
 
-            <Navbar.Collapse id="responsive-navbar-nav">
+            <Navbar.Collapse className='' style={{top:'100%'}} id="responsive-navbar-nav" >
                 <NavItem>
                     <div className="px-3">
                         <a href={Routes.Docs} className={`no-decoration ${state.path === Routes.Docs?"selected-color":""}`}>Docs</a>
