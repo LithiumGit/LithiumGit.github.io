@@ -2,8 +2,9 @@ import { FaLinkedin, FaMap } from 'react-icons/fa';
 import faiz from '../images/contributors/faiz.jpg';
 import zahid from '../images/contributors/zahid.jpg';
 import shafi from '../images/contributors/shafi.jpg';
-import { FaLocationPin, FaLocationPinLock } from 'react-icons/fa6';
+import { FaLocationPin } from 'react-icons/fa6';
 import { Constants } from '../../lib';
+import  "../styles/about.scss";
 
 export default function About(){
     const imageWidth = 200;

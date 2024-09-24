@@ -11,6 +11,7 @@ import inst1 from '../images/installation/step1.png';
 import inst2 from '../images/installation/step2.png';
 import inst3 from '../images/installation/step3.png';
 import inst5 from '../images/installation/step5.png';
+import "../styles/download.scss";
 
 interface ITargeOS{
     name:string;

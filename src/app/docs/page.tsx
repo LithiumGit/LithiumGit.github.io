@@ -12,18 +12,19 @@ import { GraphView } from "./GraphView"
 import { RecentsView } from "./Recents"
 import { SingleMenu } from "./SingleMenu"
 import { StashView } from "./StashView"
+import  "../styles/docs.scss";
 
 export default function Docs(){
     const menuWidth = 200;
-    return <main className="d-flex w-100 overflow-auto">
-        <div className="overflow-auto ps-1 position-absolute" 
+    return <main className="docs d-flex w-100 overflow-auto">
+        <div className="menus overflow-auto ps-1 position-absolute" 
             style={{top:Constants.navHeight,left:0,width:menuWidth , height:`calc(100% - ${Constants.navHeight} - ${Constants.footerHeight})`
             ,zIndex:ZIndexes.DocsNav}} >
             {DocumentMenus.list.map(m=>(
                 <SingleMenu key={m.name} menu={m} />
             ))}
         </div>
-        <div style={{width:menuWidth}}/>
+        <div className="menus-placeholder" style={{width:menuWidth}}/>
         <div className="h-100 overflow-auto ps-3 border-start" style={{width:`calc(100% - ${menuWidth}px)`}}>
             <GetStarted />
             <ChangesView />
