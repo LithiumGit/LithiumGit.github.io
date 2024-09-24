@@ -4,20 +4,33 @@
     
 }
 
+$menu-width: 200px;
+
 
 @include media-breakpoint-up(sm) {
-    nav {      
-        .navbar-collapse{
-            position: absolute;
+    .docs {      
+        .menus{            
+            width: 0px;
+        }
+        .menus-placeholder{
+            width: 0;
+        }
+        .content{
             width: 100%;
         }
     }
 }
 
 @include media-breakpoint-up(md) {
-    nav {      
-        .navbar-collapse{
-            position: static;            
+    .docs {      
+        .menus{
+            width: $menu-width;
+        }
+        .menus-placeholder{
+            width: $menu-width;
+        }
+        .content{
+            width: calc(100% - $menu-width);
         }
     }
 }
