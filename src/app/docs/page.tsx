@@ -24,7 +24,7 @@ export default function Docs(){
             ))}
         </div>
         <div style={{width:menuWidth}}/>
-        <div className="h-100 overflow-auto ps-3 border-start" style={{width:`100% - ${menuWidth}px`}}>
+        <div className="h-100 overflow-auto ps-3 border-start" style={{width:`calc(100% - ${menuWidth}px)`}}>
             <GetStarted />
             <ChangesView />
             <GraphView />
