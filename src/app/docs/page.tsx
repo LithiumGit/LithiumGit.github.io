@@ -27,6 +27,9 @@ export default function Docs(){
             {DocumentMenus.list.map(m=>(
                 <SingleMenu key={m.name} menu={m} />
             ))}
+
+            {state.menuExpaned && <span className="menu-collapse position-absolute text-primary pe-1 h4" style={{top:0,right:0}}
+             onClick={()=> setState({menuExpaned:false})}>&lt;</span>}
         </div>
         {!state.menuExpaned && <span className="menus-expand position-absolute h4 text-primary" onClick={()=> setState({menuExpaned:true})}
         style={{top:Constants.navHeight,left:0

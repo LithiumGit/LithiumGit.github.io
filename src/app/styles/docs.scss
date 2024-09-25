@@ -24,6 +24,9 @@
         .menus-expand{
             display: none;
         }
+        .menu-collapse{
+            display: none;
+        }
         .content{
             width: calc(100% - $menu-width);
         }
