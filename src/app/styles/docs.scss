@@ -7,10 +7,11 @@
 $menu-width: 200px;
 
 
-@include media-breakpoint-up(sm) {
+@include media-breakpoint-up(xs) {
     .docs {      
         .menus{            
-            width: 0px;
+            // width: 0px;
+            display: none;
         }
         .menus-placeholder{
             width: 0;
@@ -25,6 +26,7 @@ $menu-width: 200px;
     .docs {      
         .menus{
             width: $menu-width;
+            display: block;
         }
         .menus-placeholder{
             width: $menu-width;
