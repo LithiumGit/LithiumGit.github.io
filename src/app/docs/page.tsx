@@ -13,6 +13,7 @@ import { RecentsView } from "./Recents"
 import { SingleMenu } from "./SingleMenu"
 import { StashView } from "./StashView"
 import  "../styles/docs.scss";
+import { FaGreaterThan } from "react-icons/fa"
 
 export default function Docs(){
     return <main className="docs d-flex w-100 overflow-auto">
@@ -23,6 +24,10 @@ export default function Docs(){
                 <SingleMenu key={m.name} menu={m} />
             ))}
         </div>
+        <span className="menus-expand position-absolute h4 text-primary" style={{top:Constants.navHeight,left:0
+            ,zIndex:ZIndexes.DocsNav}} >
+                &gt;
+            </span>
         <div className="menus-placeholder" />
         <div className="content h-100 overflow-auto ps-3 border-start">
             <GetStarted />
