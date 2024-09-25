@@ -7,7 +7,8 @@
         display: none;
     }
     .menus-placeholder{
-        width: 0;
+        display: none;
+        width: $menu-width;
     }
     .content{
         width: 100%;
@@ -19,7 +20,7 @@
             display: block;
         }
         .menus-placeholder{
-            width: $menu-width;
+            display: block;
         }
         .menus-expand{
             display: none;
