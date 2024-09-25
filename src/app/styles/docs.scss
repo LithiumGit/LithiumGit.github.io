@@ -2,22 +2,21 @@
 
 .docs{
     $menu-width: 200px;
-
-    .menus{            
-        display: none;
+    .menus{
+        width: $menu-width;
+        display: none;       
     }
     .menus-placeholder{
         display: none;
-        width: $menu-width;
+        width: $menu-width;        
     }
     .content{
         width: 100%;
     }
 
     @include media-breakpoint-up(md) {
-        .menus{
-            width: $menu-width;
-            display: block;
+        .menus{            
+            display: block;            
         }
         .menus-placeholder{
             display: block;
