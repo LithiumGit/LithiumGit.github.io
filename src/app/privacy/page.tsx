@@ -1,4 +1,5 @@
 import { Constants } from "../../lib"
+import "../styles/privacy.scss";
 
 export default function Privacy(){
     return (

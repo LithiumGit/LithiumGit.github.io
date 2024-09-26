@@ -1,4 +1,5 @@
 import { Constants, Routes } from "../../lib";
+import '../styles/terms.scss';
 
 export default function TermsOfService(){
     return (
