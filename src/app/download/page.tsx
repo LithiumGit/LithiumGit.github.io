@@ -88,7 +88,7 @@ export default function Download(){
             </a>                
         </div>
         <br />
-        <div className='row g-0 pt-5'>
+        <div className='row g-0 py-5'>
             <div className='col-md-3' />
             <div className='col-12 col-md-6 ps-2'>
                 <h4>Installation Steps</h4>
