@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react';
 import { Constants, EnumTheme, Routes, StorageUtils, useMultiState } from '../../lib';
 import icon from '../images/icon.png';
-import { FaBahai } from 'react-icons/fa';
+import { FaBahai, FaGit, FaGithub } from 'react-icons/fa';
 import { Navbar, NavItem } from 'react-bootstrap';
 import { ZIndexes } from '../../lib/constants/ZIndexes';
 
@@ -80,8 +80,13 @@ export function Nav(){
                     </div>
                 </NavItem>
                 <NavItem className='flex-grow-1 text-end'>
-                    <div className='pe-3'>
-                        <FaBahai onClick={()=> toogleTheme()} title={`Switch to ${state.theme == EnumTheme.Dark?"light":"dark"} theme.`} className={`h3 cur-point border border-secondary rounded-circle p-1 ${state.theme === EnumTheme.Light?"":"text-slight"}`} />
+                    <div className='pe-3 d-flex align-items-center justify-content-end'>
+                        <span className='pe-2'>
+                            <a target='_blank' href="https://github.com/TulshiDas39/LithiumGit"><FaGithub /></a>
+                        </span>
+                        <span className='ps-5'>
+                            <FaBahai onClick={()=> toogleTheme()} title={`Switch to ${state.theme == EnumTheme.Dark?"light":"dark"} theme.`} className={`h3 cur-point border border-secondary rounded-circle p-1 ${state.theme === EnumTheme.Light?"":"text-slight"}`} />
+                        </span>
                     </div>
                 </NavItem>
             </Navbar.Collapse>
