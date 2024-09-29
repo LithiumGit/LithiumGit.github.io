@@ -44,9 +44,7 @@ export default function About(){
             </div>
             
             <div className='row g-0 px-2'>
-                <div className='col-md-3'>
-
-                </div>
+                <div className='col-md-3'/>
                 <div className='col-12 col-md-6'>
                     <h3>Contributors</h3>
                     <p>Thanks to all contributors for the great support.</p>
@@ -56,7 +54,7 @@ export default function About(){
             <div className="row px-2 g-0 align-items-stretch justify-content-center py-5">
                 <div className='col-md-1 col-lg-2'/>
                 <div className='col-12 col-md-10 col-lg-8 d-flex flex-wrap align-items-stretch justify-content-around'>
-                    <div className='d-flex flex-column align-items-center' style={{width:imageContainerWidth}}>
+                    <div className='d-flex flex-column align-items-center py-2' style={{width:imageContainerWidth}}>
                         <div className="border rounded-circle overflow-hidden" style={{width:imageWidth,height:imageWidth}}>
                             <img src={faiz.src} style={{width:imageWidth,height:'auto'}} />
                         </div>
@@ -65,7 +63,7 @@ export default function About(){
                         </p>
                         <p><FaLocationPin /> Dhaka, Bangladesh</p>
                     </div>
-                    <div className='d-flex flex-column align-items-center' style={{width:imageContainerWidth}}>
+                    <div className='d-flex flex-column align-items-center py-2' style={{width:imageContainerWidth}}>
                         <div className="border rounded-circle overflow-hidden" style={{width:imageWidth,height:imageWidth}}>
                             <img src={zahid.src} style={{width:imageWidth,height:'auto'}} />
                         </div>
@@ -75,7 +73,7 @@ export default function About(){
                         <p><FaLocationPin /> Dhaka, Bangladesh</p>
 
                     </div>
-                    <div className='d-flex flex-column align-items-center' style={{width:imageContainerWidth}}>
+                    <div className='d-flex flex-column align-items-center py-2' style={{width:imageContainerWidth}}>
                         <div className="border rounded-circle overflow-hidden" style={{width:imageWidth,height:imageWidth}}>
                             <img src={shafi.src} style={{width:imageWidth,height:'auto'}} />
                         </div>
