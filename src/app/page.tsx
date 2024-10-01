@@ -6,13 +6,14 @@ import stashImage from './images/stashes.png';
 import { Carousel,CarouselItem } from 'react-bootstrap';
 import './styles/home.scss';
 import { FaWindows } from 'react-icons/fa';
-import { Constants } from '../lib';
+import { Constants, Distributions, OSType } from '../lib';
 import graphIcon from './images/graph.png';
 import changesIcon from './images/changes.png';
 import commitsIcon from './images/commits.png';
 import stashesIcon from './images/stashes.png';
 
 export default function Home() {
+  const latestWin = Distributions.list.find(_=>_.os == OSType.Windows)!.releases[0];
   return (
       <main>
         <div className='row g-0 align-items-center'>
@@ -24,8 +25,8 @@ export default function Home() {
               </p>
               <div className="d-flex align-items-center justify-content-center pt-3">
                 <div className='d-flex bg-brand align-items-center px-3 py-2 hover'>
-                  <a href={Constants.winInstallerUrl} className='text-light'>
-                    <FaWindows /> <span className='ps-2'>Download LithiumGit-{Constants.latestVersion}</span>
+                  <a href={latestWin.url} className='text-light'>
+                    <FaWindows /> <span className='ps-2'>Download LithiumGit-{latestWin.version}</span>
                   </a>                
                 </div>
                 

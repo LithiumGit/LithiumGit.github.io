@@ -7,7 +7,11 @@ export class Distributions{
             os:OSType.Windows,
             releases:[
                 {
-                    version:"0.5.3-alpha.1(latest)",
+                    version:"1.0.0(latest)",
+                    url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v1.0.0/LithiumGit-Setup-win-x64-1.0.0.exe",
+                },
+                {
+                    version:"0.5.3-alpha.1",
                     url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v0.5.3-alpha.1/LithiumGit-Setup-win-x64-0.5.3-alpha.1.exe",
                 },
                 {
