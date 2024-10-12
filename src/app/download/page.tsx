@@ -2,8 +2,8 @@
 
 import { Dropdown, DropdownItem, DropdownToggle } from 'react-bootstrap';
 import '../styles/download.scss';
-import { Distributions, OSType, useMultiState } from '../../lib';
-import { IReleaseItem } from '../../lib/interfaces';
+import { Distributions, OSType, StringUtils, useMultiState } from '../../lib';
+import { FileType, IReleaseItem } from '../../lib/interfaces';
 import { useEffect, useMemo } from 'react';
 import { FaApple, FaWindows } from 'react-icons/fa';
 import { FaDebian } from 'react-icons/fa6';
@@ -53,7 +53,11 @@ export default function Download(){
             return <FaApple />
         return <FaDebian />
     }
-    
+
+    const exe = state.selectedVersion?.files.find(_=> _.type === FileType.EXE)?.url;
+    const dev = state.selectedVersion?.files.find(_=> _.type === FileType.DEV)?.url;
+    const appImage = state.selectedVersion?.files.find(_=> _.type === FileType.AppImage)?.url;
+        
 
     return <main className='w-100 download'>
         <div className='w-100 d-flex align-items-center justify-content-center'>
@@ -82,11 +86,21 @@ export default function Download(){
                 </Dropdown.Menu>
             </Dropdown>        
         </div>
-        <div className='d-flex align-items-center justify-content-center pt-2'>
-            <a href={state.selectedVersion?.url}  className='text-light bg-brand px-3 py-2 hover'>
-                <span className='ps-2'>Download</span>
-            </a>                
-        </div>
+        {!!exe && <div className='d-flex align-items-center justify-content-center pt-2'>
+            <a href={exe}  className='hover-effect underline px-3 py-2 hover'>
+                LithiumGit-{StringUtils.getLastPart(exe)}
+            </a>
+        </div>}
+        {!!dev && <div className='d-flex align-items-center justify-content-center pt-2'>
+            <a href={exe}  className='hover-effect underline px-3 py-2 hover'>
+                LithiumGit-{StringUtils.getLastPart(dev)}
+            </a>
+        </div>}
+        {!!appImage && <div className='d-flex align-items-center justify-content-center pt-2'>
+            <a href={exe}  className='hover-effect underline px-3 py-2 hover'>
+                LithiumGit-{StringUtils.getLastPart(appImage)}
+            </a>
+        </div>}
         <br />
         <div className='row g-0 py-5'>
             <div className='col-md-3' />
