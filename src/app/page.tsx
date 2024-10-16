@@ -11,9 +11,11 @@ import graphIcon from './images/graph.png';
 import changesIcon from './images/changes.png';
 import commitsIcon from './images/commits.png';
 import stashesIcon from './images/stashes.png';
+import { FileType } from '../lib/interfaces';
 
 export default function Home() {
-  const latestWin = Distributions.list.find(_=>_.os == OSType.Windows)!.releases[0];
+  const latestExe = Distributions.list.find(_=>_.os == OSType.Windows)!.releases[0].files.find(_=>_.type === FileType.EXE)!;
+  const latestVersion = Distributions.list.find(_=>_.os == OSType.Windows)!.releases[0].version;
   return (
       <main>
         <div className='row g-0 align-items-center'>
@@ -25,8 +27,8 @@ export default function Home() {
               </p>
               <div className="d-flex align-items-center justify-content-center pt-3">
                 <div className='d-flex bg-brand align-items-center px-3 py-2 hover'>
-                  <a href={latestWin.url} className='text-light'>
-                    <FaWindows /> <span className='ps-2'>Download LithiumGit-{latestWin.version}</span>
+                  <a href={latestExe.url} className='text-light'>
+                    <FaWindows /> <span className='ps-2'>Download LithiumGit-{latestVersion}</span>
                   </a>                
                 </div>
                 

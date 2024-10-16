@@ -27,7 +27,7 @@ export default function Download(){
     const osses:ITargeOS[] = [
         {name:"Windows",os:OSType.Windows},
         {name:"MacOSX",os:OSType.Mac},
-        {name:"Debian(Linux)",os:OSType.Debian},
+        {name:"Linux",os:OSType.Linux},
     ]
     
     const latestWindowRlease = Distributions.list.find(_=> _.os === OSType.Windows)!;
@@ -92,12 +92,12 @@ export default function Download(){
             </a>
         </div>}
         {!!dev && <div className='d-flex align-items-center justify-content-center pt-2'>
-            <a href={exe}  className='hover-effect underline px-3 py-2 hover'>
+            <a href={dev}  className='hover-effect underline px-3 py-2 hover'>
                 LithiumGit-{StringUtils.getLastPart(dev)}
             </a>
         </div>}
         {!!appImage && <div className='d-flex align-items-center justify-content-center pt-2'>
-            <a href={exe}  className='hover-effect underline px-3 py-2 hover'>
+            <a href={appImage}  className='hover-effect underline px-3 py-2 hover'>
                 LithiumGit-{StringUtils.getLastPart(appImage)}
             </a>
         </div>}
