@@ -18,5 +18,6 @@ export interface IFile{
 export enum FileType{
     EXE,
     DEV,
-    AppImage
+    AppImage,
+    DMG
 }

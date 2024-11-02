@@ -6,7 +6,7 @@ import stashImage from './images/stashes.png';
 import { Carousel,CarouselItem } from 'react-bootstrap';
 import './styles/home.scss';
 import { FaWindows } from 'react-icons/fa';
-import { Constants, Distributions, OSType } from '../lib';
+import { Constants, Distributions, OSType, Routes } from '../lib';
 import graphIcon from './images/graph.png';
 import changesIcon from './images/changes.png';
 import commitsIcon from './images/commits.png';
@@ -25,13 +25,15 @@ export default function Home() {
                 LithiumGit is a Git client application which make the use of the git activities 
                 at most of your favour. And LithiumGit is free.
               </p>
-              <div className="d-flex align-items-center justify-content-center pt-3">
+              <div className="d-flex flex-column align-items-center justify-content-center pt-3">
                 <div className='d-flex bg-brand align-items-center px-3 py-2 hover'>
                   <a href={latestExe.url} className='text-light'>
                     <FaWindows /> <span className='ps-2'>Download LithiumGit-{latestVersion}</span>
-                  </a>                
+                  </a>
                 </div>
-                
+                <a href={Routes.Download} className=''>
+                  <span className='small underline text-secondary'>Available for macos and linux</span>
+                </a>                
               </div>
           </div>
           <div className='col-sm-12 col-md-9 d-flex justify-content-center'>

@@ -118,7 +118,13 @@ export class Distributions{
         },
         {
             os:OSType.Mac,
-            releases:[]
+            releases:[{
+                version:"1.0.0(latest)",
+                files:[{
+                    type:FileType.DMG,
+                    url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v1.0.0/LithiumGit-Setup-mac-x64-1.0.0.dmg"
+                }]
+            }]
         },
         {
             os:OSType.Linux,
@@ -133,7 +139,7 @@ export class Distributions{
                         url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v1.0.0/LithiumGit-Setup-linux-x86_64-1.0.0.AppImage"
                     },
                 ],
-                version:"1.0.0",
+                version:"1.0.0(latest)",
             }],
         }
     ];

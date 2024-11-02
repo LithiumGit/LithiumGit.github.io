@@ -57,6 +57,7 @@ export default function Download(){
     const exe = state.selectedVersion?.files.find(_=> _.type === FileType.EXE)?.url;
     const dev = state.selectedVersion?.files.find(_=> _.type === FileType.DEV)?.url;
     const appImage = state.selectedVersion?.files.find(_=> _.type === FileType.AppImage)?.url;
+    const dmg = state.selectedVersion?.files.find(_=> _.type === FileType.DMG)?.url;
         
 
     return <main className='w-100 download'>
@@ -99,6 +100,11 @@ export default function Download(){
         {!!appImage && <div className='d-flex align-items-center justify-content-center pt-2'>
             <a href={appImage}  className='hover-effect underline px-3 py-2 hover'>
                 LithiumGit-{StringUtils.getLastPart(appImage)}
+            </a>
+        </div>}
+        {!!dmg && <div className='d-flex align-items-center justify-content-center pt-2'>
+            <a href={dmg}  className='hover-effect underline px-3 py-2 hover'>
+                LithiumGit-{StringUtils.getLastPart(dmg)}
             </a>
         </div>}
         <br />
