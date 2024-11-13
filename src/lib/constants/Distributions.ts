@@ -7,7 +7,16 @@ export class Distributions{
             os:OSType.Windows,
             releases:[
                 {
-                    version:"1.0.0(latest)",
+                    version:"1.0.1(latest)",
+                    files:[
+                        {
+                            type:FileType.EXE,
+                            url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v1.0.1/LithiumGit-Setup-win-x64-1.0.1.exe",
+                        }                        
+                    ]
+                },
+                {
+                    version:"1.0.0",
                     files:[
                         {
                             type:FileType.EXE,
