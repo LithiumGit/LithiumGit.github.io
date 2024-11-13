@@ -11,8 +11,9 @@ export interface IDistribution{
 }
 
 export interface IFile{
-    type:FileType,
+    type:FileType;
     url:string;
+    arch:ArchType;
 }
 
 export enum FileType{
@@ -20,4 +21,10 @@ export enum FileType{
     DEV,
     AppImage,
     DMG
+}
+
+export enum ArchType{
+    x64,
+    x86,
+    arm64
 }

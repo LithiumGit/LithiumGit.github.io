@@ -87,26 +87,15 @@ export default function Download(){
                 </Dropdown.Menu>
             </Dropdown>        
         </div>
-        {!!exe && <div className='d-flex align-items-center justify-content-center pt-2'>
-            <a href={exe}  className='hover-effect underline px-3 py-2 hover'>
-                LithiumGit-{StringUtils.getLastPart(exe)}
-            </a>
-        </div>}
-        {!!dev && <div className='d-flex align-items-center justify-content-center pt-2'>
-            <a href={dev}  className='hover-effect underline px-3 py-2 hover'>
-                LithiumGit-{StringUtils.getLastPart(dev)}
-            </a>
-        </div>}
-        {!!appImage && <div className='d-flex align-items-center justify-content-center pt-2'>
-            <a href={appImage}  className='hover-effect underline px-3 py-2 hover'>
-                LithiumGit-{StringUtils.getLastPart(appImage)}
-            </a>
-        </div>}
-        {!!dmg && <div className='d-flex align-items-center justify-content-center pt-2'>
-            <a href={dmg}  className='hover-effect underline px-3 py-2 hover'>
-                LithiumGit-{StringUtils.getLastPart(dmg)}
-            </a>
-        </div>}
+        {
+            state.selectedVersion?.files.map((f)=>(
+                <div key={f.url} className='d-flex align-items-center justify-content-center pt-2'>
+                    <a href={exe}  className='hover-effect underline px-3 py-2 hover'>
+                        LithiumGit-{StringUtils.getLastPart(f.url)}
+                    </a>
+                </div>
+            ))
+        }        
         <br />
         <div className='row g-0 py-5'>
             <div className='col-md-3' />

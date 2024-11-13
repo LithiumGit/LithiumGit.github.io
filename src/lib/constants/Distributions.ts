@@ -1,5 +1,5 @@
 import { OSType } from "../enums";
-import { FileType, IDistribution } from "../interfaces";
+import { ArchType, FileType, IDistribution } from "../interfaces";
 
 export class Distributions{
     static readonly list:IDistribution[]=[
@@ -12,7 +12,8 @@ export class Distributions{
                         {
                             type:FileType.EXE,
                             url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v1.0.1/LithiumGit-Setup-win-x64-1.0.1.exe",
-                        }                        
+                            arch:ArchType.x64,
+                        },                                                
                     ]
                 },
                 {
@@ -21,117 +22,35 @@ export class Distributions{
                         {
                             type:FileType.EXE,
                             url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v1.0.0/LithiumGit-Setup-win-x64-1.0.0.exe",
+                            arch:ArchType.arm64,
                         }                        
                     ]
-                },
-                {
-                    version:"0.5.3-alpha.1",
-                    files:[
-                        {
-                            type:FileType.EXE,
-                            url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v0.5.3-alpha.1/LithiumGit-Setup-win-x64-0.5.3-alpha.1.exe",
-                        }
-                    ]
-                },
-                {
-                    version:"0.5.2-alpha.1",
-                    files:[
-                        {
-                            type:FileType.EXE,
-                            url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v0.5.2-alpha.1/LithiumGit-Setup-win-x64-0.5.2-alpha.1.exe",
-                        }
-                    ]
-                },
-                {
-                    version:"0.5.1-alpha.1",
-                    files:[
-                        {
-                            type:FileType.EXE,
-                            url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v0.5.1-alpha.1/LithiumGit-Setup-win-x64-0.5.1-alpha.1.exe",
-                        }
-                    ]
-                },
-                {
-                    version:"0.5.0-alpha.1",
-                    files:[
-                        {
-                            type:FileType.EXE,
-                            url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v0.5.1-alpha.1/LithiumGit-Setup-win-x64-0.5.1-alpha.1.exe",
-                        }
-                    ]
-                },
-                {
-                    version:"0.4.4-alpha.1",
-                    files:[
-                        {
-                            type:FileType.EXE,
-                            url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v0.4.4-alpha.1/LithiumGit-Setup-win-x64-0.4.4-alpha.1.exe",
-                        }
-                    ]
-                },
-                {
-                    version:"0.4.3-alpha.1",
-                    files:[
-                        {
-                            type:FileType.EXE,
-                            url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v0.4.3-alpha.1/LithiumGit-Setup-win-x64-0.4.3-alpha.1.exe",
-                        }
-                    ]
-                },
-                {
-                    version:"0.4.2-alpha.1",
-                    files:[
-                        {
-                            type:FileType.EXE,
-                            url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v0.4.2-alpha.1/LithiumGit-Setup-win-x64-0.4.2-alpha.1.exe",
-                        }
-                    ]
-                },
-                {
-                    version:"0.4.1-alpha.1",
-                    files:[
-                        {
-                            type:FileType.EXE,
-                            url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v0.4.1-alpha.1/LithiumGit-Setup-win-x64-0.4.1-alpha.1.exe",
-                        }
-                    ]
-                },
-                {
-                    version:"0.3.2-alpha.1",
-                    files:[
-                        {
-                            type:FileType.EXE,
-                            url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v0.3.2-alpha.1/LithiumGit-Setup-win-x64-0.3.2-alpha.1.exe",
-                        }
-                    ]
-                },
-                {
-                    version:"0.3.1-alpha.1",
-                    files:[
-                        {
-                            type:FileType.EXE,
-                            url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v0.3.1-alpha.1/LithiumGit-Setup-win-x64-0.3.1-alpha.1.exe",
-                        }
-                    ]
-                },
-                {
-                    version:"0.3.0-alpha.1",
-                    files:[
-                        {
-                            type:FileType.EXE,
-                            url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v0.3.0-alpha.1/LithiumGit-Setup-win-x64-0.3.0-alpha.1.exe",
-                        }
-                    ]
-                },
+                },                                                
             ]
         },
         {
             os:OSType.Mac,
-            releases:[{
-                version:"1.0.0(latest)",
+            releases:[
+                {
+                    version:"1.0.1(latest)",
+                    files:[{
+                        type:FileType.DMG,
+                        url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v1.0.1/LithiumGit-Setup-mac-arm64-1.0.1.dmg",
+                        arch:ArchType.arm64,
+                    },
+                    {
+                        type:FileType.DMG,
+                        url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v1.0.1/LithiumGit-Setup-mac-x64-1.0.1.dmg",
+                        arch:ArchType.x64,
+                    }
+                ]
+                },                
+                {
+                version:"1.0.0",
                 files:[{
                     type:FileType.DMG,
-                    url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v1.0.0/LithiumGit-Setup-mac-x64-1.0.0.dmg"
+                    url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v1.0.0/LithiumGit-Setup-mac-x64-1.0.0.dmg",
+                    arch:ArchType.x64,
                 }]
             }]
         },
@@ -141,11 +60,13 @@ export class Distributions{
                 files:[
                     {
                         type:FileType.DEV,
-                        url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v1.0.0/LithiumGit-Setup-linux-amd64-1.0.0.deb"
+                        url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v1.0.0/LithiumGit-Setup-linux-amd64-1.0.0.deb",
+                        arch:ArchType.x64,
                     },
                     {
                         type:FileType.AppImage,
-                        url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v1.0.0/LithiumGit-Setup-linux-x86_64-1.0.0.AppImage"
+                        url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v1.0.0/LithiumGit-Setup-linux-x86_64-1.0.0.AppImage",
+                        arch:ArchType.x64,
                     },
                 ],
                 version:"1.0.0(latest)",
