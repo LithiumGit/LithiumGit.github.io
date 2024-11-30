@@ -81,21 +81,38 @@ export class Distributions{
         },
         {
             os:OSType.Linux,
-            releases:[{
-                files:[
-                    {
-                        type:FileType.DEV,
-                        url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v1.0.0/LithiumGit-Setup-linux-amd64-1.0.0.deb",
-                        arch:ArchType.x64,
-                    },
-                    {
-                        type:FileType.AppImage,
-                        url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v1.0.0/LithiumGit-Setup-linux-x86_64-1.0.0.AppImage",
-                        arch:ArchType.x64,
-                    },
-                ],
-                version:"1.0.0(latest)",
-            }],
+            releases:[
+                {
+                    version:"1.0.2(latest)",
+                    files:[
+                        {
+                            type:FileType.DEV,
+                            url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v1.0.2/LithiumGit-Setup-linux-amd64-1.0.2.deb",
+                            arch:ArchType.x64,
+                        },
+                        {
+                            type:FileType.AppImage,
+                            url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v1.0.2/LithiumGit-Setup-linux-x86_64-1.0.2.AppImage",
+                            arch:ArchType.x64,
+                        },
+                    ],                    
+                },
+                {
+                    files:[
+                        {
+                            type:FileType.DEV,
+                            url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v1.0.0/LithiumGit-Setup-linux-amd64-1.0.0.deb",
+                            arch:ArchType.x64,
+                        },
+                        {
+                            type:FileType.AppImage,
+                            url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v1.0.0/LithiumGit-Setup-linux-x86_64-1.0.0.AppImage",
+                            arch:ArchType.x64,
+                        },
+                    ],
+                    version:"1.0.0",
+                }
+            ],
         }
     ];
 }
