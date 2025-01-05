@@ -1,5 +1,3 @@
-"use client"
-
 import { ExampleCarouselImage } from './components';
 import graphImage from './images/graph.png';
 import changesImage from './images/changes.png';
@@ -14,21 +12,17 @@ import changesIcon from './images/changes.png';
 import commitsIcon from './images/commits.png';
 import stashesIcon from './images/stashes.png';
 import { UiUtils } from '../lib/utilities/UiUtils';
-import { useEffect, useMemo, useRef } from 'react';
+import { useMemo } from 'react';
 import { ArchType, FileType } from '../lib/interfaces';
 import { FaDebian } from 'react-icons/fa6';
 
 export default function Home() {
-  const refData = useRef({isMounted:false});
-  useEffect(()=>{
-    refData.current.isMounted = true;
-  },[])
   const osType = useMemo(()=>{
-    if(!refData.current.isMounted)
+    if(typeof window === 'undefined')
       return OSType.Windows;
-
+    console.log("checking os platform");
     return UiUtils.getOSPlatform();
-  },[refData.current.isMounted])
+  },[])
 
   const latestRelease = Distributions.list.find(_ => _.os === osType)!.releases[0];
   const latestFile = useMemo(()=>{
