@@ -1,3 +1,5 @@
+"use client"
+
 import { ExampleCarouselImage } from './components';
 import graphImage from './images/graph.png';
 import changesImage from './images/changes.png';
@@ -6,43 +8,55 @@ import stashImage from './images/stashes.png';
 import { Carousel,CarouselItem } from 'react-bootstrap';
 import './styles/home.scss';
 import { FaApple, FaWindows } from 'react-icons/fa';
-import { Distributions, OSType, Routes } from '../lib';
+import { Distributions, OSType, Routes, useMultiState } from '../lib';
 import graphIcon from './images/graph.png';
 import changesIcon from './images/changes.png';
 import commitsIcon from './images/commits.png';
 import stashesIcon from './images/stashes.png';
-import { UiUtils } from '../lib/utilities/UiUtils';
-import { useMemo } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import { ArchType, FileType } from '../lib/interfaces';
 import { FaDebian } from 'react-icons/fa6';
+import { UiUtils } from '../lib/utilities/UiUtils';
+
+interface IState{
+  osType:OSType;
+}
 
 export default function Home() {
-  const osType = useMemo(()=>{
-    if(typeof window === 'undefined')
-      return OSType.Windows;
-    console.log("checking os platform");
-    return UiUtils.getOSPlatform();
+  const [state,setState] = useMultiState<IState>({osType:OSType.Windows});
+  useEffect(()=>{
+    setState({osType:UiUtils.getOSPlatform()});
   },[])
 
-  const latestRelease = Distributions.list.find(_ => _.os === osType)!.releases[0];
+  const remainingOses = useMemo(()=>{
+    const maps:{os:OSType,name:string}[] = [
+      {os:OSType.Windows,name:'Windows'},
+      {os:OSType.Mac,name:'MacOS'},
+      {os:OSType.Linux,name:'Linux'}
+    ];
+    return maps.filter(_=>_.os !== state.osType).map(_=>_.name);
+  },[state.osType])
+
+  const latestRelease = Distributions.list.find(_ => _.os === state.osType)!.releases[0];
   const latestFile = useMemo(()=>{
-    if(osType === OSType.Windows){
+    if(state.osType === OSType.Windows){
       return latestRelease.files.find(_=>_.type  === FileType.EXE && _.arch === ArchType.x64)!;
-    }else if(osType === OSType.Mac){
+    }else if(state.osType === OSType.Mac){
       return latestRelease.files.find(_=>_.type  === FileType.DMG && _.arch === ArchType.arm64)!;
     }
     else
       return latestRelease.files.find(_=>_.type  === FileType.DEV && _.arch === ArchType.x64)!;
-  },[osType])
+  },[state.osType])
+  
   const latestVersion = latestRelease.version;
 
-  const osIcon = useMemo(()=>{
-    if(osType === OSType.Windows)
+  const getOsIcon = ()=>{
+    if(state.osType === OSType.Windows)
         return <FaWindows />
-    if(osType === OSType.Mac)
+    if(state.osType === OSType.Mac)
         return <FaApple />
     return <FaDebian />
-  },[osType])
+  }
 
   return (
       <main>
@@ -56,11 +70,11 @@ export default function Home() {
               <div className="d-flex flex-column align-items-center justify-content-center pt-3">
                 <div className='d-flex bg-brand align-items-center px-3 py-2 hover'>
                   <a href={latestFile.url} className='text-light'>
-                    {osIcon} <span className='ps-2'>Download LithiumGit-{latestVersion}</span>
+                    {getOsIcon()} <span className='ps-2'>Download LithiumGit-{latestVersion}</span>
                   </a>
                 </div>
                 <a href={Routes.Download} className=''>
-                  <span className='small underline text-secondary'>Available for macos and linux</span>
+                  <span className='small underline text-secondary'>Available for {remainingOses.join(" and ")}</span>
                 </a>                
               </div>
           </div>
