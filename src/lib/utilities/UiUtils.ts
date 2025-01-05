@@ -9,7 +9,7 @@ export class UiUtils{
             return OSType.Mac;
         }
         else if (/Win/i.test(platform)) {
-            return OSType.Mac;
+            return OSType.Windows;
         }
         return OSType.Linux;        
     }    

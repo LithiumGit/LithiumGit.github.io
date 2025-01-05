@@ -1,3 +1,5 @@
+"use client"
+
 import { ExampleCarouselImage } from './components';
 import graphImage from './images/graph.png';
 import changesImage from './images/changes.png';
@@ -5,17 +7,49 @@ import commitsImage from './images/commits.png';
 import stashImage from './images/stashes.png';
 import { Carousel,CarouselItem } from 'react-bootstrap';
 import './styles/home.scss';
-import { FaWindows } from 'react-icons/fa';
-import { Constants, Distributions, OSType, Routes } from '../lib';
+import { FaApple, FaWindows } from 'react-icons/fa';
+import { Distributions, OSType, Routes } from '../lib';
 import graphIcon from './images/graph.png';
 import changesIcon from './images/changes.png';
 import commitsIcon from './images/commits.png';
 import stashesIcon from './images/stashes.png';
-import { FileType } from '../lib/interfaces';
+import { UiUtils } from '../lib/utilities/UiUtils';
+import { useEffect, useMemo, useRef } from 'react';
+import { ArchType, FileType } from '../lib/interfaces';
+import { FaDebian } from 'react-icons/fa6';
 
 export default function Home() {
-  const latestExe = Distributions.list.find(_=>_.os == OSType.Windows)!.releases[0].files.find(_=>_.type === FileType.EXE)!;
-  const latestVersion = Distributions.list.find(_=>_.os == OSType.Windows)!.releases[0].version;
+  const refData = useRef({isMounted:false});
+  useEffect(()=>{
+    refData.current.isMounted = true;
+  },[])
+  const osType = useMemo(()=>{
+    if(!refData.current.isMounted)
+      return OSType.Windows;
+
+    return UiUtils.getOSPlatform();
+  },[refData.current.isMounted])
+
+  const latestRelease = Distributions.list.find(_ => _.os === osType)!.releases[0];
+  const latestFile = useMemo(()=>{
+    if(osType === OSType.Windows){
+      return latestRelease.files.find(_=>_.type  === FileType.EXE && _.arch === ArchType.x64)!;
+    }else if(osType === OSType.Mac){
+      return latestRelease.files.find(_=>_.type  === FileType.DMG && _.arch === ArchType.arm64)!;
+    }
+    else
+      return latestRelease.files.find(_=>_.type  === FileType.DEV && _.arch === ArchType.x64)!;
+  },[osType])
+  const latestVersion = latestRelease.version;
+
+  const osIcon = useMemo(()=>{
+    if(osType === OSType.Windows)
+        return <FaWindows />
+    if(osType === OSType.Mac)
+        return <FaApple />
+    return <FaDebian />
+  },[osType])
+
   return (
       <main>
         <div className='row g-0 align-items-center'>
@@ -27,8 +61,8 @@ export default function Home() {
               </p>
               <div className="d-flex flex-column align-items-center justify-content-center pt-3">
                 <div className='d-flex bg-brand align-items-center px-3 py-2 hover'>
-                  <a href={latestExe.url} className='text-light'>
-                    <FaWindows /> <span className='ps-2'>Download LithiumGit-{latestVersion}</span>
+                  <a href={latestFile.url} className='text-light'>
+                    {osIcon} <span className='ps-2'>Download LithiumGit-{latestVersion}</span>
                   </a>
                 </div>
                 <a href={Routes.Download} className=''>
