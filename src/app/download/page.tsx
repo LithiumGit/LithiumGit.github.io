@@ -10,6 +10,7 @@ import { FaDebian } from 'react-icons/fa6';
 import "../styles/download.scss";
 import { UiUtils } from '../../lib/utilities/UiUtils';
 import { WinInstallationSteps } from './winInstallationSteps';
+import { LinuxInstallationSteps } from './linuxInstallationSteps';
 
 interface ITargeOS{
     name:string;
@@ -97,6 +98,7 @@ export default function Download(){
         <div className='row g-0 py-5'>
             <div className='col-md-3' />
             {state.selectedOS.os === OSType.Windows && <WinInstallationSteps />}
+            {state.selectedOS.os === OSType.Linux && <LinuxInstallationSteps />}
             <div className='col-md-3' />
         </div>
     </main>
