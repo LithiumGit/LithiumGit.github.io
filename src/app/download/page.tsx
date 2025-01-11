@@ -11,6 +11,7 @@ import "../styles/download.scss";
 import { UiUtils } from '../../lib/utilities/UiUtils';
 import { WinInstallationSteps } from './winInstallationSteps';
 import { LinuxInstallationSteps } from './linuxInstallationSteps';
+import { MacInstallationSteps } from './macInstallationSteps';
 
 interface ITargeOS{
     name:string;
@@ -99,6 +100,7 @@ export default function Download(){
             <div className='col-md-3' />
             {state.selectedOS.os === OSType.Windows && <WinInstallationSteps />}
             {state.selectedOS.os === OSType.Linux && <LinuxInstallationSteps />}
+            {state.selectedOS.os === OSType.Mac && <MacInstallationSteps />}
             <div className='col-md-3' />
         </div>
     </main>
