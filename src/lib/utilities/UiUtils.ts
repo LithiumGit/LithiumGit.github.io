@@ -1,3 +1,4 @@
+import { Constants } from "../constants";
 import { OSType } from "../enums";
 
 export class UiUtils{
@@ -12,5 +13,9 @@ export class UiUtils{
             return OSType.Windows;
         }
         return OSType.Linux;        
-    }    
+    }
+    
+    static getMinHeighOfMainPanel(){
+        return `calc(100vh - ${Constants.navHeight} - ${Constants.footerHeight})`;
+    }
 }
