@@ -12,6 +12,7 @@ import inst2 from '../images/installation/step2.png';
 import inst3 from '../images/installation/step3.png';
 import inst5 from '../images/installation/step5.png';
 import "../styles/download.scss";
+import { UiUtils } from '../../lib/utilities/UiUtils';
 
 interface ITargeOS{
     name:string;
@@ -29,13 +30,12 @@ export default function Download(){
         {name:"MacOSX",os:OSType.Mac},
         {name:"Linux",os:OSType.Linux},
     ]
-    
-    const latestWindowRlease = Distributions.list.find(_=> _.os === OSType.Windows)!;
 
     const [state,setState] = useMultiState<IState>({
         selectedOS: osses[0],
-        selectedVersion:latestWindowRlease.releases[0],
-    });
+        selectedVersion:Distributions.list.find(_=> _.os === OSType.Windows)!.releases[0],
+    });    
+    
 
     const versions = useMemo(()=>{
         const dist = Distributions.list.find(_=> _.os === state.selectedOS.os)!;
@@ -46,19 +46,19 @@ export default function Download(){
         setState({selectedVersion:versions[0]});
     },[versions])
 
+    useEffect(()=>{
+        const osType = UiUtils.getOSPlatform();
+        const os = osses.find(_=>_.os === osType);
+        setState({selectedOS:os});
+    },[])
+
     const getOsIcon = ()=>{
         if(state.selectedOS.os === OSType.Windows)
             return <FaWindows />
         if(state.selectedOS.os === OSType.Mac)
             return <FaApple />
         return <FaDebian />
-    }
-
-    const exe = state.selectedVersion?.files.find(_=> _.type === FileType.EXE)?.url;
-    const dev = state.selectedVersion?.files.find(_=> _.type === FileType.DEV)?.url;
-    const appImage = state.selectedVersion?.files.find(_=> _.type === FileType.AppImage)?.url;
-    const dmg = state.selectedVersion?.files.find(_=> _.type === FileType.DMG)?.url;
-        
+    }            
 
     return <main className='w-100 download'>
         <div className='w-100 d-flex align-items-center justify-content-center'>
@@ -90,7 +90,7 @@ export default function Download(){
         {
             state.selectedVersion?.files.map((f)=>(
                 <div key={f.url} className='d-flex align-items-center justify-content-center pt-2'>
-                    <a href={exe}  className='hover-effect underline px-3 py-2 hover'>
+                    <a href={f.url}  className='hover-effect underline px-3 py-2 hover'>
                         LithiumGit-{StringUtils.getLastPart(f.url)}
                     </a>
                 </div>
