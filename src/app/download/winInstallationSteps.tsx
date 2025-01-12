@@ -26,7 +26,7 @@ export function WinInstallationStepsComponent(){
             <img className='step-img' src={inst5.src} alt="step2" />
             <h5>-Click Finish. Installation completed.</h5>
         </div>
-        <p className='pt-3'>NB:*Antivirus may prevent the installation process as the code signature not yet added to LithiumGit. In this case you have to download and install it forcely.</p>
+        <p className='pt-3'>NB:*Antivirus may prevent the installation process as the standard code signature has been added under open source license to LithiumGit. In this case you have to download and install it forcely.</p>
     </div>
 </div>
 }
