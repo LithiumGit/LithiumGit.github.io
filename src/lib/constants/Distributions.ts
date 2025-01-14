@@ -72,7 +72,22 @@ export class Distributions{
             os:OSType.Mac,
             releases:[
                 {
-                    version:"1.0.4(latest)",
+                    version:"1.0.5(latest)",
+                    files:[
+                        {
+                            type:FileType.DMG,
+                            url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v1.0.5/LithiumGit-Setup-mac-arm64-1.0.5.dmg",
+                            arch:ArchType.arm64,
+                        },
+                        {
+                            type:FileType.DMG,
+                            url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v1.0.5/LithiumGit-Setup-mac-x64-1.0.5.dmg",
+                            arch:ArchType.x64,
+                        }
+                    ]
+                },
+                {
+                    version:"1.0.4",
                     files:[
                         {
                             type:FileType.DMG,
@@ -143,7 +158,22 @@ export class Distributions{
             os:OSType.Linux,
             releases:[
                 {
-                    version:"1.0.4(latest)",
+                    version:"1.0.5(latest)",
+                    files:[
+                        {
+                            type:FileType.DEV,
+                            url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v1.0.5/LithiumGit-Setup-linux-amd64-1.0.5.deb",
+                            arch:ArchType.x64,
+                        },
+                        {
+                            type:FileType.AppImage,
+                            url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v1.0.5/LithiumGit-Setup-linux-x86_64-1.0.5.AppImage",
+                            arch:ArchType.x64,
+                        },
+                    ],                    
+                },
+                {
+                    version:"1.0.4",
                     files:[
                         {
                             type:FileType.DEV,
