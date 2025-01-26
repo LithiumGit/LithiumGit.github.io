@@ -1,1 +1,4 @@
+User-agent: *
+Allow: /
+
 Sitemap: https://lithiumgit.github.io/sitemap.xml
