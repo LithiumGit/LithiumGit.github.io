@@ -9,11 +9,11 @@ export function Comparision(){
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Sourcetree</td>
-        <td>Windows, Mac</td>
+    <tr>
+        <td>LithiumGit</td>
+        <td>Windows, Mac, Linux</td>
         <td>
-          Simple interface, great for beginners, Atlassian integration
+          Simple and user friendly interface, interactive graph, nice merge conflict tool, origin independent
         </td>
         <td>Free</td>
       </tr>
@@ -25,6 +25,14 @@ export function Comparision(){
         </td>
         <td>Free & Paid</td>
       </tr>
+      <tr>
+        <td>Sourcetree</td>
+        <td>Windows, Mac</td>
+        <td>
+          Simple interface, great for beginners, Atlassian integration
+        </td>
+        <td>Free</td>
+      </tr>            
       <tr>
         <td>Fork</td>
         <td>Windows, Mac</td>

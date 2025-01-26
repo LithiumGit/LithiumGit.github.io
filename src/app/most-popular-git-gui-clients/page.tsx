@@ -6,7 +6,7 @@ import { GitClientItem } from './gitClientItem';
 export default function GitClients(){
     return <main className="git-clients">
         <div className="content bg-second-color">
-            <h1>Top 10 Git GUIs Compared 2025</h1>
+            <h1>Top Git GUI Clients Compared 2025</h1>
             <p>Explore the top Git GUI tools of 2024, each tailored for various
                 developer needs. From seamless integrations to intuitive interfaces,
                 find the perfect Git client for your workflow.
@@ -16,7 +16,7 @@ export default function GitClients(){
                 {
                     PopularGitClients.list.map((client,i)=>(
                         <GitClientItem serial={i+1} title={`${client.name}`} description={client.description} 
-                        price={client.price} imageUrl={client.imageUrl} key={client.name} />
+                        price={client.price} imageUrl={client.imageUrl} key={client.name} website={client.website} />
                     ))
                 }
             </ul>

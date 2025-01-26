@@ -5,6 +5,7 @@ interface IProps{
     title:string;
     price:string;
     description:string;
+    website:string;
 }
 export function GitClientItem(props:IProps){
     return <li>
@@ -13,6 +14,9 @@ export function GitClientItem(props:IProps){
       alt={`${props.title} logo`}
     />}
     <h3>{props.serial} .{props.title}</h3>
+    <p>
+        <strong>Website:</strong> <a target="_blank" href={props.website}>{props.website}</a>
+    </p>
     <p>
       <strong>Price:</strong> {props.price}
     </p>
