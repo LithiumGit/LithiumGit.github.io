@@ -20,7 +20,7 @@ export default function RootLayout({
         <meta property="og:url" content="https://lithiumgit.github.io" />
         <meta property="og:type" content="website" />
         {/*  Google Tag Manager  */}        
-        <script src='https://github.com/LithiumGit/lithiumgit.github.io/releases/download/v1.0.0/analytics.js' />
+        <script src='/analytics.js' />
         {/* End Google Tag Manager */}
         <script
           type="application/ld+json"
