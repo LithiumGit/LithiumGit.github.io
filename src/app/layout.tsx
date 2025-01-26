@@ -17,6 +17,21 @@ export default function RootLayout({
         {/*  Google Tag Manager  */}        
         <script src='https://github.com/LithiumGit/lithiumgit.github.io/releases/download/v1.0.0/analytics.js' />
         {/* End Google Tag Manager */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "url": "https://lithiumgit.github.io",
+            "name": "LithiumGit",
+            "description": "LithiumGit is a Git client or GUI application which provide a user friendly interface to perform git related functionalities graphically.",
+            "creator": {
+              "@type": "Person",
+              "name": "Tulshi Chandra Das"
+            }
+            }) 
+          }}
+      />
       </head>
       
     <body>
