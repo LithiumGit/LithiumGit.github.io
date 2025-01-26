@@ -1,7 +1,6 @@
 import { StorageUtils } from '../lib';
 import { Footer } from './components/footer';
 import { Nav } from './components';
-import Script from 'next/script';
 
 export default function RootLayout({
   children,

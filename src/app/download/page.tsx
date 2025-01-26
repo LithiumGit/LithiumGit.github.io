@@ -7,7 +7,6 @@ import { IReleaseItem } from '../../lib/interfaces';
 import { useEffect, useMemo } from 'react';
 import { FaApple, FaWindows } from 'react-icons/fa';
 import { FaDebian } from 'react-icons/fa6';
-import "../styles/download.scss";
 import { UiUtils } from '../../lib/utilities/UiUtils';
 import { WinInstallationSteps } from './winInstallationSteps';
 import { LinuxInstallationSteps } from './linuxInstallationSteps';
