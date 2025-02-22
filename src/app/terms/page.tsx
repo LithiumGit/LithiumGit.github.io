@@ -1,6 +1,11 @@
 import { Constants, Routes } from "../../lib";
+import { UiUtils } from "../../lib/utilities/UiUtils";
 import '../styles/terms.scss';
 
+export function generateMetadata(){
+    const data = UiUtils.getCommonHeaderInfo();
+    return data;
+}
 export default function TermsOfService(){
     return (
         <main className="px-2 pt-3" style={{minHeight:`calc(100vh - ${Constants.navHeight} - ${Constants.footerHeight})`}}>

@@ -1,10 +1,16 @@
-import { FaLinkedin, FaMap } from 'react-icons/fa';
+import { FaLinkedin } from 'react-icons/fa';
 import faiz from '../images/contributors/faiz.jpg';
 import zahid from '../images/contributors/zahid.jpg';
 import shafi from '../images/contributors/shafi.jpg';
 import { FaLocationPin } from 'react-icons/fa6';
 import { Constants } from '../../lib';
 import  "../styles/about.scss";
+import { UiUtils } from '../../lib/utilities/UiUtils';
+
+export function generateMetadata(){
+    const data = UiUtils.getCommonHeaderInfo();
+    return data;
+}
 
 export default function About(){
     const imageWidth = 200;

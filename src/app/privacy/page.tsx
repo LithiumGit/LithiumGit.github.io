@@ -1,6 +1,11 @@
 import { Constants } from "../../lib"
+import { UiUtils } from "../../lib/utilities/UiUtils";
 import "../styles/privacy.scss";
 
+export function generateMetadata(){
+    const data = UiUtils.getCommonHeaderInfo();
+    return data;
+}
 export default function Privacy(){
     return (
         <main className="px-2 pt-3" style={{minHeight:`calc(100vh - ${Constants.navHeight} - ${Constants.footerHeight})`}}>
