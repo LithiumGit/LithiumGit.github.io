@@ -21,7 +21,7 @@ export class UiUtils{
         return `calc(100vh - ${Constants.navHeight} - ${Constants.footerHeight})`;
     }
 
-    static getCommonHeaderInfo(args: IMetadataParams){
+    static getCommonHeaderInfo(args: IMetadataParams,path:string){
         console.log("args", args);
         return {
             title:'LithiumGit | The most powerful Git client application.',
@@ -35,7 +35,7 @@ export class UiUtils{
                 type:'website',
             },
             alternates: {
-                canonical: 'https://lithiumgit.github.io/'+args.path,
+                canonical: 'https://lithiumgit.github.io/'+path,
             },
         } as Metadata;
     }

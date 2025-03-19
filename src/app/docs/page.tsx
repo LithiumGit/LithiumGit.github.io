@@ -4,9 +4,8 @@ import { PageChild } from "./pageChild";
 import { IMetadataParams } from "../../lib/interfaces";
 
 
-export function generateMetadata(args:IMetadataParams){
-    args.path = "docs";
-    const data = UiUtils.getCommonHeaderInfo(args);
+export function generateMetadata(args:IMetadataParams){    
+    const data = UiUtils.getCommonHeaderInfo(args,"docs");
     return data;
 }
 export default function Docs(){

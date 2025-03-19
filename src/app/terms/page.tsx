@@ -3,9 +3,8 @@ import { IMetadataParams } from "../../lib/interfaces";
 import { UiUtils } from "../../lib/utilities/UiUtils";
 import '../styles/terms.scss';
 
-export function generateMetadata(args: IMetadataParams){
-    args.path = "terms";
-    const data = UiUtils.getCommonHeaderInfo(args);
+export function generateMetadata(args: IMetadataParams){    
+    const data = UiUtils.getCommonHeaderInfo(args,"terms");
     return data;
 }
 export default function TermsOfService(){

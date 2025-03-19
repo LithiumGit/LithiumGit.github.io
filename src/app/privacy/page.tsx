@@ -3,9 +3,8 @@ import { IMetadataParams } from "../../lib/interfaces";
 import { UiUtils } from "../../lib/utilities/UiUtils";
 import "../styles/privacy.scss";
 
-export function generateMetadata(args:IMetadataParams){
-    args.path = "privacy";
-    const data = UiUtils.getCommonHeaderInfo(args);
+export function generateMetadata(args:IMetadataParams){    
+    const data = UiUtils.getCommonHeaderInfo(args,"privacy");
     return data;
 }
 export default function Privacy(){

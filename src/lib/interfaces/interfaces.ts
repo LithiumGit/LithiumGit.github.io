@@ -7,7 +7,8 @@ export interface IGitClientItem{
     website:string;
 }
 
+type t = { [x: string]: never; };
+
 export interface IMetadataParams{
     params:{};
-    path:string;
 }

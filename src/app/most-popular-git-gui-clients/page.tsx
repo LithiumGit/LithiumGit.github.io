@@ -6,8 +6,7 @@ import { Comparision } from './comparision';
 import { GitClientItem } from './gitClientItem';
 
 export function generateMetadata(args: IMetadataParams) {
-    args.path = "most-popular-git-gui-clients";
-    const data = UiUtils.getCommonHeaderInfo(args);
+    const data = UiUtils.getCommonHeaderInfo(args,"download");
     data.title = "Most popular git clients at 2025.";
     data.description = "List of top git clients of 2025. Git client is a GUI application which provide a user friendly interface to perform git related functionalities graphically.";
     data.keywords = "Top Git clients,Best Git clients, 2025, Git GUI, Git Desktop application, Cross platform Git client applictions, Cross platform Git GUI applictions";

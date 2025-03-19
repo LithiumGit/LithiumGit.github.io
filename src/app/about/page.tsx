@@ -9,8 +9,7 @@ import { UiUtils } from '../../lib/utilities/UiUtils';
 import { IMetadataParams } from '../../lib/interfaces';
 
 export function generateMetadata(args: IMetadataParams){
-    args.path = "about";
-    const data = UiUtils.getCommonHeaderInfo(args);
+    const data = UiUtils.getCommonHeaderInfo(args,"about");
     return data;
 }
 
