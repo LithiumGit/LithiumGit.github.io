@@ -1,9 +1,11 @@
 import { Constants, Routes } from "../../lib";
+import { IMetadataParams } from "../../lib/interfaces";
 import { UiUtils } from "../../lib/utilities/UiUtils";
 import '../styles/terms.scss';
 
-export function generateMetadata(){
-    const data = UiUtils.getCommonHeaderInfo();
+export function generateMetadata(args: IMetadataParams){
+    args.path = "terms";
+    const data = UiUtils.getCommonHeaderInfo(args);
     return data;
 }
 export default function TermsOfService(){

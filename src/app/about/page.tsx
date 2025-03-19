@@ -6,9 +6,11 @@ import { FaLocationPin } from 'react-icons/fa6';
 import { Constants } from '../../lib';
 import  "../styles/about.scss";
 import { UiUtils } from '../../lib/utilities/UiUtils';
+import { IMetadataParams } from '../../lib/interfaces';
 
-export function generateMetadata(){
-    const data = UiUtils.getCommonHeaderInfo();
+export function generateMetadata(args: IMetadataParams){
+    args.path = "about";
+    const data = UiUtils.getCommonHeaderInfo(args);
     return data;
 }
 

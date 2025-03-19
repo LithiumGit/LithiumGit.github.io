@@ -6,3 +6,8 @@ export interface IGitClientItem{
     imageUrl?:string;
     website:string;
 }
+
+export interface IMetadataParams{
+    params:{};
+    path:string;
+}

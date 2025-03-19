@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { Constants } from "../constants";
 import { OSType } from "../enums";
-import { IHeaderInfo } from "../interfaces/IHeaderInfo";
+import { IMetadataParams } from "../interfaces";
 
 export class UiUtils{
     static getOSPlatform() {
@@ -21,7 +21,8 @@ export class UiUtils{
         return `calc(100vh - ${Constants.navHeight} - ${Constants.footerHeight})`;
     }
 
-    static getCommonHeaderInfo(){
+    static getCommonHeaderInfo(args: IMetadataParams){
+        console.log("args", args);
         return {
             title:'LithiumGit | The most powerful Git client application.',
             description:'Most popular Git client application. LithiumGit is a Git client or GUI application which provide a user friendly interface to perform git related functionalities graphically.LithiumGit is origin independent application. That means it can be used for any git project having any origin platform such as Github, GitLab, BitBucket,Gerrit or others. The most useful feature of LithiumGit which a user may find is the graph view. In graph view the overall state of change history can be viewed. From the graph view user can easily view the changes of any commit, do merge, rebase, cherry-pick, create branch and more other functionalities.',
@@ -32,7 +33,10 @@ export class UiUtils{
                 description:'Most popular Git client application. LithiumGit is a Git client or GUI application which provide a user friendly interface to perform git related functionalities graphically.',
                 url:'https://lithiumgit.github.io',
                 type:'website',
-            },            
+            },
+            alternates: {
+                canonical: 'https://lithiumgit.github.io/'+args.path,
+            },
         } as Metadata;
     }
 }

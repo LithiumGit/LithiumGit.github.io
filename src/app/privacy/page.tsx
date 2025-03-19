@@ -1,9 +1,11 @@
 import { Constants } from "../../lib"
+import { IMetadataParams } from "../../lib/interfaces";
 import { UiUtils } from "../../lib/utilities/UiUtils";
 import "../styles/privacy.scss";
 
-export function generateMetadata(){
-    const data = UiUtils.getCommonHeaderInfo();
+export function generateMetadata(args:IMetadataParams){
+    args.path = "privacy";
+    const data = UiUtils.getCommonHeaderInfo(args);
     return data;
 }
 export default function Privacy(){
