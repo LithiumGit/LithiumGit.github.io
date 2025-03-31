@@ -2,6 +2,8 @@ import { FaLinkedin } from 'react-icons/fa';
 import faiz from '../images/contributors/faiz.jpg';
 import zahid from '../images/contributors/zahid.jpg';
 import shafi from '../images/contributors/shafi.jpg';
+import dip from '../images/contributors/dip.jpg';
+import tulshi from '../images/contributors/tulshi.jpg';
 import { FaLocationPin } from 'react-icons/fa6';
 import { Constants } from '../../lib';
 import  "../styles/about.scss";
@@ -53,12 +55,12 @@ export default function About(){
             <div className='row g-0 px-2'>
                 <div className='col-md-3'/>
                 <div className='col-12 col-md-6'>
-                    <h3>Contributors</h3>
-                    <p>Thanks to all contributors for the great support.</p>
+                    <h3>The Team</h3>
+                    <p>Thanks all for the endless dedication.</p>
                 </div>
             </div>
             
-            <div className="row px-2 g-0 align-items-stretch justify-content-center py-5">
+            <div className="row px-2 g-0 align-items-stretch justify-content-center">
                 <div className='col-md-1 col-lg-2'/>
                 <div className='col-12 col-md-10 col-lg-8 d-flex flex-wrap align-items-stretch justify-content-around'>
                     <div className='d-flex flex-column align-items-center py-2' style={{width:imageContainerWidth}}>
@@ -76,6 +78,38 @@ export default function About(){
                         </div>
                         <p>
                             Zahid Hasan, Supporter/fan <a target='_blank' href="https://www.linkedin.com/in/zhdruvo"><FaLinkedin /></a>
+                        </p>
+                        <p><FaLocationPin /> Dhaka, Bangladesh</p>
+
+                    </div>
+                </div>
+                <div className='col-md-1 col-lg-2' />
+            </div>
+            <div className="row px-2 g-0 align-items-stretch justify-content-center">
+                <div className='col-md-1 col-lg-2'/>
+                <div className='col-12 col-md-10 col-lg-8 d-flex flex-wrap align-items-stretch justify-content-around'>                    
+                    <div className='d-flex flex-column align-items-center py-2' style={{width:imageContainerWidth}}>
+                        <div className="border rounded-circle overflow-hidden" style={{width:imageWidth,height:imageWidth}}>
+                            <img src={tulshi.src} style={{width:imageWidth,height:'auto'}} />
+                        </div>
+                        <p className='text-nowrap'>
+                            Tulshi Das, Author and Lead Developer <a target='_blank' href="https://www.linkedin.com/in/tulshi-das-29b9bb125/"><FaLinkedin /></a>
+                        </p>
+                        <p><FaLocationPin /> Dhaka, Bangladesh</p>
+
+                    </div>                    
+                </div>
+                <div className='col-md-1 col-lg-2' />
+            </div>
+            <div className="row px-2 g-0 align-items-stretch justify-content-center">
+                <div className='col-md-1 col-lg-2'/>
+                <div className='col-12 col-md-10 col-lg-8 d-flex flex-wrap align-items-stretch justify-content-around'>                    
+                    <div className='d-flex flex-column align-items-center py-2' style={{width:imageContainerWidth}}>
+                        <div className="border rounded-circle overflow-hidden" style={{width:imageWidth,height:imageWidth}}>
+                            <img src={dip.src} style={{width:imageWidth,height:'auto'}} />
+                        </div>
+                        <p className='text-nowrap'>
+                            Dipjyoti Sikdar, QA contributor <a target='_blank' href="https://www.linkedin.com/in/dipjyotisikder"><FaLinkedin /></a>
                         </p>
                         <p><FaLocationPin /> Dhaka, Bangladesh</p>
 
