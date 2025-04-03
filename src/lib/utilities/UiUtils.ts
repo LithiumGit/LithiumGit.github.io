@@ -35,7 +35,7 @@ export class UiUtils{
                 type:'website',
             },
             alternates: {
-                canonical: 'https://lithiumgit.github.io/'+path,
+                canonical: 'https://lithiumgit.com/'+path,
             },
         } as Metadata;
     }
