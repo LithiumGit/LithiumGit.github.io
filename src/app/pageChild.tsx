@@ -159,6 +159,12 @@ export function PageChild(){
                 Stash list with stash functionalities(pop,apply, delete stash).
               </p>
             </div>
+
+            <div className='d-flex justify-content-center py-5'>
+              <p className='w-75'>
+                To see more features, please check the <a href={Routes.Docs} className='underline'>documentation page</a>.
+              </p>
+            </div>
             
             <div className='py-5' />
             
