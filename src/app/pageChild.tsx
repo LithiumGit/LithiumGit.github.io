@@ -60,10 +60,9 @@ export function PageChild(){
     return <Fragment>
         <div className='row g-0 align-items-center'>
           <div className='col-sm-12 col-md-3 text-center pb-2'>
-              <h2 className='font-weight-bold' style={{fontSize:'2.5em'}}>No feare, just play with the Git</h2>
+              <h2 className='font-weight-bold' style={{fontSize:'2.5em'}}>No fear, just play with Git</h2>
               <p className='pt-3'>
-                LithiumGit is a Git client application which make the use of the git activities 
-                at most of your favour. And LithiumGit is free.
+                LithiumGit is a Git client application that optimizes Git activities to your advantage. And LithiumGit is free.
               </p>
               <div className="d-flex flex-column align-items-center justify-content-center pt-3">
                 <div className='d-flex bg-brand align-items-center px-3 py-2 hover'>
@@ -121,9 +120,8 @@ export function PageChild(){
             </div>
             <div className='d-flex justify-content-center'>
               <p className='w-75'>
-                The interactive graph allow to view the overview of overall state of the change history.
-                Viewing change details of a specific commit,merge, checkout, rebase, cherry-pick, creating branch etc. regular git actions
-                can be performed from this view.
+                The interactive graph allows you to view an overview of the change history.
+                View change details of a specific commit, merge, checkout, rebase, cherry-pick, or creating a branch. Regular Git actions can also be performed from this view.
               </p>
             </div>
 
