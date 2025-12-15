@@ -109,7 +109,7 @@ export default function About(){
                             <img src={dip.src} style={{width:imageWidth,height:'auto'}} />
                         </div>
                         <p className='text-nowrap'>
-                            Dipjyoti Sikdar, QA contributor <a target='_blank' href="https://www.linkedin.com/in/dipjyotisikder"><FaLinkedin /></a>
+                            Dipjyoti Sikder, QA contributor <a target='_blank' href="https://www.linkedin.com/in/dipjyotisikder"><FaLinkedin /></a>
                         </p>
                         <p><FaLocationPin /> Dhaka, Bangladesh</p>
 
