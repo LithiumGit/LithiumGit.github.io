@@ -56,7 +56,8 @@ export function PageChild(){
         return <FaDebian />
     }
     return <Fragment>
-        <div className='w-100 d-flex align-items-center justify-content-center'>
+        <div className="py-4 px-2 bg-second-color text-center">Please make sure that Git is installed on your system. You can download it from <a href="https://git-scm.com/downloads" target="_blank" rel="noopener noreferrer" className="underline text-primary">here</a>.</div>
+        <div className='w-100 d-flex align-items-center justify-content-center pt-3'>
             <Dropdown className=''>
                 <DropdownToggle variant="" id="" className="rounded-0 d-flex align-items-center">
                     {getOsIcon()}
@@ -94,9 +95,12 @@ export function PageChild(){
         <br />
         <div className='row g-0 py-5'>
             <div className='col-md-3' />
-            {state.selectedOS.os === OSType.Windows && <WinInstallationSteps />}
-            {state.selectedOS.os === OSType.Linux && <LinuxInstallationSteps />}
-            {state.selectedOS.os === OSType.Mac && <MacInstallationSteps />}
+            <div className='col-12 col-md-6 ps-2'>
+                {state.selectedOS.os === OSType.Windows && <WinInstallationSteps />}
+                {state.selectedOS.os === OSType.Linux && <LinuxInstallationSteps />}
+                {state.selectedOS.os === OSType.Mac && <MacInstallationSteps />}
+            </div>
+            
             <div className='col-md-3' />
         </div>
     </Fragment>

@@ -9,6 +9,7 @@ export function GetStarted(){
 
     return <div id={HtmlIds.get_started}>
         <h4>Getting started</h4>
+        <div className="py-4 px-2 bg-second-color">Please make sure that Git is installed on your system. You can download it from <a href="https://git-scm.com/downloads" target="_blank" rel="noopener noreferrer" className="underline text-primary">here</a>.</div>
         <p>To open an existing git project in LithiumGit follow the steps below:</p>
 
         <div className="py-2">

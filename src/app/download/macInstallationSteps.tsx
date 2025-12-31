@@ -3,7 +3,7 @@ import inst1 from '../images/installation/step1_mac.png';
 
 
 export function MacInstallationStepsComponent(){
-    return <div className='col-12 col-md-6 ps-2'>
+    return <div>
     <h4>Installation Steps</h4>
     <div className=''>
         <h5>-Download the package(.dmg)</h5>

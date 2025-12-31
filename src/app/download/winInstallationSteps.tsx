@@ -6,7 +6,7 @@ import inst5 from '../images/installation/step5.png';
 
 
 export function WinInstallationStepsComponent(){
-    return <div className='col-12 col-md-6 ps-2'>
+    return <div className=''>
     <h4>Installation Steps</h4>
     <div className=''>
         <h5>-Download the installer</h5>
