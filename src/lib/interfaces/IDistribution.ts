@@ -28,3 +28,9 @@ export enum ArchType{
     x86,
     arm64
 }
+
+export const ArchTypeNames:Record<ArchType,string> = {
+    [ArchType.x64]:"x64",
+    [ArchType.x86]:"x86",
+    [ArchType.arm64]:"arm64"
+}

@@ -2,7 +2,7 @@
 
 import { Dropdown, DropdownItem, DropdownToggle } from "react-bootstrap"
 import { Distributions, OSType, StringUtils, useMultiState } from "../../lib";
-import { IReleaseItem } from "../../lib/interfaces";
+import { ArchTypeNames, IReleaseItem } from "../../lib/interfaces";
 import { Fragment, useEffect, useMemo } from "react";
 import { UiUtils } from "../../lib/utilities/UiUtils";
 import { FaApple, FaWindows } from "react-icons/fa";
@@ -87,8 +87,9 @@ export function PageChild(){
             state.selectedVersion?.files.map((f)=>(
                 <div key={f.url} className='d-flex align-items-center justify-content-center pt-2'>
                     <a href={f.url}  className='hover-effect underline px-3 py-2 hover'>
-                        LithiumGit-{StringUtils.getLastPart(f.url)}
+                        {StringUtils.getLastPart(f.url)} 
                     </a>
+                    <span> | {ArchTypeNames[f.arch]}</span>
                 </div>
             ))
         }        

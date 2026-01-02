@@ -478,6 +478,14 @@ p, svg, .h1, .h2, .h3, .h4, .h5, .h6{
   animation: spin infinite 1s linear;
 }
 
+.w-65{
+  width: 65% !important;
+}
+
+.w-35{
+  width: 35% !important;
+}
+
 @keyframes spin {
   from {
     transform: rotate(0deg);

@@ -5,9 +5,19 @@ export class Distributions{
     static readonly list:IDistribution[]=[
         {
             os:OSType.Windows,
-            releases:[
+            releases:[                
                 {
-                    version:"1.0.7(latest)",
+                    version:"1.0.8(latest)",
+                    files:[
+                        {
+                            type:FileType.EXE,
+                            url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v1.0.8/LithiumGit-Setup-1.0.8.exe",
+                            arch:ArchType.x64,
+                        },                                                
+                    ]
+                },
+                {
+                    version:"1.0.7",
                     files:[
                         {
                             type:FileType.EXE,
