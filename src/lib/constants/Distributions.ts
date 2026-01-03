@@ -2,6 +2,7 @@ import { OSType } from "../enums";
 import { ArchType, FileType, IDistribution } from "../interfaces";
 
 export class Distributions{
+    static readonly MsStoreLink = "https://apps.microsoft.com/detail/9pds1hllchxs?hl=en-us&gl=US&ocid=pdpshare";
     static readonly list:IDistribution[]=[
         {
             os:OSType.Windows,

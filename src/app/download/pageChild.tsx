@@ -10,6 +10,7 @@ import { FaDebian } from "react-icons/fa6";
 import { WinInstallationSteps } from "./winInstallationSteps";
 import { LinuxInstallationSteps } from "./linuxInstallationSteps";
 import { MacInstallationSteps } from "./macInstallationSteps";
+import { DownloadFromMsStore } from "./downloadFromMsStore";
 
 
 interface ITargeOS{
@@ -94,6 +95,9 @@ export function PageChild(){
             ))
         }        
         <br />
+
+        {state.selectedOS.os === OSType.Windows && <DownloadFromMsStore />}
+
         <div className='row g-0 py-5'>
             <div className='col-md-3' />
             <div className='col-12 col-md-6 ps-2'>
