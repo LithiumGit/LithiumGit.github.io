@@ -7,18 +7,18 @@ import { GitClientItem } from './gitClientItem';
 
 export function generateMetadata(args: IMetadataParams) {
     const data = UiUtils.getCommonHeaderInfo(args,"download");
-    data.title = "Most popular git clients at 2025.";
-    data.description = "List of top git clients of 2025. Git client is a GUI application which provide a user friendly interface to perform git related functionalities graphically.";
-    data.keywords = "Top Git clients,Best Git clients, 2025, Git GUI, Git Desktop application, Cross platform Git client applictions, Cross platform Git GUI applictions";
-    data.openGraph!.title = "Most popular git clients at 2025.";
+    data.title = "Most popular git clients at 2026.";
+    data.description = "List of top git clients of 2026. Git client is a GUI application which provide a user friendly interface to perform git related functionalities graphically.";
+    data.keywords = "Top Git clients,Best Git clients, 2026, Git GUI, Git Desktop application, Cross platform Git client applictions, Cross platform Git GUI applictions";
+    data.openGraph!.title = "Most popular git clients at 2026.";
     return data;
 }
 
 export default function GitClients(){
     return <main className="git-clients">
         <div className="content bg-second-color">
-            <h1>Top Git GUI Clients Compared 2025</h1>
-            <p>Explore the top Git GUI tools of 2025, each tailored for various
+            <h1>Top Git GUI Clients Compared 2026</h1>
+            <p>Explore the top Git GUI tools of 2026, each tailored for various
                 developer needs. From seamless integrations to intuitive interfaces,
                 find the perfect Git client for your workflow.
             </p>
