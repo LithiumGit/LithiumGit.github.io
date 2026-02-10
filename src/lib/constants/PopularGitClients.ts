@@ -4,18 +4,27 @@ export class PopularGitClients{
     static readonly list:IGitClientItem[]=[
         {
             name:"LithiumGit",
-            description:"Most powerful Git client application. LithiumGit is a Git client or GUI application which provide a user friendly interface to perform git related functionalities graphically.LithiumGit is origin independent application. That means it can be used for any git project having any origin platform such as Github, GitLab, BitBucket,Gerrit or others. The most useful feature of LithiumGit which a user may find is the graph view. In graph view the overall state of change history can be viewed. From the graph view user can easily view the changes of any commit, do merge, rebase, cherry-pick, create branch and more other functionalities",
+            description:"LithiumGit is a powerful, free, and open-source Git GUI client designed to optimize your Git workflow and eliminate the fear of version control complexity. Built for Windows, Mac, and Linux, this cross-platform Git desktop application provides an intuitive graphical interface that makes Git operations accessible to developers of all skill levels. As an origin-independent Git client, LithiumGit seamlessly works with any Git hosting platform including GitHub, GitLab, BitBucket, Gerrit, and custom Git servers, offering complete flexibility for your development environment. The revolutionary interactive graph view stands as LithiumGit's signature feature, providing a comprehensive visual overview of your entire repository history where you can perform advanced Git operations like merge, rebase, cherry-pick, branch creation, checkout, and commit analysis directly from the graph interface. Unlike many Git clients, LithiumGit requires no registration or login - simply download, install, and start managing your repositories immediately. It leverages your system's existing Git installation, ensuring compatibility and reliability. The application features intelligent stash management with pop, apply, and delete operations, advanced commit searching and filtering, local changes visualization with line-by-line diff viewing, user and remote configuration management, repository cloning, and recent projects tracking for quick access. Developed by a dedicated open-source community since 2021, LithiumGit welcomes contributions on GitHub and continues to evolve with regular updates and improvements. Perfect for individual developers, small teams, and organizations seeking a reliable, feature-rich Git client without licensing costs or subscription fees. Experience Git management the way it should be - visual, intuitive, and completely free.",
             os:"Windows, Mac, & Linux",
             price:"Free",
             imageUrl:"https://github.com/LithiumGit/LithiumGit.github.io/releases/download/v1.0.0/icon.png",
             website:"https://lithiumgit.com",
             keyFeatures: [
-                "Interactive graph view for visualizing commit history",
-                "Origin independent - works with GitHub, GitLab, BitBucket, Gerrit",
-                "User-friendly graphical interface for all Git operations",
-                "Merge, rebase, and cherry-pick from graph view",
-                "Branch management and visualization",
-                "Cross-platform support (Windows, Mac, Linux)"
+                "Revolutionary interactive graph view - visualize entire repository history and perform merge, rebase, cherry-pick, and branch operations directly from the graph",
+                "100% free and open-source with no registration, login, or subscription required",
+                "Origin-independent architecture - works seamlessly with GitHub, GitLab, BitBucket, Gerrit, and any Git hosting platform",
+                "Cross-platform support for Windows, Mac, and Linux with native performance",
+                "Advanced stash management - easily stash all changes, pop, apply, and delete stashes with visual interface",
+                "Powerful commit search and filtering - quickly find specific commits in large repositories",
+                "Line-by-line diff viewer - review local changes with precision before committing",
+                "User and remote configuration UI - manage Git settings, user info, and remote URLs graphically",
+                "One-click repository cloning and project initialization (git init equivalent)",
+                "Recent projects tracking for instant access to your repositories",
+                "No external dependencies - uses your system's installed Git for maximum compatibility",
+                "Active open-source development - community-driven with GitHub contributions welcomed",
+                "Commit and amend functionality with intuitive UI",
+                "Complete branch management - create, delete, checkout, and visualize branches effortlessly",
+                "Designed by developers for developers - optimized for real-world Git workflows"
             ]
         },
         {
