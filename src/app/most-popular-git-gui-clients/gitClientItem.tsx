@@ -6,6 +6,7 @@ interface IProps{
     price:string;
     description:string;
     website:string;
+    keyFeatures?:string[];
 }
 export function GitClientItem(props:IProps){
     return <li>
@@ -24,5 +25,15 @@ export function GitClientItem(props:IProps){
     <p>
       <strong>Description:</strong> {props.description}
     </p>
+    {props.keyFeatures && props.keyFeatures.length > 0 && (
+      <div>
+        <strong className="key-features-title">Key Features:</strong>
+        <ul className="key-features-list">
+          {props.keyFeatures.map((feature, index) => (
+            <li key={index}>{feature}</li>
+          ))}
+        </ul>
+      </div>
+    )}
   </li>
 }

@@ -27,7 +27,8 @@ export default function GitClients(){
                 {
                     PopularGitClients.list.map((client,i)=>(
                         <GitClientItem serial={i+1} title={`${client.name}`} description={client.description} 
-                        price={client.price} imageUrl={client.imageUrl} key={client.name} website={client.website} />
+                        price={client.price} imageUrl={client.imageUrl} key={client.name} website={client.website}
+                        keyFeatures={client.keyFeatures} />
                     ))
                 }
             </ul>

@@ -5,6 +5,7 @@ export interface IGitClientItem{
     os:string;
     imageUrl?:string;
     website:string;
+    keyFeatures?:string[];
 }
 
 type t = { [x: string]: never; };
