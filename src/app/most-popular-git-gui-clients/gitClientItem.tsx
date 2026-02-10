@@ -15,14 +15,14 @@ export function GitClientItem(props:IProps){
       alt={`${props.title} logo`}
     />}
     <h3>{props.serial} .{props.title}</h3>
-    <p>
+    <p className="pb-1">
         <strong>Website:</strong> <a target="_blank" href={props.website}>{props.website}</a>
     </p>
-    <p>
+    <p className="pb-1">
       <strong>Price:</strong> {props.price}
     </p>
-    <p><strong>OS Support:</strong> Windows, Mac, & Linux</p>
-    <p>
+    <p className="pb-1"><strong>OS Support:</strong> Windows, Mac, & Linux</p>
+    <p className="">
       <strong>Description:</strong> {props.description}
     </p>
     {props.keyFeatures && props.keyFeatures.length > 0 && (
