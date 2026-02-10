@@ -26,19 +26,27 @@ export function Comparision(){
         <td>Free & Paid</td>
       </tr>
       <tr>
-        <td>Sourcetree</td>
-        <td>Windows, Mac</td>
+        <td>TortoiseGit</td>
+        <td>Windows</td>
         <td>
-          Simple interface, great for beginners, Atlassian integration
+          Windows shell integration, overlay icons, context menu operations, TortoiseGitMerge
         </td>
         <td>Free</td>
-      </tr>            
+      </tr>
       <tr>
         <td>Fork</td>
         <td>Windows, Mac</td>
         <td>Fast and powerful, excellent diff viewer, dark mode</td>
         <td>Free</td>
       </tr>
+      <tr>
+        <td>Sourcetree</td>
+        <td>Windows, Mac</td>
+        <td>
+          Simple interface, great for beginners, Atlassian integration
+        </td>
+        <td>Free</td>
+      </tr>                  
       <tr>
         <td>Tower</td>
         <td>Mac, Windows</td>
