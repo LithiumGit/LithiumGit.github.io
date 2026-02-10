@@ -47,6 +47,27 @@ export class PopularGitClients{
             ]
         },
         {
+            name:"TortoiseGit",
+            description:"TortoiseGit is a free, open-source Windows shell extension for Git version control, implemented as a Windows Explorer integration that provides seamless Git operations directly from the Windows context menu. First released in 2008, TortoiseGit is based on the popular TortoiseSVN architecture and offers a native Windows experience for Git users who prefer integrated shell functionality over standalone applications. This powerful Git client features intuitive overlay icons in Windows Explorer that display the real-time status of working trees and files, making it instantly clear which files are modified, added, deleted, or untracked. TortoiseGit excels in providing comprehensive Git functionality through right-click context menus, eliminating the need for command-line operations while maintaining full Git capabilities. The application includes TortoiseGitMerge, a built-in visual diff and merge tool for comparing files and resolving conflicts with side-by-side comparison views. Supporting all standard Git operations including commit, push, pull, fetch, clone, branch management, merge, rebase, cherry-pick, and stash, TortoiseGit integrates seamlessly with Windows workflows. Available in 34 languages with 7 full translations, TortoiseGit provides excellent localization support for international development teams. The tool supports SSH key management, GPG signing, Git LFS (Large File Support), submodules, and advanced features like interactive rebase and blame annotations. As a Windows-exclusive solution, TortoiseGit is ideal for developers and teams who work primarily in Windows environments and prefer shell integration over standalone Git GUI applications. Released under the GNU General Public License, TortoiseGit is completely free with an active open-source community contributing regular updates and improvements. Perfect for Windows developers seeking efficient Git management without leaving Windows Explorer.",
+            price:"Free",
+            os:"Windows",
+            imageUrl:"https://github.com/LithiumGit/LithiumGit.github.io/releases/download/v1.0.0/tortoisegit.png",
+            website:"https://tortoisegit.org",
+            firstReleaseYear: 2008,
+            keyFeatures: [
+                "Native Windows shell integration - access Git commands directly from Windows Explorer context menu",
+                "Overlay icons showing real-time file and repository status in Windows Explorer",
+                "TortoiseGitMerge - built-in visual diff and merge tool for conflict resolution",
+                "Completely free and open-source under GNU GPL with active community",
+                "Available in 34 languages with comprehensive localization support",
+                "Full Git functionality including commit, push, pull, branch management, merge, and rebase",
+                "SSH key management and GPG signing support built-in",
+                "Git LFS support for managing large files efficiently",
+                "Submodules management and advanced features like interactive rebase",
+                "Windows-exclusive design optimized for native Windows workflow integration"
+            ]
+        },
+        {
             name:"Sourcetree",
             description:"Sourcetree is a completely free Git and Mercurial desktop client for Windows and Mac, developed by Atlassian. This beginner-friendly Git GUI simplifies distributed version control with an intuitive visual interface that eliminates the need for command-line Git knowledge. Sourcetree offers comprehensive features including detailed branching diagrams for team progress tracking, Git-flow workflow support out of the box, Git Large File Support (LFS) for managing large assets, interactive rebase for clean commit history, submodules and subtree management, and local commit search functionality. The application provides excellent visualization of code changes with file, hunk, or line-level staging and unstaging capabilities. Seamlessly integrated with Bitbucket, GitHub, GitLab, and Atlassian's ecosystem (Jira, Confluence, Bamboo), Sourcetree is perfect for development teams seeking a free, powerful Git client. Additional features include remote repository management, cherry-picking, stashing, merge conflict resolution tools, and comprehensive Git status monitoring. Sourcetree Enterprise edition offers centralized deployment and management for large organizations.",
             price:"Free",
