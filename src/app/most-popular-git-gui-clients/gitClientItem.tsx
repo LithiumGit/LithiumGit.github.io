@@ -7,6 +7,7 @@ interface IProps{
     description:string;
     website:string;
     keyFeatures?:string[];
+    firstReleaseYear?:number;
 }
 export function GitClientItem(props:IProps){
     return <li>
@@ -22,6 +23,11 @@ export function GitClientItem(props:IProps){
       <strong>Price:</strong> {props.price}
     </p>
     <p className="pb-1"><strong>OS Support:</strong> Windows, Mac, & Linux</p>
+    {props.firstReleaseYear && (
+      <p className="pb-1">
+        <strong>First Released:</strong> {props.firstReleaseYear}
+      </p>
+    )}
     <p className="">
       <strong>Description:</strong> {props.description}
     </p>

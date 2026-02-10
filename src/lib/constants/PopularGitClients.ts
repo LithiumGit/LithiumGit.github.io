@@ -9,6 +9,7 @@ export class PopularGitClients{
             price:"Free",
             imageUrl:"https://github.com/LithiumGit/LithiumGit.github.io/releases/download/v1.0.0/icon.png",
             website:"https://lithiumgit.com",
+            firstReleaseYear: 2025,
             keyFeatures: [
                 "Revolutionary interactive graph view - visualize entire repository history and perform merge, rebase, cherry-pick, and branch operations directly from the graph",
                 "100% free and open-source with no registration, login, or subscription required",
@@ -34,6 +35,7 @@ export class PopularGitClients{
             os:"Windows, Mac, & Linux",
             imageUrl:"https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2019/05/GitKraken-logo.webp",
             website:"https://www.gitkraken.com",
+            firstReleaseYear: 2015,
             keyFeatures: [
                 "AI-assisted workflows and GitKraken Insights with DORA metrics",
                 "Beautiful visual interface with drag-and-drop operations",
@@ -51,6 +53,7 @@ export class PopularGitClients{
             os:"Windows, Mac",
             imageUrl:"https://github.com/LithiumGit/LithiumGit.github.io/releases/download/v1.0.0/sourceTree.png",
             website:"https://www.sourcetreeapp.com",
+            firstReleaseYear: 2010,
             keyFeatures: [
                 "Completely free for Git and Mercurial repositories",
                 "Git-flow workflow support out of the box",
@@ -68,6 +71,7 @@ export class PopularGitClients{
             os:"Windows, Mac",
             imageUrl:"https://git-fork.com/images/logo5.png",
             website:"https://git-fork.com",
+            firstReleaseYear: 2017,
             keyFeatures: [
                 "Exceptional side-by-side diff viewer with image comparison",
                 "Visual interactive rebase for editing and reordering commits",
@@ -85,6 +89,7 @@ export class PopularGitClients{
             os:"Mac, Windows",
             imageUrl:"https://github.com/LithiumGit/LithiumGit.github.io/releases/download/v1.0.0/tower.PNG",
             website:"https://www.git-tower.com",
+            firstReleaseYear: 2010,
             keyFeatures: [
                 "Unique visual conflict wizard for easy resolution",
                 "Undo capabilities for virtually any Git action",
@@ -102,6 +107,7 @@ export class PopularGitClients{
             os:"Windows, Mac",
             imageUrl:"https://github.com/LithiumGit/LithiumGit.github.io/releases/download/v1.0.0/githubDesktop.jpg",
             website:"https://github.com/apps/desktop",
+            firstReleaseYear: 2015,
             keyFeatures: [
                 "Seamless GitHub integration with one-click cloning",
                 "Drag-and-drop for cherry-picking and reordering commits",
