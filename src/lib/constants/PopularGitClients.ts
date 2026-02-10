@@ -66,6 +66,24 @@ export class PopularGitClients{
                 "Submodules management and advanced features like interactive rebase",
                 "Windows-exclusive design optimized for native Windows workflow integration"
             ]
+        },        
+        {
+            name:"Fork",
+            description:"Fork is a fast, lightweight, and elegant Git client for Mac and Windows that combines speed with powerful functionality. This Git GUI features an exceptional side-by-side diff viewer supporting text and image comparisons, making code review efficient and intuitive. Fork excels in complex Git operations with its visual interactive rebase tool for editing, reordering, and squashing commits, advanced merge conflict resolver with built-in helper, and comprehensive blame and history views for tracking file changes at line-level detail. The application supports essential Git workflows including fetch, pull, push, commit, amend, branching, tagging, cherry-picking, reverting, merging, rebasing, stashing, and submodules management. Fork's clean, customizable interface offers dark mode, repository manager with quick access to recent projects, staging and unstaging at line-level precision, Git-flow automation, Git LFS support, and reflog for recovering lost commits. With free evaluation and one-time purchase pricing at $59.99, Fork delivers professional Git management without subscription fees, making it ideal for individual developers and small teams seeking a polished, efficient Git desktop client.",
+            price:"Free",
+            os:"Windows, Mac",
+            imageUrl:"https://git-fork.com/images/logo5.png",
+            website:"https://git-fork.com",
+            firstReleaseYear: 2017,
+            keyFeatures: [
+                "Exceptional side-by-side diff viewer with image comparison",
+                "Visual interactive rebase for editing and reordering commits",
+                "Advanced merge conflict resolver with helper",
+                "Line-level staging and unstaging precision",
+                "Dark mode and customizable interface",
+                "Git-flow automation and Git LFS support",
+                "One-time purchase at $59.99 (no subscription)"
+            ]
         },
         {
             name:"Sourcetree",
@@ -83,24 +101,6 @@ export class PopularGitClients{
                 "File, hunk, or line-level staging capabilities",
                 "Seamless Atlassian integration (Jira, Bitbucket, Confluence)",
                 "Submodules, stashing, and visual branching diagrams"
-            ]
-        },
-        {
-            name:"Fork",
-            description:"Fork is a fast, lightweight, and elegant Git client for Mac and Windows that combines speed with powerful functionality. This Git GUI features an exceptional side-by-side diff viewer supporting text and image comparisons, making code review efficient and intuitive. Fork excels in complex Git operations with its visual interactive rebase tool for editing, reordering, and squashing commits, advanced merge conflict resolver with built-in helper, and comprehensive blame and history views for tracking file changes at line-level detail. The application supports essential Git workflows including fetch, pull, push, commit, amend, branching, tagging, cherry-picking, reverting, merging, rebasing, stashing, and submodules management. Fork's clean, customizable interface offers dark mode, repository manager with quick access to recent projects, staging and unstaging at line-level precision, Git-flow automation, Git LFS support, and reflog for recovering lost commits. With free evaluation and one-time purchase pricing at $59.99, Fork delivers professional Git management without subscription fees, making it ideal for individual developers and small teams seeking a polished, efficient Git desktop client.",
-            price:"Free",
-            os:"Windows, Mac",
-            imageUrl:"https://git-fork.com/images/logo5.png",
-            website:"https://git-fork.com",
-            firstReleaseYear: 2017,
-            keyFeatures: [
-                "Exceptional side-by-side diff viewer with image comparison",
-                "Visual interactive rebase for editing and reordering commits",
-                "Advanced merge conflict resolver with helper",
-                "Line-level staging and unstaging precision",
-                "Dark mode and customizable interface",
-                "Git-flow automation and Git LFS support",
-                "One-time purchase at $59.99 (no subscription)"
             ]
         },
         {
