@@ -36,6 +36,7 @@ export class PopularGitClients{
             imageUrl:"https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2019/05/GitKraken-logo.webp",
             website:"https://www.gitkraken.com",
             firstReleaseYear: 2015,
+            iconWidth: 100,
             keyFeatures: [
                 "AI-assisted workflows and GitKraken Insights with DORA metrics",
                 "Beautiful visual interface with drag-and-drop operations",

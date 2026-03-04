@@ -78,21 +78,21 @@ export function PageChild(){
           <div className='col-sm-12 col-md-9 d-flex justify-content-center'>
               <Carousel className='text-center w-100'>
                 <CarouselItem interval={3000} className='w-100 text-center'>
-                  <ExampleCarouselImage text="First slide" src={graphImage.src} />
+                  <ExampleCarouselImage text="LithiumGit interactive graph view - visualize Git commit history" src={graphImage.src} />
                   {/* <CarouselCaption className='text-danger'>
                     <h3>Interactive Graph</h3>
                     <p>Do your most regular git actions without hassle.</p>
                   </CarouselCaption> */}
                 </CarouselItem>
                 <CarouselItem interval={3000} className='w-100 text-center'>
-                  <ExampleCarouselImage text="Second slide" src={changesImage.src} />
+                  <ExampleCarouselImage text="LithiumGit local changes view - stage files and write commits" src={changesImage.src} />
                   {/* <CarouselCaption>
                     <h3>Second slide label</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                   </CarouselCaption> */}
                 </CarouselItem>
                 <CarouselItem interval={3000} className='w-100 text-center'>
-                  <ExampleCarouselImage text="Third slide" src={commitsImage.src} />
+                  <ExampleCarouselImage text="LithiumGit commits list with search and filter" src={commitsImage.src} />
                   {/* <CarouselCaption>
                     <h3>Third slide label</h3>
                     <p>
@@ -101,7 +101,7 @@ export function PageChild(){
                   </CarouselCaption> */}
                 </CarouselItem>
                 <CarouselItem interval={3000} className='w-100 text-center'>
-                  <ExampleCarouselImage text="Third slide" src={stashImage.src} />
+                  <ExampleCarouselImage text="LithiumGit stash management view" src={stashImage.src} />
                   {/* <CarouselCaption>
                     <h3>Third slide label</h3>
                     <p>
@@ -116,7 +116,7 @@ export function PageChild(){
           <div className='w-100 text-center'>
             <h3>LithiumGit at a glance</h3>
             <div className='pt-2'>
-              <img src={graphIcon.src} className='w-75' style={{height:'auto'}} alt="graph icon" />
+              <img src={graphIcon.src} className='w-75' style={{height:'auto'}} alt="LithiumGit interactive graph view showing Git commit history" />
             </div>
             <div className='d-flex justify-content-center'>
               <p className='w-75'>
@@ -128,7 +128,7 @@ export function PageChild(){
             <div className='py-5' />
 
             <div className='pt-2'>
-              <img src={changesIcon.src} className='w-75' style={{height:'auto'}} alt="graph icon" />
+              <img src={changesIcon.src} className='w-75' style={{height:'auto'}} alt="LithiumGit local changes view for staging files and committing" />
             </div>
             <div className='d-flex justify-content-center'>
               <p className='w-75'>
@@ -139,7 +139,7 @@ export function PageChild(){
             <div className='py-5' />
 
             <div className='pt-2'>
-              <img src={commitsIcon.src} className='w-75' style={{height:'auto'}} alt="graph icon" />
+              <img src={commitsIcon.src} className='w-75' style={{height:'auto'}} alt="LithiumGit commits list view with search and filter" />
             </div>
             <div className='d-flex justify-content-center'>
               <p className='w-75'>
@@ -150,7 +150,7 @@ export function PageChild(){
             <div className='py-5' />
 
             <div className='pt-2'>
-              <img src={stashesIcon.src} className='w-75' style={{height:'auto'}} alt="graph icon" />
+              <img src={stashesIcon.src} className='w-75' style={{height:'auto'}} alt="LithiumGit stash management view - pop, apply and delete stashes" />
             </div>
             <div className='d-flex justify-content-center'>
               <p className='w-75'>

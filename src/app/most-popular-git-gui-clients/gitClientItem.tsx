@@ -8,10 +8,11 @@ interface IProps{
     website:string;
     keyFeatures?:string[];
     firstReleaseYear?:number;
+    iconWidth?:number;
 }
 export function GitClientItem(props:IProps){
     return <li>
-    {!!props.imageUrl && <img width={30} height={'auto'}
+    {!!props.imageUrl && <img width={props.iconWidth || 30} height={'auto'}
       src={props.imageUrl}
       alt={`${props.title} logo`}
     />}

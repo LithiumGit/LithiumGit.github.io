@@ -12,6 +12,15 @@ import { IMetadataParams } from '../../lib/interfaces';
 
 export function generateMetadata(args: IMetadataParams){
     const data = UiUtils.getCommonHeaderInfo(args,"about");
+    data.title = "About LithiumGit | Free Open-Source Git GUI Client";
+    data.description = "Meet the team behind LithiumGit, the free open-source Git GUI client for Windows, Mac, and Linux. Learn about our mission, contributors, and how you can get involved.";
+    data.openGraph!.title = "About LithiumGit | Free Open-Source Git GUI Client";
+    data.openGraph!.description = "Meet the team behind LithiumGit, the free open-source Git GUI client for Windows, Mac, and Linux. Learn about our mission, contributors, and how you can get involved.";
+    (data as any).twitter = {
+        ...(data as any).twitter,
+        title: "About LithiumGit | Free Open-Source Git GUI Client",
+        description: "Meet the team behind LithiumGit — a free open-source Git GUI client. Learn about our contributors and mission.",
+    };
     return data;
 }
 

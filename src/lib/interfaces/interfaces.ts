@@ -7,6 +7,7 @@ export interface IGitClientItem{
     website:string;
     keyFeatures?:string[];
     firstReleaseYear?:number;
+    iconWidth?:number;
 }
 
 type t = { [x: string]: never; };

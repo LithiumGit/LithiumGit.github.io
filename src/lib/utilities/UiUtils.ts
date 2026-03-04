@@ -22,20 +22,27 @@ export class UiUtils{
     }
 
     static getCommonHeaderInfo(args: IMetadataParams,path:string){
-        console.log("args", args);
+        const canonicalUrl = path ? `https://lithiumgit.com/${path}` : 'https://lithiumgit.com/';
         return {
             title:'LithiumGit | The most powerful Git client application.',
-            description:'Most popular Git client application. LithiumGit is a Git client or GUI application which provide a user friendly interface to perform git related functionalities graphically.LithiumGit is origin independent application. That means it can be used for any git project having any origin platform such as Github, GitLab, BitBucket,Gerrit or others. The most useful feature of LithiumGit which a user may find is the graph view. In graph view the overall state of change history can be viewed. From the graph view user can easily view the changes of any commit, do merge, rebase, cherry-pick, create branch and more other functionalities.',
-            keywords:'LithiumGit,Git client,Git GUI, Desktop application,Cross platform Git client appliction,Cross platform Git GUI appliction',
+            description:'LithiumGit is a free, cross-platform Git GUI client for Windows, Mac, and Linux. Visualize your Git history, manage branches, merge, rebase, cherry-pick, and more — no command line needed.',
+            keywords:'LithiumGit, Git client, Git GUI, Git desktop application, cross-platform Git client, free Git GUI, Git GUI for Windows, Git GUI for Mac, Git GUI for Linux',
             openGraph: {
                 images: 'https://github.com/LithiumGit/LithiumGit.github.io/releases/download/v1.0.0/icon.png',
                 title:'LithiumGit | The most powerful Git client application.',
-                description:'Most popular Git client application. LithiumGit is a Git client or GUI application which provide a user friendly interface to perform git related functionalities graphically.',
-                url:'https://lithiumgit.github.io',
+                description:'LithiumGit is a free, cross-platform Git GUI client for Windows, Mac, and Linux. Visualize your Git history, manage branches, merge, rebase, cherry-pick, and more — no command line needed.',
+                url: canonicalUrl,
                 type:'website',
+                locale: 'en_US',
+            },
+            twitter: {
+                card: 'summary_large_image',
+                title:'LithiumGit | The most powerful Git client application.',
+                description:'LithiumGit is a free, cross-platform Git GUI client for Windows, Mac, and Linux. Visualize your Git history, manage branches, merge, rebase, cherry-pick, and more.',
+                images: ['https://github.com/LithiumGit/LithiumGit.github.io/releases/download/v1.0.0/icon.png'],
             },
             alternates: {
-                canonical: 'https://lithiumgit.com/'+path,
+                canonical: canonicalUrl,
             },
         } as Metadata;
     }
