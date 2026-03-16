@@ -11,7 +11,9 @@ export function MacInstallationStepsComponent(){
         <div className='pt-3'>
             <img className='step-img' src={inst1.src} alt="step1" />
             <h5>-Drag and drop to application</h5>
-        </div>        
+        </div> 
+        <p><strong>NB:</strong>The application might be blocked by macOS security settings because code signing is not added. If this happens, run the command below in the terminal:</p>
+        <pre><code>xattr -rd com.apple.quarantine /Applications/LithiumGit.app</code></pre>
     </div>
 </div>
 }
