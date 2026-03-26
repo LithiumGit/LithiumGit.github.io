@@ -1,3 +1,4 @@
+import { Config } from '../../config';
 import { PopularGitClients } from '../../lib/constants/PopularGitClients';
 import { IMetadataParams } from '../../lib/interfaces';
 import { UiUtils } from '../../lib/utilities/UiUtils';
@@ -9,7 +10,7 @@ import { FaqSection } from './faqSection';
 
 const PAGE_URL = "https://lithiumgit.com/most-popular-git-gui-clients";
 const DATE_PUBLISHED = "2025-01-01";
-const DATE_MODIFIED = "2026-03-26";
+const DATE_MODIFIED = Config.PublishedDate;
 
 const itemListSchema = {
     "@context": "https://schema.org",
