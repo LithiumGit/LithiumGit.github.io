@@ -34,7 +34,7 @@ export class PopularGitClients{
         {
             name:"GitKraken",
             description:"GitKraken Desktop is a premium cross-platform Git GUI client that simplifies version control for developers and teams on Windows, Mac, and Linux. This powerful Git management tool features AI-assisted workflows, GitKraken Insights for engineering intelligence, and comprehensive DORA metrics tracking. With its stunning visual interface, GitKraken offers intuitive drag-and-drop commit management, cherry-picking, squashing, and interactive rebase capabilities. Built-in integrations with GitHub, GitLab, Bitbucket, Jira, and Trello make it perfect for agile development teams. Advanced features include predictive merge conflict detection and resolution, Git LFS support, GitFlow automation, submodules management, and real-time collaboration tools. GitKraken includes GitLens for VS Code IDE integration and GitKraken CLI for terminal users, providing a complete DevEx platform with AI-powered code insights, developer productivity analytics, and comprehensive Git learning resources. Ideal for solo developers and enterprise teams seeking enhanced Git workflow efficiency.",
-            price:"Free on public repos, Pro $4.95 per user, Teams $8.95 per user, Enterprise $18.95 per user",
+            price:"Free on public repos, paid plans for Pro, Teams, and Enterprise",
             os:"Windows, Mac, & Linux",
             imageUrl:"https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2019/05/GitKraken-logo.webp",
             website:"https://www.gitkraken.com",
@@ -79,7 +79,7 @@ export class PopularGitClients{
         },        
         {
             name:"Fork",
-            description:"Fork is a fast, lightweight, and elegant Git client for Mac and Windows that combines speed with powerful functionality. This Git GUI features an exceptional side-by-side diff viewer supporting text and image comparisons, making code review efficient and intuitive. Fork excels in complex Git operations with its visual interactive rebase tool for editing, reordering, and squashing commits, advanced merge conflict resolver with built-in helper, and comprehensive blame and history views for tracking file changes at line-level detail. The application supports essential Git workflows including fetch, pull, push, commit, amend, branching, tagging, cherry-picking, reverting, merging, rebasing, stashing, and submodules management. Fork's clean, customizable interface offers dark mode, repository manager with quick access to recent projects, staging and unstaging at line-level precision, Git-flow automation, Git LFS support, and reflog for recovering lost commits. With free evaluation and one-time purchase pricing at $59.99, Fork delivers professional Git management without subscription fees, making it ideal for individual developers and small teams seeking a polished, efficient Git desktop client.",
+            description:"Fork is a fast, lightweight, and elegant Git client for Mac and Windows that combines speed with powerful functionality. This Git GUI features an exceptional side-by-side diff viewer supporting text and image comparisons, making code review efficient and intuitive. Fork excels in complex Git operations with its visual interactive rebase tool for editing, reordering, and squashing commits, advanced merge conflict resolver with built-in helper, and comprehensive blame and history views for tracking file changes at line-level detail. The application supports essential Git workflows including fetch, pull, push, commit, amend, branching, tagging, cherry-picking, reverting, merging, rebasing, stashing, and submodules management. Fork's clean, customizable interface offers dark mode, repository manager with quick access to recent projects, staging and unstaging at line-level precision, Git-flow automation, Git LFS support, and reflog for recovering lost commits. With free evaluation and a one-time purchase, Fork delivers professional Git management without subscription fees, making it ideal for individual developers and small teams seeking a polished, efficient Git desktop client.",
             price:"Free",
             os:"Windows, Mac",
             imageUrl:"https://git-fork.com/images/logo5.png",
@@ -92,11 +92,11 @@ export class PopularGitClients{
                 "Line-level staging and unstaging precision",
                 "Dark mode and customizable interface",
                 "Git-flow automation and Git LFS support",
-                "One-time purchase at $59.99 (no subscription)"
+                "One-time purchase (no subscription)"
             ],
             bestFor: "Best Git desktop application for power users who hate subscription pricing",
             pros: ["Blazing fast even on large repositories", "One-time payment (no subscription)", "Exceptional diff viewer", "Drag-and-drop interactive rebase"],
-            cons: ["No Linux support", "No free tier (evaluation only)", "Steeper learning curve than beginners\u2019 tools"]
+            cons: ["No Linux support", "No free tier (paid license required)", "Steeper learning curve than beginners\u2019 tools"]
         },
         {
             name:"Sourcetree",
@@ -138,7 +138,7 @@ export class PopularGitClients{
             ],
             bestFor: "Best professional Git desktop application for enterprise teams and Mac/Windows users",
             pros: ["Extremely polished interface", "Undo any Git operation", "Excellent documentation and support", "Stacked pull requests support"],
-            cons: ["Most expensive option ($69/year)", "No Linux support", "Subscription only"]
+            cons: ["Premium pricing", "No Linux support", "Subscription only"]
         },
         {
             name:"GitHub Desktop",
