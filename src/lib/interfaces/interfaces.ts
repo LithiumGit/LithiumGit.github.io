@@ -8,6 +8,9 @@ export interface IGitClientItem{
     keyFeatures?:string[];
     firstReleaseYear?:number;
     iconWidth?:number;
+    bestFor?:string;
+    pros?:string[];
+    cons?:string[];
 }
 
 type t = { [x: string]: never; };
