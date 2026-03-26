@@ -10,7 +10,7 @@ export function Description() {
                 committing, branching, merging, and conflict resolution far more intuitive.
             </p>
             <p>
-                In this guide, we compare the <strong>best Git desktop applications of 2026</strong>, covering features,
+                In this guide, we compare the <strong>best Git desktop applications of {new Date().getFullYear()}</strong>, covering features,
                 platform support (Windows, Mac, Linux), pricing, and who each tool is best suited for — so you can
                 quickly find the right <strong>Git GUI client</strong> for your workflow.
             </p>

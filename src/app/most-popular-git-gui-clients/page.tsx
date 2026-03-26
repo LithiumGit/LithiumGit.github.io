@@ -11,12 +11,13 @@ import { FaqSection } from './faqSection';
 const PAGE_URL = "https://lithiumgit.com/most-popular-git-gui-clients";
 const DATE_PUBLISHED = "2025-01-01";
 const DATE_MODIFIED = Config.PublishedDate;
+const CURRENT_YEAR = new Date().getFullYear();
 
 const itemListSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    "name": "Best Git Desktop Applications in 2026",
-    "description": "A comparison of the best Git desktop applications in 2026, including LithiumGit, GitKraken, Sourcetree, Fork, TortoiseGit, Tower, and GitHub Desktop.",
+    "name": `Best Git Desktop Applications in ${CURRENT_YEAR}`,
+    "description": `A comparison of the best Git desktop applications in ${CURRENT_YEAR}, including LithiumGit, GitKraken, Sourcetree, Fork, TortoiseGit, Tower, and GitHub Desktop.`,
     "url": PAGE_URL,
     "numberOfItems": 7,
     "itemListElement": PopularGitClients.list.map((client, i) => ({
@@ -31,8 +32,8 @@ const itemListSchema = {
 const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "Best Git Desktop Applications in 2026 | Top Git GUI Clients Compared",
-    "description": "Compare the best Git desktop applications and GUI clients of 2026: LithiumGit, GitKraken, Sourcetree, Fork, TortoiseGit, Tower, and GitHub Desktop. Find the right Git app for your workflow.",
+    "headline": `Best Git Desktop Applications in ${CURRENT_YEAR} | Top Git GUI Clients Compared`,
+    "description": `Compare the best Git desktop applications and GUI clients of ${CURRENT_YEAR}: LithiumGit, GitKraken, Sourcetree, Fork, TortoiseGit, Tower, and GitHub Desktop. Find the right Git app for your workflow.`,
     "url": PAGE_URL,
     "datePublished": DATE_PUBLISHED,
     "dateModified": DATE_MODIFIED,
@@ -105,15 +106,15 @@ const faqSchema = {
 
 export function generateMetadata(args: IMetadataParams) {
     const data = UiUtils.getCommonHeaderInfo(args,"most-popular-git-gui-clients");
-    data.title = "Best Git Desktop Applications in 2026 | Top Git GUI Clients Compared";
-    data.description = "Compare the best Git desktop applications of 2026: LithiumGit, GitKraken, Sourcetree, Fork, TortoiseGit, Tower, and GitHub Desktop. Find the right Git GUI client for Windows, Mac, or Linux.";
-    data.keywords = "best git desktop applications, best Git GUI clients 2026, top Git clients, Git desktop app, free Git GUI, Git GUI for Windows, Git GUI for Mac, Git GUI for Linux, LithiumGit vs GitKraken, Git client comparison 2026";
-    data.openGraph!.title = "Best Git Desktop Applications in 2026 | Top Git GUI Clients Compared";
-    data.openGraph!.description = "Compare the best Git desktop applications of 2026: LithiumGit, GitKraken, Sourcetree, Fork, TortoiseGit, Tower, and GitHub Desktop. Find the right one for your workflow.";
+    data.title = `Best Git Desktop Applications in ${CURRENT_YEAR} | Top Git GUI Clients Compared`;
+    data.description = `Compare the best Git desktop applications of ${CURRENT_YEAR}: LithiumGit, GitKraken, Sourcetree, Fork, TortoiseGit, Tower, and GitHub Desktop. Find the right Git GUI client for Windows, Mac, or Linux.`;
+    data.keywords = `best git desktop applications, best Git GUI clients ${CURRENT_YEAR}, top Git clients, Git desktop app, free Git GUI, Git GUI for Windows, Git GUI for Mac, Git GUI for Linux, LithiumGit vs GitKraken, Git client comparison ${CURRENT_YEAR}`;
+    data.openGraph!.title = `Best Git Desktop Applications in ${CURRENT_YEAR} | Top Git GUI Clients Compared`;
+    data.openGraph!.description = `Compare the best Git desktop applications of ${CURRENT_YEAR}: LithiumGit, GitKraken, Sourcetree, Fork, TortoiseGit, Tower, and GitHub Desktop. Find the right one for your workflow.`;
     (data as any).twitter = {
         ...(data as any).twitter,
-        title: "Best Git Desktop Applications in 2026 | Top Git GUI Clients Compared",
-        description: "Compare the top Git desktop applications of 2026 — LithiumGit, GitKraken, Sourcetree, Fork, TortoiseGit, Tower, and GitHub Desktop.",
+        title: `Best Git Desktop Applications in ${CURRENT_YEAR} | Top Git GUI Clients Compared`,
+        description: `Compare the top Git desktop applications of ${CURRENT_YEAR} — LithiumGit, GitKraken, Sourcetree, Fork, TortoiseGit, Tower, and GitHub Desktop.`,
     };
     return data;
 }
@@ -133,13 +134,13 @@ export default function GitClients(){
             dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
         <div className="content bg-second-color">
-            <h1>Best Git Desktop Applications in 2026: Top Git GUI Clients Compared</h1>
+            <h1>Best Git Desktop Applications in {CURRENT_YEAR}: Top Git GUI Clients Compared</h1>
             <p>Looking for the <strong>best Git desktop application</strong> to streamline your workflow?
                 Whether you are a beginner or an experienced developer, the right <strong>Git GUI client</strong> can
                 transform how you manage branches, resolve merge conflicts, and visualize your project history —
                 all without needing to memorize command-line syntax.
             </p>
-            <p>We tested and ranked the <strong>top Git desktop apps of 2026</strong> across Windows, Mac, and Linux
+            <p>We tested and ranked the <strong>top Git desktop apps of {CURRENT_YEAR}</strong> across Windows, Mac, and Linux
                 to help you pick the one that best fits your workflow.
             </p>
             <Description />
