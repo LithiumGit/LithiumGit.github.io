@@ -1,7 +1,7 @@
 export function Comparision(){
     return (
       <div>
-        <h2>Best Git Desktop Applications — Quick Comparison</h2>
+        <h2 className="pt-5">Best Git Desktop Applications — Quick Comparison</h2>
         <table className="comparison-table">
           <thead>
             <tr>

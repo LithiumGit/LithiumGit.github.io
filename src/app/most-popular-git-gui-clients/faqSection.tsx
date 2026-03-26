@@ -35,7 +35,7 @@ const faqs = [
 
 export function FaqSection() {
     return (
-        <section className="faq-section">
+        <section className="faq-section pt-5">
             <h2>Frequently Asked Questions About Git Desktop Applications</h2>
             <dl>
                 {faqs.map((faq, i) => (

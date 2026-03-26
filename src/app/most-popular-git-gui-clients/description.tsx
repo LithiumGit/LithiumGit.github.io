@@ -1,6 +1,6 @@
 export function Description() {
     return (
-        <div className="page-description">
+        <div className="page-description pt-4">
             <h2>Why Use a Git Desktop Application?</h2>
             <p>
                 <strong>Git</strong> is the world&apos;s most widely used version control system, and for good reason —
@@ -15,7 +15,7 @@ export function Description() {
                 quickly find the right <strong>Git GUI client</strong> for your workflow.
             </p>
 
-            <h2>What to Look for in a Git Desktop Application</h2>
+            <h2 className="pt-4">What to Look for in a Git Desktop Application</h2>
             <ul>
                 <li><strong>Cross-platform support</strong> — Windows, Mac, and Linux availability</li>
                 <li><strong>Visual history &amp; branch graph</strong> — An interactive commit graph for understanding repository history at a glance</li>
