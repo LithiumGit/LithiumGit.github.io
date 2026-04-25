@@ -142,6 +142,40 @@
         }
     }
 
+    .cli-block {
+        background: #1e1e1e;
+        border-radius: 8px;
+        padding: 16px 20px;
+        margin: 20px 0;
+        overflow-x: auto;
+
+        .cli-label {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #888;
+            margin-bottom: 10px;
+        }
+
+        pre {
+            margin: 0;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: #d4d4d4;
+            white-space: pre;
+
+            .cli-comment {
+                color: #6a9955;
+            }
+
+            .cli-cmd {
+                color: #9cdcfe;
+            }
+        }
+    }
+
     .faq-section {
         margin-top: 48px;
 

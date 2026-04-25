@@ -222,6 +222,18 @@ export default function GitRebaseVsMerge() {
                         </div>
                     </div>
 
+                    <h3>Equivalent Git CLI commands</h3>
+                    <div className="cli-block">
+                        <span className="cli-label">Terminal</span>
+                        <pre>
+                            <span className="cli-comment">{`# Switch to the branch you want to merge INTO`}</span>{`
+`}<span className="cli-cmd">{`git checkout development`}</span>{`
+
+`}<span className="cli-comment">{`# Merge master into development (--no-ff ensures a merge commit is always created)`}</span>{`
+`}<span className="cli-cmd">{`git merge --no-ff master`}</span>
+                        </pre>
+                    </div>
+
                     <h3>After the merge is finalised</h3>
                     <p>
                         Once confirmed, a new merge commit appears joining the two lines of history. The full commit
@@ -283,6 +295,18 @@ export default function GitRebaseVsMerge() {
                             alt="Right-clicking a branch in LithiumGit to trigger the rebase action"
                         />
                         <p className="image-caption">Right-click the target branch → Rebase</p>
+                    </div>
+
+                    <h3>Equivalent Git CLI commands</h3>
+                    <div className="cli-block">
+                        <span className="cli-label">Terminal</span>
+                        <pre>
+                            <span className="cli-comment">{`# Switch to the branch you want to rebase (your feature/working branch)`}</span>{`
+`}<span className="cli-cmd">{`git checkout development`}</span>{`
+
+`}<span className="cli-comment">{`# Rebase development onto master`}</span>{`
+`}<span className="cli-cmd">{`git rebase master`}</span>
+                        </pre>
                     </div>
 
                     <h3>After the rebase</h3>
@@ -400,6 +424,29 @@ export default function GitRebaseVsMerge() {
                         This approach gives you the best of both worlds: a clean, rebased history during development,
                         and a clear merge event recorded when the feature lands in master.
                     </p>
+                    <div className="cli-block">
+                        <span className="cli-label">Terminal — full workflow</span>
+                        <pre>
+                            <span className="cli-comment">{`# 1. Create a feature branch from master`}</span>{`
+`}<span className="cli-cmd">{`git checkout master`}</span>{`
+`}<span className="cli-cmd">{`git checkout -b feature/my-feature`}</span>{`
+
+`}<span className="cli-comment">{`# 2. Do your work and commit...`}</span>{`
+`}<span className="cli-cmd">{`git add .`}</span>{`
+`}<span className="cli-cmd">{`git commit -m "Add my feature"`}</span>{`
+
+`}<span className="cli-comment">{`# 3. When master has moved forward, rebase your branch onto it`}</span>{`
+`}<span className="cli-cmd">{`git fetch origin`}</span>{`
+`}<span className="cli-cmd">{`git rebase origin/master`}</span>{`
+
+`}<span className="cli-comment">{`# 4. Push and open a pull request (force-push needed after rebase)`}</span>{`
+`}<span className="cli-cmd">{`git push origin feature/my-feature --force-with-lease`}</span>{`
+
+`}<span className="cli-comment">{`# 5. Once the PR is approved, merge into master`}</span>{`
+`}<span className="cli-cmd">{`git checkout master`}</span>{`
+`}<span className="cli-cmd">{`git merge --no-ff feature/my-feature`}</span>
+                        </pre>
+                    </div>
                 </section>
 
                 {/* ── FAQ ── */}
