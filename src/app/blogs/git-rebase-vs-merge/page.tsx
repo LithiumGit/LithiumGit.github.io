@@ -1,7 +1,7 @@
 import { Config } from '../../../config';
 import { IMetadataParams } from '../../../lib/interfaces';
 import { UiUtils } from '../../../lib/utilities/UiUtils';
-import '../../styles/blog.scss';
+import '../../styles/blogs/git_rebase_vs_merge.scss';
 
 import beforeMerge from '../../images/blog/merge/before_merge.PNG';
 import mergeAction from '../../images/blog/merge/merge_action.PNG';
