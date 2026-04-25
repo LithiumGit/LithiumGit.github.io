@@ -46,7 +46,7 @@ const faqSchema = {
             "name": "When should I use git merge instead of git rebase?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Use git merge when integrating feature branches into main/master, when working in a team where others share the same branch, or when you want to preserve the exact history of when and how branches diverged."
+                "text": "Use git merge when integrating feature branches into master, when working in a team where others share the same branch, or when you want to preserve the exact history of when and how branches diverged."
             }
         },
         {
@@ -54,7 +54,7 @@ const faqSchema = {
             "name": "When should I use git rebase instead of git merge?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Use git rebase to update a feature branch with the latest changes from main before merging, to clean up a messy local commit history before sharing with the team, or when you prefer a linear, readable project history."
+                "text": "Use git rebase to update a feature branch with the latest changes from master before merging, to clean up a messy local commit history before sharing with the team, or when you prefer a linear, readable project history."
             }
         },
         {
@@ -140,7 +140,7 @@ export default function GitRebaseVsMerge() {
                 <section className="blog-section">
                     <h2>Git Merge — Preserving History</h2>
                     <p>
-                        When you run <code>git merge feature</code> from <code>main</code>, Git finds the common
+                        When you run <code>git merge feature</code> from <code>master</code>, Git finds the common
                         ancestor of both branches and creates a new <strong>merge commit</strong> with two parents.
                         Every original commit on the feature branch remains exactly intact.
                     </p>
@@ -148,7 +148,7 @@ export default function GitRebaseVsMerge() {
                     <h3>What the graph looks like before merging</h3>
                     <p>
                         Below you can see two diverged branches in LithiumGit&apos;s interactive graph. The
-                        <code> feature</code> branch has commits that are ahead of <code>main</code>.
+                        <code> feature</code> branch has commits that are ahead of <code>master</code>.
                     </p>
                     <div className="blog-image-block">
                         <img
@@ -208,10 +208,10 @@ export default function GitRebaseVsMerge() {
                 <section className="blog-section">
                     <h2>Git Rebase — A Clean, Linear History</h2>
                     <p>
-                        When you run <code>git rebase main</code> from your <code>feature</code> branch, Git takes
+                        When you run <code>git rebase master</code> from your <code>feature</code> branch, Git takes
                         each commit on your branch, detaches them, and replays them one-by-one on top of the latest
-                        commit in <code>main</code>. The result looks as if you started working from the very tip of
-                        main — no merge commit, no diamond, just a straight line.
+                        commit in <code>master</code>. The result looks as if you started working from the very tip of
+                        master — no merge commit, no diamond, just a straight line.
                     </p>
                     <p>
                         <strong>Important:</strong> because each commit is replayed, it gets a brand-new commit hash.
@@ -222,19 +222,19 @@ export default function GitRebaseVsMerge() {
                     <h3>Before rebasing</h3>
                     <p>
                         The graph below shows the same diverged state as before — the feature branch has commits
-                        that were made while main moved forward.
+                        that were made while master moved forward.
                     </p>
                     <div className="blog-image-block">
                         <img
                             src={beforeRebase.src}
                             alt="LithiumGit graph view showing two branches before rebasing"
                         />
-                        <p className="image-caption">LithiumGit graph — feature branch is behind main, ready to rebase</p>
+                        <p className="image-caption">LithiumGit graph — feature branch is behind master, ready to rebase</p>
                     </div>
 
                     <h3>Initiating a rebase in LithiumGit</h3>
                     <p>
-                        Right-click the target branch (e.g. <code>main</code>) in LithiumGit&apos;s graph and select
+                        Right-click the target branch (e.g. <code>master</code>) in LithiumGit&apos;s graph and select
                         <strong> Rebase</strong>. LithiumGit will replay your current branch&apos;s commits on top of it.
                     </p>
                     <div className="blog-image-block">
@@ -247,7 +247,7 @@ export default function GitRebaseVsMerge() {
 
                     <h3>After the rebase</h3>
                     <p>
-                        The feature branch commits have been replayed on top of <code>main</code>. The graph is now
+                        The feature branch commits have been replayed on top of <code>master</code>. The graph is now
                         perfectly linear — no merge commit, no fork shape, just a straight line of commits.
                     </p>
                     <div className="blog-image-block">
@@ -312,7 +312,7 @@ export default function GitRebaseVsMerge() {
                             </tr>
                             <tr>
                                 <td>Best for</td>
-                                <td>Integrating feature branches into main</td>
+                                <td>Integrating feature branches into master</td>
                                 <td>Updating a local branch before merging</td>
                             </tr>
                         </tbody>
@@ -323,7 +323,7 @@ export default function GitRebaseVsMerge() {
                 <section className="blog-section">
                     <h2>When to Use Git Merge</h2>
                     <ul>
-                        <li>Merging a completed <strong>feature branch into main</strong> — this is the most common use case</li>
+                        <li>Merging a completed <strong>feature branch into master</strong> — this is the most common use case</li>
                         <li>When you want to <strong>preserve an accurate record</strong> of when branches were integrated</li>
                         <li>On <strong>shared or public branches</strong> that other developers are also using</li>
                         <li>When the team follows a <strong>GitFlow</strong> or similar branch-based workflow</li>
@@ -331,7 +331,7 @@ export default function GitRebaseVsMerge() {
 
                     <h2>When to Use Git Rebase</h2>
                     <ul>
-                        <li><strong>Updating your local feature branch</strong> with the latest commits from main before opening a pull request</li>
+                        <li><strong>Updating your local feature branch</strong> with the latest commits from master before opening a pull request</li>
                         <li>Cleaning up a <strong>messy local commit history</strong> (with interactive rebase) before sharing with the team</li>
                         <li>When your team prefers a <strong>linear commit history</strong> in the project log</li>
                         <li>On branches that <strong>only you are working on</strong> and have not yet pushed publicly</li>
@@ -350,15 +350,15 @@ export default function GitRebaseVsMerge() {
                     <h2>A Practical Workflow Using Both</h2>
                     <p>Many teams combine merge and rebase in a single workflow:</p>
                     <ol>
-                        <li>Create a <code>feature</code> branch from <code>main</code> and do your work</li>
-                        <li>When <code>main</code> has moved forward, <strong>rebase your feature branch onto main</strong> to pull in the latest changes and keep your branch up to date</li>
+                        <li>Create a <code>feature</code> branch from <code>master</code> and do your work</li>
+                        <li>When <code>master</code> has moved forward, <strong>rebase your feature branch onto master</strong> to pull in the latest changes and keep your branch up to date</li>
                         <li>Resolve any conflicts that arise during the rebase</li>
                         <li>Open a pull request — because your branch was rebased, it will fast-forward cleanly</li>
-                        <li><strong>Merge the pull request</strong> into main (with or without a merge commit, depending on your team preference)</li>
+                        <li><strong>Merge the pull request</strong> into master (with or without a merge commit, depending on your team preference)</li>
                     </ol>
                     <p>
                         This approach gives you the best of both worlds: a clean, rebased history during development,
-                        and a clear merge event recorded when the feature lands in main.
+                        and a clear merge event recorded when the feature lands in master.
                     </p>
                 </section>
 
@@ -373,11 +373,11 @@ export default function GitRebaseVsMerge() {
                             },
                             {
                                 q: "When should I use git merge instead of git rebase?",
-                                a: "Use git merge when integrating feature branches into main/master, when working in a team where others share the same branch, or when you want to preserve the exact history of when and how branches diverged."
+                                a: "Use git merge when integrating feature branches into master, when working in a team where others share the same branch, or when you want to preserve the exact history of when and how branches diverged."
                             },
                             {
                                 q: "When should I use git rebase instead of git merge?",
-                                a: "Use git rebase to update a feature branch with the latest changes from main before merging, to clean up a messy local commit history before sharing with the team, or when you prefer a linear, readable project history."
+                                a: "Use git rebase to update a feature branch with the latest changes from master before merging, to clean up a messy local commit history before sharing with the team, or when you prefer a linear, readable project history."
                             },
                             {
                                 q: "Does git rebase rewrite history?",
