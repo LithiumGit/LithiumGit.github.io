@@ -3,13 +3,13 @@ import { IMetadataParams } from '../../../lib/interfaces';
 import { UiUtils } from '../../../lib/utilities/UiUtils';
 import '../../styles/blogs/git_rebase_vs_merge.scss';
 
-import beforeMerge from '../../images/blog/merge/before_merge.PNG';
-import mergeAction from '../../images/blog/merge/merge_action.PNG';
-import afterMergePreview from '../../images/blog/merge/after_merge_preview.PNG';
-import afterMergeFinalised from '../../images/blog/merge/after_merge_finalised.PNG';
-import beforeRebase from '../../images/blog/rebase/before_rebase.PNG';
-import rebaseAction from '../../images/blog/rebase/rebase_action.PNG';
-import afterRebase from '../../images/blog/rebase/after_rebase.PNG';
+import beforeMerge from '../../images/blog/merge/before_merge.png';
+import mergeAction from '../../images/blog/merge/merge_action.png';
+import afterMergePreview from '../../images/blog/merge/after_merge_preview.png';
+import afterMergeFinalised from '../../images/blog/merge/after_merge_finalised.png';
+import beforeRebase from '../../images/blog/rebase/before_rebase.png';
+import rebaseAction from '../../images/blog/rebase/rebase_action.png';
+import afterRebase from '../../images/blog/rebase/after_rebase.png';
 
 const PAGE_URL = "https://lithiumgit.com/blogs/git-rebase-vs-merge";
 const DATE_PUBLISHED = "2026-04-25";
