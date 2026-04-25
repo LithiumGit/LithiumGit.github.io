@@ -33,7 +33,7 @@ export function Comparision(){
             <tr>
               <td>Fork</td>
               <td>Windows, Mac</td>
-              <td>Free (eval) / $59.99</td>
+              <td>Free (eval) / Paid</td>
               <td>Best Git desktop app for power users</td>
             </tr>
             <tr>
@@ -45,7 +45,7 @@ export function Comparision(){
             <tr>
               <td>Tower</td>
               <td>Mac, Windows</td>
-              <td>$69/year</td>
+              <td>Paid</td>
               <td>Best professional/enterprise Git client</td>
             </tr>
             <tr>
