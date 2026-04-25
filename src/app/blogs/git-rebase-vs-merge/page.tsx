@@ -208,7 +208,7 @@ export default function GitRebaseVsMerge() {
                 <section className="blog-section">
                     <h2>Git Rebase — A Clean, Linear History</h2>
                     <p>
-                        When you run <code>git rebase master</code> from your <code>feature</code> branch, Git takes
+                        When you do <code>git rebase master</code> from your <code>feature</code> branch, Git takes
                         each commit on your branch, detaches them, and replays them one-by-one on top of the latest
                         commit in <code>master</code>. The result looks as if you started working from the very tip of
                         master — no merge commit, no diamond, just a straight line.
@@ -221,8 +221,7 @@ export default function GitRebaseVsMerge() {
 
                     <h3>Before rebasing</h3>
                     <p>
-                        The graph below shows the same diverged state as before — we are checked out to
-                        <code>development</code>, which has commits that were made while <code>master</code> moved forward.
+                        The graph below shows the same diverged state as before — we are checked out to <code>development</code>, which has commits that were made while <code>master</code> moved forward.
                     </p>
                     <div className="blog-image-block">
                         <img
@@ -235,7 +234,7 @@ export default function GitRebaseVsMerge() {
                     <h3>Initiating a rebase in LithiumGit</h3>
                     <p>
                         Right-click the target branch (e.g. <code>master</code>) in LithiumGit&apos;s graph and select
-                        <strong> Rebase</strong>. LithiumGit will replay your current branch&apos;s commits on top of it.
+                        <strong> Rebase</strong>. Git will replay your current branch&apos;s commits on top of it(<code>master</code>).
                     </p>
                     <div className="blog-image-block">
                         <img
