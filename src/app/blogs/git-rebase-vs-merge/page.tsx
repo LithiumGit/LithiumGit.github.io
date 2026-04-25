@@ -140,15 +140,15 @@ export default function GitRebaseVsMerge() {
                 <section className="blog-section">
                     <h2>Git Merge — Preserving History</h2>
                     <p>
-                        When you run <code>git merge feature</code> from <code>master</code>, Git finds the common
-                        ancestor of both branches and creates a new <strong>merge commit</strong> with two parents.
-                        Every original commit on the feature branch remains exactly intact.
+                        When you do <code>git merge master</code> into your <code>feature</code> branch, Git finds the common
+                        ancestor of both branches and creates a new <strong>merge commit</strong> at your <code>feature</code> branch with two parents.
+                        Every original commit on both branches remains exactly intact.
                     </p>
 
                     <h3>What the graph looks like before merging</h3>
                     <p>
-                        Below you can see two diverged branches in LithiumGit&apos;s interactive graph. The
-                        <code> feature</code> branch has commits that are ahead of <code>master</code>.
+                        Below you can see two diverged branches in LithiumGit&apos;s interactive graph. We are
+                        currently checked out to the <code>development</code> branch, which has commits that are ahead of <code>master</code>.
                     </p>
                     <div className="blog-image-block">
                         <img
@@ -221,15 +221,15 @@ export default function GitRebaseVsMerge() {
 
                     <h3>Before rebasing</h3>
                     <p>
-                        The graph below shows the same diverged state as before — the feature branch has commits
-                        that were made while master moved forward.
+                        The graph below shows the same diverged state as before — we are checked out to
+                        <code>development</code>, which has commits that were made while <code>master</code> moved forward.
                     </p>
                     <div className="blog-image-block">
                         <img
                             src={beforeRebase.src}
                             alt="LithiumGit graph view showing two branches before rebasing"
                         />
-                        <p className="image-caption">LithiumGit graph — feature branch is behind master, ready to rebase</p>
+                        <p className="image-caption">LithiumGit graph — checked out to development, which is behind master, ready to rebase</p>
                     </div>
 
                     <h3>Initiating a rebase in LithiumGit</h3>
@@ -247,7 +247,7 @@ export default function GitRebaseVsMerge() {
 
                     <h3>After the rebase</h3>
                     <p>
-                        The feature branch commits have been replayed on top of <code>master</code>. The graph is now
+                        The <code>development</code> branch commits have been replayed on top of <code>master</code>. The graph is now
                         perfectly linear — no merge commit, no fork shape, just a straight line of commits.
                     </p>
                     <div className="blog-image-block">
