@@ -19,14 +19,29 @@ const CURRENT_YEAR = new Date().getFullYear();
 const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": PAGE_URL },
     "headline": `Git Rebase vs Merge — What's the Difference and When to Use Each (${CURRENT_YEAR})`,
     "description": "A clear, visual guide explaining the difference between git merge and git rebase, when to use each, and how to perform both operations in LithiumGit.",
     "url": PAGE_URL,
     "datePublished": DATE_PUBLISHED,
     "dateModified": DATE_MODIFIED,
-    "author": { "@type": "Organization", "name": "LithiumGit" },
-    "publisher": { "@type": "Organization", "name": "LithiumGit", "url": "https://lithiumgit.com" },
-    "image": "https://github.com/LithiumGit/LithiumGit.github.io/releases/download/v1.0.0/icon.png",
+    "author": { "@type": "Organization", "name": "LithiumGit", "url": "https://lithiumgit.com" },
+    "publisher": { "@type": "Organization", "name": "LithiumGit", "url": "https://lithiumgit.com", "logo": { "@type": "ImageObject", "url": "https://github.com/LithiumGit/LithiumGit.github.io/releases/download/v1.0.0/icon.png" } },
+    "image": { "@type": "ImageObject", "url": "https://github.com/LithiumGit/LithiumGit.github.io/releases/download/v1.0.0/icon.png", "width": 512, "height": 512 },
+    "articleSection": "Git Tutorials",
+    "keywords": "git rebase vs merge, git merge, git rebase, git tutorial, LithiumGit",
+    "wordCount": 1200,
+    "inLanguage": "en-US",
+};
+
+const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://lithiumgit.com" },
+        { "@type": "ListItem", "position": 2, "name": "Blogs", "item": "https://lithiumgit.com/blogs" },
+        { "@type": "ListItem", "position": 3, "name": "Git Rebase vs Merge", "item": PAGE_URL },
+    ],
 };
 
 const faqSchema = {
@@ -79,15 +94,35 @@ const faqSchema = {
 export function generateMetadata(args: IMetadataParams) {
     const data = UiUtils.getCommonHeaderInfo(args, "blogs/git-rebase-vs-merge");
     data.title = `Git Rebase vs Merge — What's the Difference and When to Use Each (${CURRENT_YEAR})`;
-    data.description = "A clear, visual guide explaining the difference between git merge and git rebase, when to use each, and how to perform both operations in LithiumGit.";
-    data.keywords = `git merge vs rebase, git rebase vs merge, when to use git rebase, when to use git merge, git rebase explained, git merge explained, git rebase tutorial, git merge tutorial, LithiumGit merge, LithiumGit rebase`;
-    data.openGraph!.title = `Git Rebase vs Merge — What's the Difference and When to Use Each`;
-    data.openGraph!.description = "Learn the difference between git merge and git rebase with clear visual examples using LithiumGit. Know exactly when to use each.";
-    (data as any).twitter = {
-        ...(data as any).twitter,
-        title: `Git Rebase vs Merge — What's the Difference and When to Use Each`,
-        description: "Learn the difference between git merge and git rebase with clear visual examples using LithiumGit.",
+    data.description = `Git rebase vs merge explained with clear visual examples in LithiumGit. Learn when to use git merge vs rebase, how each affects your commit history, and which to choose in ${CURRENT_YEAR}.`;
+    data.keywords = `git rebase vs merge, git merge vs rebase, when to use git rebase, when to use git merge, git rebase explained, git merge explained, git rebase tutorial, git merge tutorial, difference between git merge and rebase, git rebase vs merge which is better, git merge commit, git linear history, LithiumGit merge, LithiumGit rebase, git GUI client`;
+    data.openGraph = {
+        ...data.openGraph,
+        title: `Git Rebase vs Merge — What's the Difference and When to Use Each (${CURRENT_YEAR})`,
+        description: `Learn the difference between git merge and git rebase with clear visual examples using LithiumGit. Understand when to use each and how they affect your project history.`,
+        type: 'article',
+        url: PAGE_URL,
+        images: [
+            {
+                url: 'https://github.com/LithiumGit/LithiumGit.github.io/releases/download/v1.0.0/icon.png',
+                width: 512,
+                height: 512,
+                alt: 'LithiumGit — Git Rebase vs Merge Guide',
+            },
+        ],
+        // @ts-ignore
+        publishedTime: DATE_PUBLISHED,
+        modifiedTime: DATE_MODIFIED,
+        section: 'Git Tutorials',
+        tags: ['git rebase', 'git merge', 'git tutorial', 'version control', 'LithiumGit'],
     };
+    (data as any).twitter = {
+        card: 'summary_large_image',
+        title: `Git Rebase vs Merge — What's the Difference and When to Use Each (${CURRENT_YEAR})`,
+        description: `Learn git rebase vs merge with visual examples using LithiumGit. Know exactly when to use each and how they affect your commit history.`,
+        images: ['https://github.com/LithiumGit/LithiumGit.github.io/releases/download/v1.0.0/icon.png'],
+    };
+    (data as any).robots = { index: true, follow: true, googleBot: { index: true, follow: true } };
     return data;
 }
 
@@ -102,19 +137,25 @@ export default function GitRebaseVsMerge() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
             />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+            />
             <div className="content bg-second-color">
 
                 <div className="blog-header">
                     <h1>Git Rebase vs Merge — What&apos;s the Difference and When to Use Each</h1>
-                    <p className="blog-meta">Published {DATE_PUBLISHED} &nbsp;·&nbsp; LithiumGit Team &nbsp;·&nbsp; 8 min read</p>
+                    <p className="blog-meta">Published <time dateTime={DATE_PUBLISHED}>{DATE_PUBLISHED}</time> &nbsp;·&nbsp; LithiumGit Team &nbsp;·&nbsp; 8 min read</p>
                 </div>
 
                 <p className="blog-intro">
                     <strong>Git merge</strong> and <strong>git rebase</strong> are two of the most commonly confused
                     Git operations. Both achieve the same end goal — incorporating changes from one branch into another —
                     but they do it in fundamentally different ways, with very different effects on your project history.
-                    Understanding the difference will make you a more confident developer and help you choose the right
-                    tool for every situation.
+                    Understanding the <strong>difference between git merge and git rebase</strong> will make you a more
+                    confident developer and help you choose the right tool for every situation. The examples below use
+                    <a href="https://lithiumgit.com" rel="noopener"> LithiumGit</a>, a free open-source Git GUI client,
+                    to visualise each operation.
                 </p>
 
                 {/* ── SECTION 1 — THE CORE CONCEPT ── */}
