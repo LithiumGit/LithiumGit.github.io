@@ -13,6 +13,7 @@ import { GraphView } from "./GraphView";
 import { RecentsView } from "./Recents";
 import { SingleMenu } from "./SingleMenu";
 import { StashView } from "./StashView";
+import { FaAngleRight, FaAngleLeft } from "react-icons/fa6";
 
 interface IState{
     menuExpaned:boolean;
@@ -29,16 +30,16 @@ export function PageChild(){
                 <SingleMenu key={m.name} menu={m} />
             ))}
 
-            {state.menuExpaned && <span className="menu-collapse position-absolute text-primary pe-1 h4" style={{top:0,right:0}}
-             onClick={()=> setState({menuExpaned:false})}>&lt;</span>}
+            {state.menuExpaned && <span className="menu-collapse position-absolute pe-1" style={{top:0,right:0}}
+             onClick={()=> setState({menuExpaned:false})}><FaAngleLeft /></span>}
         </div>
-        {!state.menuExpaned && <span className="menus-expand position-absolute h4 text-primary" onClick={()=> setState({menuExpaned:true})}
+        {!state.menuExpaned && <span className="menus-expand position-absolute" onClick={()=> setState({menuExpaned:true})}
         style={{top:Constants.navHeight,left:0
             ,zIndex:ZIndexes.DocsNav}} >
-                &gt;
+                <FaAngleRight />
             </span>}
         <div className={`menus-placeholder ${state.menuExpaned?"d-block":""}`} />
-        <div className="content h-100 overflow-auto ps-3 border-start">
+        <div className="content h-100 overflow-auto border-start">
             <GetStarted />
             <ChangesView />
             <GraphView />
