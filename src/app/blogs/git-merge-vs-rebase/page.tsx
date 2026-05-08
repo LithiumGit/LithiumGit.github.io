@@ -11,7 +11,7 @@ import beforeRebase from '../../images/blog/rebase/before_rebase.png';
 import rebaseAction from '../../images/blog/rebase/rebase_action.png';
 import afterRebase from '../../images/blog/rebase/after_rebase.png';
 
-const PAGE_URL = "https://lithiumgit.com/blogs/git-rebase-vs-merge";
+const PAGE_URL = "https://lithiumgit.com/blogs/git-merge-vs-rebase";
 const DATE_PUBLISHED = "2026-04-25";
 const DATE_MODIFIED = Config.PublishedDate;
 const CURRENT_YEAR = new Date().getFullYear();
@@ -20,7 +20,7 @@ const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
     "mainEntityOfPage": { "@type": "WebPage", "@id": PAGE_URL },
-    "headline": `Git Rebase vs Merge — What's the Difference and When to Use Each (${CURRENT_YEAR})`,
+    "headline": `Git Merge vs Rebase — What's the Difference and When to Use Each (${CURRENT_YEAR})`,
     "description": "A clear, visual guide explaining the difference between git merge and git rebase, when to use each, and how to perform both operations in LithiumGit.",
     "url": PAGE_URL,
     "datePublished": DATE_PUBLISHED,
@@ -29,7 +29,7 @@ const articleSchema = {
     "publisher": { "@type": "Organization", "name": "LithiumGit", "url": "https://lithiumgit.com", "logo": { "@type": "ImageObject", "url": "https://github.com/LithiumGit/LithiumGit.github.io/releases/download/v1.0.0/icon.png" } },
     "image": { "@type": "ImageObject", "url": "https://github.com/LithiumGit/LithiumGit.github.io/releases/download/v1.0.0/icon.png", "width": 512, "height": 512 },
     "articleSection": "Git Tutorials",
-    "keywords": "git rebase vs merge, git merge, git rebase, git tutorial, LithiumGit",
+    "keywords": "git merge vs rebase, git merge, git rebase, git tutorial, LithiumGit",
     "wordCount": 1200,
     "inLanguage": "en-US",
 };
@@ -40,7 +40,7 @@ const breadcrumbSchema = {
     "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://lithiumgit.com" },
         { "@type": "ListItem", "position": 2, "name": "Blogs", "item": "https://lithiumgit.com/blogs" },
-        { "@type": "ListItem", "position": 3, "name": "Git Rebase vs Merge", "item": PAGE_URL },
+        { "@type": "ListItem", "position": 3, "name": "Git Merge vs Rebase", "item": PAGE_URL },
     ],
 };
 
@@ -92,13 +92,13 @@ const faqSchema = {
 };
 
 export function generateMetadata(args: IMetadataParams) {
-    const data = UiUtils.getCommonHeaderInfo(args, "blogs/git-rebase-vs-merge");
-    data.title = `Git Rebase vs Merge — What's the Difference and When to Use Each (${CURRENT_YEAR})`;
-    data.description = `Git rebase vs merge explained with clear visual examples in LithiumGit. Learn when to use git merge vs rebase, how each affects your commit history, and which to choose in ${CURRENT_YEAR}.`;
-    data.keywords = `git rebase vs merge, git merge vs rebase, when to use git rebase, when to use git merge, git rebase explained, git merge explained, git rebase tutorial, git merge tutorial, difference between git merge and rebase, git rebase vs merge which is better, git merge commit, git linear history, LithiumGit merge, LithiumGit rebase, git GUI client`;
+    const data = UiUtils.getCommonHeaderInfo(args, "blogs/git-merge-vs-rebase");
+    data.title = `Git Merge vs Rebase — What's the Difference and When to Use Each (${CURRENT_YEAR})`;
+    data.description = `Git merge vs rebase explained with clear visual examples in LithiumGit. Learn when to use git merge vs rebase, how each affects your commit history, and which to choose in ${CURRENT_YEAR}.`;
+    data.keywords = `git merge vs rebase, git rebase vs merge, when to use git merge, when to use git rebase, git merge explained, git rebase explained, git merge tutorial, git rebase tutorial, difference between git merge and rebase, git merge vs rebase which is better, git merge commit, git linear history, LithiumGit merge, LithiumGit rebase, git GUI client`;
     data.openGraph = {
         ...data.openGraph,
-        title: `Git Rebase vs Merge — What's the Difference and When to Use Each (${CURRENT_YEAR})`,
+        title: `Git Merge vs Rebase — What's the Difference and When to Use Each (${CURRENT_YEAR})`,
         description: `Learn the difference between git merge and git rebase with clear visual examples using LithiumGit. Understand when to use each and how they affect your project history.`,
         type: 'article',
         url: PAGE_URL,
@@ -107,7 +107,7 @@ export function generateMetadata(args: IMetadataParams) {
                 url: 'https://github.com/LithiumGit/LithiumGit.github.io/releases/download/v1.0.0/icon.png',
                 width: 512,
                 height: 512,
-                alt: 'LithiumGit — Git Rebase vs Merge Guide',
+                alt: 'LithiumGit — Git Merge vs Rebase Guide',
             },
         ],
         // @ts-ignore
@@ -118,8 +118,8 @@ export function generateMetadata(args: IMetadataParams) {
     };
     (data as any).twitter = {
         card: 'summary_large_image',
-        title: `Git Rebase vs Merge — What's the Difference and When to Use Each (${CURRENT_YEAR})`,
-        description: `Learn git rebase vs merge with visual examples using LithiumGit. Know exactly when to use each and how they affect your commit history.`,
+        title: `Git Merge vs Rebase — What's the Difference and When to Use Each (${CURRENT_YEAR})`,
+        description: `Learn git merge vs rebase with visual examples using LithiumGit. Know exactly when to use each and how they affect your commit history.`,
         images: ['https://github.com/LithiumGit/LithiumGit.github.io/releases/download/v1.0.0/icon.png'],
     };
     (data as any).robots = { index: true, follow: true, googleBot: { index: true, follow: true } };
@@ -144,7 +144,7 @@ export default function GitRebaseVsMerge() {
             <div className="content bg-second-color">
 
                 <div className="blog-header">
-                    <h1>Git Rebase vs Merge — What&apos;s the Difference and When to Use Each</h1>
+                    <h1>Git Merge vs Rebase — What&apos;s the Difference and When to Use Each</h1>
                     <p className="blog-meta">Published <time dateTime={DATE_PUBLISHED}>{DATE_PUBLISHED}</time> &nbsp;·&nbsp; LithiumGit Team &nbsp;·&nbsp; 8 min read</p>
                 </div>
 
