@@ -17,6 +17,7 @@ import { FaAngleRight, FaAngleLeft } from "react-icons/fa6";
 
 interface IState{
     menuExpaned:boolean;
+    selectedMenu?:string;
 }
 
 export function PageChild(){
@@ -27,7 +28,7 @@ export function PageChild(){
             style={{top:Constants.navHeight,left:0 , height:`calc(100% - ${Constants.navHeight} - ${Constants.footerHeight})`
             ,zIndex:ZIndexes.DocsNav}} >
             {DocumentMenus.list.map(m=>(
-                <SingleMenu key={m.name} menu={m} />
+                <SingleMenu key={m.name} menu={m} isSelected={state.selectedMenu === m.name} onMenuSelect={()=> setState({selectedMenu:m.name})} />
             ))}
 
             {state.menuExpaned && <span className="menu-collapse position-absolute pe-1" style={{top:0,right:0}}

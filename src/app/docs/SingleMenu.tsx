@@ -5,6 +5,8 @@ import { FaAngleDown } from "react-icons/fa";
 
 interface IProps{
     menu:IMenu;
+    isSelected:boolean;
+    onMenuSelect?:()=>void;
 }
 
 interface IState{
@@ -13,9 +15,9 @@ interface IState{
 
 export function SingleMenu(props:IProps){
     const [state,setState] = useMultiState<IState>({isExpanded:false});
-
+    
     return (
-        <div className="docs-menu-item">
+        <div className={`docs-menu-item ${props.isSelected ? "selected" : ""}`} onClick={()=> props.onMenuSelect?.()}>
             <div>
                 {!!props.menu.subMenus.length ?
                 (<span className="docs-menu-toggle" onClick={()=> setState({isExpanded:!state.isExpanded})}>
@@ -30,7 +32,7 @@ export function SingleMenu(props:IProps){
             {!!props.menu.subMenus.length && state.isExpanded && (
                 <div className="docs-submenu">
                     {props.menu.subMenus.map(sm=>(
-                        <SingleMenu key={sm.name} menu={sm} />
+                        <SingleMenu key={sm.name} menu={sm} isSelected={props.isSelected} />
                     ))}
                 </div>
             )}
