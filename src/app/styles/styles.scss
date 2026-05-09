@@ -47,6 +47,8 @@ html {
   --bg-previous-change-deep: #fda0a0;
   --bg-fade: #afadad;
   --bg-change-accepted: #b9d5f6;
+  --color-h1:#282828;
+  --color-white-2: #c4c2c2;
 }
 
 html[data-theme='dark'] {
@@ -85,6 +87,8 @@ html[data-theme='dark'] {
   --bg-previous-change-deep: #fda0a0;
   --bg-fade: #513f3f;
   --bg-change-accepted: #b9d5f6;
+  --color-h1:#a3a3a3;
+  --color-white-2: #dad9d9;
 }
 
 input[type="text"],
@@ -101,6 +105,10 @@ textarea:focus {
 
 .modal-content {
   background-color: var(--bg-color);
+}
+
+.text-white-2{
+  color: var(--color-white-2);
 }
 
 .font-color {
@@ -162,6 +170,10 @@ body {
 }
 p, svg, .h1, .h2, .h3, .h4, .h5, .h6{
   margin: 0;
+}
+
+h1{
+  color: var(--color-h1);
 }
 
 .cur-point {

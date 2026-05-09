@@ -114,7 +114,7 @@ export function PageChild(){
             Powerful enough for pros, simple enough for beginners.
           </p>
           <div className="home-hero__cta">
-            <a href={latestFile.url} className="home-dl-btn">
+            <a href={latestFile.url} className="home-dl-btn text-white-2">
               {getOsIcon()}
               <span>Download {latestVersion}</span>
             </a>
