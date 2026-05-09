@@ -1,5 +1,233 @@
 @import "./styles.scss";
 
-.test{
-    color: var(--font-color);
+// ── Shared ────────────────────────────────────────────────────────
+.home-section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--font-color);
+  margin-bottom: 0.5rem;
+}
+
+.home-section-sub {
+  color: var(--svg-dark);
+  font-size: 1.05rem;
+  margin-bottom: 3rem;
+}
+
+// ── Hero ──────────────────────────────────────────────────────────
+.home-hero {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  padding: 4rem 6vw 3rem;
+  min-height: 420px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 2.5rem 1.25rem 2rem;
+  }
+}
+
+.home-hero__text {
+  flex: 0 0 320px;
+  min-width: 0;
+
+  @media (max-width: 768px) {
+    flex: unset;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.home-hero__headline {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: var(--font-color);
+  margin-bottom: 1.1rem;
+}
+
+.home-hero__sub {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--svg-dark);
+  margin-bottom: 2rem;
+}
+
+.home-hero__cta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
+
+  @media (max-width: 768px) {
+    align-items: center;
+  }
+}
+
+.home-dl-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background-color: var(--brand-color);
+  color: #fff !important;
+  padding: 0.65rem 1.4rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none !important;
+  transition: filter 0.18s ease;
+
+  &:hover {
+    filter: brightness(115%);
+    color: #fff !important;
+  }
+}
+
+.home-dl-other {
+  font-size: 0.82rem;
+  color: var(--svg-dark);
+  text-decoration: underline;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--hover);
+  }
+}
+
+.home-hero__carousel {
+  flex: 1;
+  min-width: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px var(--shadow-2);
+}
+
+// ── Feature cards ─────────────────────────────────────────────────
+.home-features {
+  padding: 4rem 6vw;
+  text-align: center;
+  background-color: var(--bg-second-color);
+}
+
+.home-features__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.home-feature-card {
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 1.75rem 1.5rem;
+  text-align: left;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 6px 24px var(--shadow-2);
+    transform: translateY(-2px);
+  }
+}
+
+.home-feature-card__icon {
+  color: var(--brand-color);
+  margin-bottom: 1rem;
+}
+
+.home-feature-card__title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--font-color);
+}
+
+.home-feature-card__desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--svg-dark);
+  margin: 0;
+}
+
+// ── At a glance ───────────────────────────────────────────────────
+.home-glance {
+  padding: 4rem 6vw;
+  text-align: center;
+}
+
+.home-glance__row {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  margin-bottom: 5rem;
+  text-align: left;
+
+  &--reverse {
+    flex-direction: row-reverse;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column !important;
+    text-align: center;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+}
+
+.home-glance__img-wrap {
+  flex: 1;
+  min-width: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 28px var(--shadow-2);
+}
+
+.home-glance__img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.home-glance__body {
+  flex: 0 0 300px;
+
+  @media (max-width: 768px) {
+    flex: unset;
+    width: 100%;
+  }
+}
+
+.home-glance__title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--font-color);
+  margin-bottom: 0.75rem;
+}
+
+.home-glance__desc {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--svg-dark);
+  margin: 0;
+}
+
+// ── Footer CTA ────────────────────────────────────────────────────
+.home-footer-cta {
+  text-align: center;
+  padding: 2.5rem 1rem 3.5rem;
+  font-size: 1rem;
+  color: var(--svg-dark);
+}
+
+.home-footer-cta__link {
+  color: var(--brand-color);
+  font-weight: 600;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }

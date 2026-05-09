@@ -2,7 +2,7 @@
 
 import { Fragment, useEffect, useMemo } from "react";
 import { Carousel, CarouselItem } from "react-bootstrap";
-import { FaWindows, FaApple } from "react-icons/fa";
+import { FaWindows, FaApple, FaCodeBranch, FaLayerGroup, FaList, FaArchive } from "react-icons/fa";
 import { FaDebian } from "react-icons/fa6";
 import { useMultiState, OSType, Distributions, Routes } from "../lib";
 import { FileType, ArchType } from "../lib/interfaces";
@@ -12,14 +12,60 @@ import graphImage from './images/graph.png';
 import changesImage from './images/changes.png';
 import commitsImage from './images/commits.png';
 import stashImage from './images/stashes.png';
-import graphIcon from './images/graph.png';
-import changesIcon from './images/changes.png';
-import commitsIcon from './images/commits.png';
-import stashesIcon from './images/stashes.png';
 
 interface IState{
     osType:OSType;
 }
+
+const features = [
+  {
+    icon: <FaCodeBranch size={28} />,
+    title: "Interactive Graph",
+    desc: "Visualize your full commit history as an interactive, color-coded graph. Merge, rebase, cherry-pick, and branch — all from one view.",
+  },
+  {
+    icon: <FaLayerGroup size={28} />,
+    title: "Local Changes",
+    desc: "Stage files, review diffs, and craft your commits with a clean side-by-side diff viewer. No command-line needed.",
+  },
+  {
+    icon: <FaList size={28} />,
+    title: "Commit History",
+    desc: "Browse, search, and filter your full commit history. Inspect any commit's changes at a glance.",
+  },
+  {
+    icon: <FaArchive size={28} />,
+    title: "Stash Management",
+    desc: "Save, apply, pop, and delete stashes effortlessly. Keep your working tree clean without losing progress.",
+  },
+];
+
+const glanceItems = [
+  {
+    src: graphImage.src,
+    alt: "LithiumGit interactive graph view showing Git commit history",
+    title: "Interactive Graph",
+    desc: "The interactive graph gives you a full overview of the change history. Perform merges, checkouts, rebases, cherry-picks, and branch creation directly from the graph view.",
+  },
+  {
+    src: changesImage.src,
+    alt: "LithiumGit local changes view for staging files and committing",
+    title: "Local Changes",
+    desc: "Stage individual files or hunks, review your diffs side-by-side, and write meaningful commit messages — all without touching the terminal.",
+  },
+  {
+    src: commitsImage.src,
+    alt: "LithiumGit commits list view with search and filter",
+    title: "Commit History",
+    desc: "A searchable, filterable commit list lets you quickly find any change in your project's history. Inspect file diffs per commit with one click.",
+  },
+  {
+    src: stashImage.src,
+    alt: "LithiumGit stash management view - pop, apply and delete stashes",
+    title: "Stash Management",
+    desc: "View all stashes at a glance. Pop, apply, or delete them with a single action — keeping your workflow fast and clean.",
+  },
+];
 
 export function PageChild(){
     const [state,setState] = useMultiState<IState>({osType:OSType.Windows});
@@ -58,115 +104,83 @@ export function PageChild(){
   }
   
     return <Fragment>
-        <div className='row g-0 align-items-center'>
-          <div className='col-sm-12 col-md-3 text-center pb-2'>
-              <h2 className='font-weight-bold' style={{fontSize:'2.5em'}}>No fear, just play with Git</h2>
-              <p className='pt-3'>
-                LithiumGit is a Git client application that optimizes Git activities to your advantage. And LithiumGit is free.
-              </p>
-              <div className="d-flex flex-column align-items-center justify-content-center pt-3">
-                <div className='d-flex bg-brand align-items-center px-3 py-2 hover'>
-                  <a href={latestFile.url} className='text-light'>
-                    {getOsIcon()} <span className='ps-2'>Download LithiumGit-{latestVersion}</span>
-                  </a>
-                </div>
-                <a href={Routes.Download} className=''>
-                  <span className='small underline text-secondary'>Available for {remainingOses.join(" and ")}</span>
-                </a>                
-              </div>
-          </div>
-          <div className='col-sm-12 col-md-9 d-flex justify-content-center'>
-              <Carousel className='text-center w-100'>
-                <CarouselItem interval={3000} className='w-100 text-center'>
-                  <ExampleCarouselImage text="LithiumGit interactive graph view - visualize Git commit history" src={graphImage.src} />
-                  {/* <CarouselCaption className='text-danger'>
-                    <h3>Interactive Graph</h3>
-                    <p>Do your most regular git actions without hassle.</p>
-                  </CarouselCaption> */}
-                </CarouselItem>
-                <CarouselItem interval={3000} className='w-100 text-center'>
-                  <ExampleCarouselImage text="LithiumGit local changes view - stage files and write commits" src={changesImage.src} />
-                  {/* <CarouselCaption>
-                    <h3>Second slide label</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                  </CarouselCaption> */}
-                </CarouselItem>
-                <CarouselItem interval={3000} className='w-100 text-center'>
-                  <ExampleCarouselImage text="LithiumGit commits list with search and filter" src={commitsImage.src} />
-                  {/* <CarouselCaption>
-                    <h3>Third slide label</h3>
-                    <p>
-                      Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-                    </p>
-                  </CarouselCaption> */}
-                </CarouselItem>
-                <CarouselItem interval={3000} className='w-100 text-center'>
-                  <ExampleCarouselImage text="LithiumGit stash management view" src={stashImage.src} />
-                  {/* <CarouselCaption>
-                    <h3>Third slide label</h3>
-                    <p>
-                      Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-                    </p>
-                  </CarouselCaption> */}
-                </CarouselItem>
-              </Carousel>
+
+      {/* ── Hero ─────────────────────────────────────────────────── */}
+      <section className="home-hero">
+        <div className="home-hero__text">
+          <h1 className="home-hero__headline">No fear,<br />just play with Git.</h1>
+          <p className="home-hero__sub">
+            LithiumGit is a free, open-source Git GUI for Windows, macOS, and Linux.
+            Powerful enough for pros, simple enough for beginners.
+          </p>
+          <div className="home-hero__cta">
+            <a href={latestFile.url} className="home-dl-btn">
+              {getOsIcon()}
+              <span>Download {latestVersion}</span>
+            </a>
+            <a href={Routes.Download} className="home-dl-other">
+              Also available for {remainingOses.join(" and ")}
+            </a>
           </div>
         </div>
-        <div className='pt-5 w-100'>
-          <div className='w-100 text-center'>
-            <h3>LithiumGit at a glance</h3>
-            <div className='pt-2'>
-              <img src={graphIcon.src} className='w-75' style={{height:'auto'}} alt="LithiumGit interactive graph view showing Git commit history" />
-            </div>
-            <div className='d-flex justify-content-center'>
-              <p className='w-75'>
-                The interactive graph allows you to view an overview of the change history.
-                View change details of a specific commit, merge, checkout, rebase, cherry-pick, or creating a branch. Regular Git actions can also be performed from this view.
-              </p>
-            </div>
-
-            <div className='py-5' />
-
-            <div className='pt-2'>
-              <img src={changesIcon.src} className='w-75' style={{height:'auto'}} alt="LithiumGit local changes view for staging files and committing" />
-            </div>
-            <div className='d-flex justify-content-center'>
-              <p className='w-75'>
-                Making a commit and viewing the local changes.
-              </p>
-            </div>
-
-            <div className='py-5' />
-
-            <div className='pt-2'>
-              <img src={commitsIcon.src} className='w-75' style={{height:'auto'}} alt="LithiumGit commits list view with search and filter" />
-            </div>
-            <div className='d-flex justify-content-center'>
-              <p className='w-75'>
-                Commit list with search and filter. 
-              </p>
-            </div>
-
-            <div className='py-5' />
-
-            <div className='pt-2'>
-              <img src={stashesIcon.src} className='w-75' style={{height:'auto'}} alt="LithiumGit stash management view - pop, apply and delete stashes" />
-            </div>
-            <div className='d-flex justify-content-center'>
-              <p className='w-75'>
-                Stash list with stash functionalities(pop,apply, delete stash).
-              </p>
-            </div>
-
-            <div className='d-flex justify-content-center py-5'>
-              <p className='w-75'>
-                To see more features, please check the <a href={Routes.Docs} className='underline'>documentation page</a>.
-              </p>
-            </div>
-            
-            <div className='py-5' />
-            
-          </div>
+        <div className="home-hero__carousel">
+          <Carousel className="w-100">
+            <CarouselItem interval={3000}>
+              <ExampleCarouselImage text="LithiumGit interactive graph view - visualize Git commit history" src={graphImage.src} />
+            </CarouselItem>
+            <CarouselItem interval={3000}>
+              <ExampleCarouselImage text="LithiumGit local changes view - stage files and write commits" src={changesImage.src} />
+            </CarouselItem>
+            <CarouselItem interval={3000}>
+              <ExampleCarouselImage text="LithiumGit commits list with search and filter" src={commitsImage.src} />
+            </CarouselItem>
+            <CarouselItem interval={3000}>
+              <ExampleCarouselImage text="LithiumGit stash management view" src={stashImage.src} />
+            </CarouselItem>
+          </Carousel>
         </div>
+      </section>
+
+      {/* ── Feature cards ────────────────────────────────────────── */}
+      <section className="home-features">
+        <h2 className="home-section-title">Everything you need, nothing you don't</h2>
+        <p className="home-section-sub">A full Git workflow — visually.</p>
+        <div className="home-features__grid">
+          {features.map((f) => (
+            <div key={f.title} className="home-feature-card">
+              <div className="home-feature-card__icon">{f.icon}</div>
+              <h3 className="home-feature-card__title">{f.title}</h3>
+              <p className="home-feature-card__desc">{f.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── At a glance ──────────────────────────────────────────── */}
+      <section className="home-glance">
+        <h2 className="home-section-title">LithiumGit at a glance</h2>
+        <p className="home-section-sub">See the features that make your Git workflow smoother.</p>
+
+        {glanceItems.map((item, i) => (
+          <div key={item.title} className={`home-glance__row${i % 2 === 1 ? ' home-glance__row--reverse' : ''}`}>
+            <div className="home-glance__img-wrap">
+              <img src={item.src} alt={item.alt} className="home-glance__img" />
+            </div>
+            <div className="home-glance__body">
+              <h3 className="home-glance__title">{item.title}</h3>
+              <p className="home-glance__desc">{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </section>
+
+      {/* ── Footer CTA ───────────────────────────────────────────── */}
+      <section className="home-footer-cta">
+        <p>
+          Want to see every feature?{" "}
+          <a href={Routes.Docs} className="home-footer-cta__link">Browse the documentation →</a>
+        </p>
+      </section>
+
     </Fragment>
 }
