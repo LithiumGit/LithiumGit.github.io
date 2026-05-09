@@ -1,9 +1,21 @@
+import { useEffect } from "react";
 import { Constants } from "../../lib";
 import { HtmlIds } from "../../lib/constants/HtmlIds";
 import commitsImg from "../images/commits.png";
+import { useInViewPort } from "@/lib/hooks/useInViewPort";
 
+interface IProps{
+    onViewPort:()=>void
+}
 
-export function CommitsView(){
+export function CommitsView(props:IProps){
+    const {inViewPort} = useInViewPort(HtmlIds.commits,"#"+HtmlIds.scrollContainer);
+        
+    useEffect(()=>{
+        if(inViewPort) 
+            props.onViewPort();
+    },[inViewPort])
+
     return (
         <div id={HtmlIds.commits}>
         <h4>Commits</h4>

@@ -1,9 +1,22 @@
+import { useInViewPort } from "@/lib/hooks/useInViewPort";
 import { Constants } from "../../lib";
 import { HtmlIds } from "../../lib/constants/HtmlIds";
 import  configImage  from "../images/config.png";
 import  remotesImage  from "../images/remotes.png";
+import { useEffect } from "react";
 
-export function ConfigView(){
+interface IProps{
+    onViewPort:()=>void
+}
+
+export function ConfigView(props:IProps){
+    const {inViewPort} = useInViewPort(HtmlIds.config,"#"+HtmlIds.scrollContainer);
+        
+    useEffect(()=>{
+        if(inViewPort) 
+            props.onViewPort();
+    },[inViewPort])
+
     return (
         <div id={HtmlIds.config}>
         <h4>Config</h4>

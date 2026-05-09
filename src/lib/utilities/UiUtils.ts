@@ -46,4 +46,13 @@ export class UiUtils{
             },
         } as Metadata;
     }
+
+    static isInViewport(element: HTMLElement,scrollContainer:HTMLElement) {
+        const rect = element.getBoundingClientRect();
+        const containerRect = scrollContainer.getBoundingClientRect();
+        return (
+            rect.top >= containerRect.top &&
+            rect.top <= (containerRect.height + containerRect.top)
+        );
+    }
 }

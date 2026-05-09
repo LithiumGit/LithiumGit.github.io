@@ -8,4 +8,5 @@ export class HtmlIds{
     static readonly clone = "clone";
     static readonly recents = "recents";
     static readonly create = "create";
+    static readonly scrollContainer = "scroll-container";
 }

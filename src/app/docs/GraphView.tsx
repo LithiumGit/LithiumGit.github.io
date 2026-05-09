@@ -1,8 +1,21 @@
+import { useInViewPort } from "@/lib/hooks/useInViewPort";
 import { Constants } from "../../lib";
 import { HtmlIds } from "../../lib/constants/HtmlIds";
 import graphImg from "../images/graph.png";
+import { useEffect } from "react";
 
-export function GraphView(){
+interface IProps{
+    onViewPort:()=>void
+}
+
+export function GraphView(props:IProps){
+    const {inViewPort} = useInViewPort(HtmlIds.graph,"#"+HtmlIds.scrollContainer);
+        
+    useEffect(()=>{
+        if(inViewPort) 
+            props.onViewPort();
+    },[inViewPort])
+
     return <div id={HtmlIds.graph}>
         <h4>Graph</h4>
         <img src={graphImg.src} alt="changes" style={{width:Constants.docsImageWidth,height:'auto'}} />

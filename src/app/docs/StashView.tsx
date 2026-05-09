@@ -1,8 +1,21 @@
+import { useInViewPort } from "@/lib/hooks/useInViewPort";
 import { Constants } from "../../lib";
 import { HtmlIds } from "../../lib/constants/HtmlIds";
 import stashImg from "../images/stashes.png";
+import { useEffect } from "react";
 
-export function StashView(){
+interface IProps{
+    onViewPort:()=>void
+}
+
+export function StashView(props:IProps){
+    const {inViewPort} = useInViewPort(HtmlIds.stash,"#"+HtmlIds.scrollContainer);
+        
+    useEffect(()=>{
+        if(inViewPort) 
+            props.onViewPort();
+    },[inViewPort])
+
     return (
         <div id={HtmlIds.stash}>
         <h4>Stash list</h4>

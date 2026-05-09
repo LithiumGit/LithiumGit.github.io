@@ -1,11 +1,24 @@
+import { useInViewPort } from "@/lib/hooks/useInViewPort";
 import { HtmlIds } from "../../lib/constants/HtmlIds";
 import step1 from '../images/open/step1.png';
 import step2 from '../images/open/step2.png';
 import step3 from '../images/open/step3.png';
 import step4 from '../images/open/step4.png';
+import { useEffect } from "react";
 
-export function GetStarted(){
+interface IProps{
+    onViewPort:()=>void
+}
+
+export function GetStarted(props:IProps){
     const imgWidth = "100%";
+
+    const {inViewPort} = useInViewPort(HtmlIds.get_started,"#"+HtmlIds.scrollContainer);
+        
+    useEffect(()=>{
+        if(inViewPort) 
+            props.onViewPort();
+    },[inViewPort])
 
     return <div id={HtmlIds.get_started}>
         <h4>Getting started</h4>

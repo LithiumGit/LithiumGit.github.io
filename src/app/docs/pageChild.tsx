@@ -1,6 +1,6 @@
 "use client"
 
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import { Constants, DocumentMenus, useMultiState } from "../../lib";
 import { ZIndexes } from "../../lib/constants/ZIndexes";
 import { ChangesView } from "./ChangesView";
@@ -14,6 +14,7 @@ import { RecentsView } from "./Recents";
 import { SingleMenu } from "./SingleMenu";
 import { StashView } from "./StashView";
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa6";
+import { HtmlIds } from "@/lib/constants/HtmlIds";
 
 interface IState{
     menuExpaned:boolean;
@@ -41,15 +42,15 @@ export function PageChild(){
             </span>}
         <div className={`menus-placeholder ${state.menuExpaned?"d-block":""}`} />
         <div className="content h-100 overflow-auto border-start">
-            <GetStarted />
-            <ChangesView />
-            <GraphView />
-            <CommitsView />
-            <StashView />
-            <ConfigView />
-            <CloneView />
-            <RecentsView />
-            <CreateView />
+            <GetStarted onViewPort={()=> setState({selectedMenu:DocumentMenus.list[0].name})}/>
+            <ChangesView onViewPort={()=> setState({selectedMenu:DocumentMenus.list[1].name})}/>
+            <GraphView onViewPort={()=> setState({selectedMenu:DocumentMenus.list[2].name})}/>
+            <CommitsView onViewPort={()=> setState({selectedMenu:DocumentMenus.list[3].name})}/>
+            <StashView onViewPort={()=> setState({selectedMenu:DocumentMenus.list[4].name})}/>
+            <ConfigView onViewPort={()=> setState({selectedMenu:DocumentMenus.list[5].name})}/>
+            <CloneView onViewPort={()=> setState({selectedMenu:DocumentMenus.list[6].name})}/>
+            <RecentsView onViewPort={()=> setState({selectedMenu:DocumentMenus.list[7].name})}/>
+            <CreateView onViewPort={()=> setState({selectedMenu:DocumentMenus.list[8].name})}/>
         </div>
     </Fragment>
 }

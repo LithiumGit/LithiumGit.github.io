@@ -1,6 +1,7 @@
 import { StorageUtils } from '../lib';
 import { Footer } from './components/footer';
 import { Nav } from './components';
+import { HtmlIds } from '@/lib/constants/HtmlIds';
 
 export default function RootLayout({
   children,
@@ -37,7 +38,7 @@ export default function RootLayout({
           height="0" width="0" style={{ display: 'none', visibility: 'hidden' }}></iframe></noscript>
         {/* <!-- End Google Tag Manager (noscript) --> */}
         <Nav />
-        <div className='overflow-auto' style={{ height: 'calc(100% - 7rem)' }}>
+        <div id={HtmlIds.scrollContainer} className='overflow-auto' style={{ height: 'calc(100% - 7rem)' }}>
           {children}
           <Footer />
         </div>

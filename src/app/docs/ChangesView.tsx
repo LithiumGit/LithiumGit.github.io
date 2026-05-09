@@ -1,9 +1,22 @@
+import { useInViewPort } from "@/lib/hooks/useInViewPort";
 import { Constants } from "../../lib";
 import { HtmlIds } from "../../lib/constants/HtmlIds";
 import changesImage from '../images/changes.png';
 import stashImage from '../images/stash_all.png';
+import { useEffect } from "react";
 
-export function ChangesView(){
+interface IProps{
+    onViewPort:()=>void
+}
+
+export function ChangesView(props:IProps){
+    const {inViewPort} = useInViewPort(HtmlIds.changes,"#"+HtmlIds.scrollContainer);
+    
+    useEffect(()=>{
+        if(inViewPort) 
+            props.onViewPort();
+    },[inViewPort])
+
     return <div id={HtmlIds.changes}>
         <h4>View local changes</h4>
         <p>After opening a git project in LithiumGit click to changes tab.</p>
