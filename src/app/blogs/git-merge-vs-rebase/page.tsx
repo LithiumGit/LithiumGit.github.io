@@ -234,6 +234,16 @@ export default function GitRebaseVsMerge() {
                         </pre>
                     </div>
 
+                    <div className="tip-box">
+                        <span className="tip-label">💡 What does --no-ff do?</span>
+                        The <code>--no-ff</code> flag forces Git to always create a merge commit, even when a
+                        fast-forward would have been possible. This is one of several <strong>Git merge strategies</strong> you
+                        can control.{' '}
+                        <a target='_blank' href="/blogs/stop-guessing-choose-the-right-git-merge-strategy-every-time" rel="noopener" style={{ textDecoration: 'underline' }} className='text-primary'>
+                            Learn about all Git merge strategies →
+                        </a>
+                    </div>
+
                     <h3>After the merge is finalised</h3>
                     <p>
                         Once confirmed, a new merge commit appears joining the two lines of history. The full commit
