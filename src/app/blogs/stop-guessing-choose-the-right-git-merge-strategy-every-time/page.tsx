@@ -671,14 +671,14 @@ export default function GitMergeStrategies() {
                                 src={beforeSquash.src}
                                 alt="LithiumGit graph showing a feature branch with multiple commits before squash merge"
                             />
-                            <p className="image-caption">Before — feature branch has many small, incremental commits</p>
+                            <p className="image-caption">Before — feature branch has 3 incremental commits</p>
                         </div>
                         <div className="blog-image-block">
                             <img
                                 src={afterSquash.src}
                                 alt="LithiumGit graph after squash merge showing a single clean commit on master"
                             />
-                            <p className="image-caption">After — all commits squashed into one clean commit on master</p>
+                            <p className="image-caption">After — all commits squashed into one(M7) clean commit on master</p>
                         </div>
                     </div>
 
