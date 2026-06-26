@@ -1,0 +1,111 @@
+@import "../styles.scss";
+
+.blogs-index {
+    .content {
+        max-width: 1120px;
+        margin: 40px auto;
+        padding: 24px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .blogs-header {
+        margin-bottom: 28px;
+
+        h1 {
+            margin-bottom: 12px;
+        }
+
+        p {
+            line-height: 1.75;
+            font-size: 1.05rem;
+        }
+    }
+
+    .blog-notes {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+        margin: 24px 0 30px;
+    }
+
+    .blog-note {
+        background: var(--bg-color);
+        border: 1px solid rgba(86, 61, 124, 0.22);
+        border-left: 4px solid #198754;
+        border-radius: 8px;
+        padding: 14px 16px;
+        line-height: 1.6;
+
+        strong {
+            display: block;
+            margin-bottom: 4px;
+            color: #198754;
+        }
+    }
+
+    .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .blog-card {
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
+        padding: 18px;
+        background: var(--bg-color);
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+        transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+
+        &:hover {
+            transform: translateY(-3px);
+            border-color: #198754;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.14);
+            text-decoration: none;
+        }
+
+        .blog-card-kicker {
+            color: #198754;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            line-height: 1.35;
+            margin-bottom: 10px;
+            color: var(--color-h1);
+        }
+
+        p {
+            line-height: 1.65;
+            margin-bottom: 14px;
+        }
+
+        .blog-card-note {
+            margin-top: auto;
+            padding-top: 12px;
+            border-top: 1px solid rgba(0, 0, 0, 0.12);
+            color: #6a4cae;
+            font-weight: 700;
+        }
+    }
+
+    @include media-breakpoint-down(md) {
+        .content {
+            margin: 20px 12px;
+            padding: 18px;
+        }
+
+        .blog-notes,
+        .blog-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+}
