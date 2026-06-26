@@ -147,24 +147,19 @@ export default function ShareLocalChangesWithPatch() {
                     <div className="cli-block">
                         <span className="cli-label">Sender</span>
                         <pre>
-                            <span className="cli-comment">{`# Review exactly what will be shared`}</span>{`
-`}<span className="cli-cmd">{`git diff`}</span>{`
+                            <span className="cli-comment">{`# Export all uncommitted unstaged local changes to a patch file`}</span>{`
+`}<span className="cli-comment">{`# --binary includes binary files as well (png, jpg, pdf, etc.)`}</span>{`
+`}<span className="cli-cmd">{`git diff HEAD --binary > changes.patch`}</span>{`
 
-`}<span className="cli-comment">{`# Export unstaged local changes to a patch file`}</span>{`
-`}<span className="cli-cmd">{`git diff > teammate-review.patch`}</span>{`
-
-`}<span className="cli-comment">{`# Include staged changes instead, if needed`}</span>{`
-`}<span className="cli-cmd">{`git diff --cached > teammate-review.patch`}</span>
+`}<span className="cli-comment">{`# Export unstaged changes only, if needed`}</span>{`
+`}<span className="cli-cmd">{`git diff --binary > changes.patch`}</span>
                         </pre>
                     </div>
                     <div className="cli-block">
                         <span className="cli-label">Receiver</span>
                         <pre>
-                            <span className="cli-comment">{`# Check whether the patch applies cleanly`}</span>{`
-`}<span className="cli-cmd">{`git apply --check teammate-review.patch`}</span>{`
-
-`}<span className="cli-comment">{`# Apply the patch to the working tree`}</span>{`
-`}<span className="cli-cmd">{`git apply teammate-review.patch`}</span>
+                            <span className="cli-comment">{`# Apply the patch to the working tree`}</span>{`
+`}<span className="cli-cmd">{`git apply --binary changes.patch`}</span>
                         </pre>
                     </div>
                 </section>
@@ -182,7 +177,7 @@ export default function ShareLocalChangesWithPatch() {
                         </div>
                         <div className="blog-image-block">
                             <img src={savePatch.src} alt="Saving local changes as a patch file in LithiumGit" />
-                            <p className="image-caption">Save selected changes as a patch</p>
+                            <p className="image-caption">Save selected changes as a patch and send it to your teammate</p>
                         </div>
                     </div>
                     <div className="blog-image-block">
