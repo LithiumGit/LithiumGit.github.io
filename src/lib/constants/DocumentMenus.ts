@@ -15,6 +15,11 @@ export class DocumentMenus{
             subMenus:[],
         },
         {
+            name:"Import/Export Changes",
+            url:"#"+ HtmlIds.import_export_changes,
+            subMenus:[],
+        },
+        {
             name:"Graph",
             url:"#"+HtmlIds.graph,
             subMenus:[],

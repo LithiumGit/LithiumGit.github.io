@@ -10,6 +10,7 @@ import { ConfigView } from "./Config";
 import { CreateView } from "./CreateView";
 import { GetStarted } from "./GetStarted";
 import { GraphView } from "./GraphView";
+import { ImportExportChangesView } from "./ImportExportChangesView";
 import { RecentsView } from "./Recents";
 import { SingleMenu } from "./SingleMenu";
 import { StashView } from "./StashView";
@@ -44,13 +45,14 @@ export function PageChild(){
         <div className="content h-100 overflow-auto border-start">
             <GetStarted onViewPort={()=> setState({selectedMenu:DocumentMenus.list[0].name})}/>
             <ChangesView onViewPort={()=> setState({selectedMenu:DocumentMenus.list[1].name})}/>
-            <GraphView onViewPort={()=> setState({selectedMenu:DocumentMenus.list[2].name})}/>
-            <CommitsView onViewPort={()=> setState({selectedMenu:DocumentMenus.list[3].name})}/>
-            <StashView onViewPort={()=> setState({selectedMenu:DocumentMenus.list[4].name})}/>
-            <ConfigView onViewPort={()=> setState({selectedMenu:DocumentMenus.list[5].name})}/>
-            <CloneView onViewPort={()=> setState({selectedMenu:DocumentMenus.list[6].name})}/>
-            <RecentsView onViewPort={()=> setState({selectedMenu:DocumentMenus.list[7].name})}/>
-            <CreateView onViewPort={()=> setState({selectedMenu:DocumentMenus.list[8].name})}/>
+            <ImportExportChangesView onViewPort={()=> setState({selectedMenu:DocumentMenus.list[2].name})}/>
+            <GraphView onViewPort={()=> setState({selectedMenu:DocumentMenus.list[3].name})}/>
+            <CommitsView onViewPort={()=> setState({selectedMenu:DocumentMenus.list[4].name})}/>
+            <StashView onViewPort={()=> setState({selectedMenu:DocumentMenus.list[5].name})}/>
+            <ConfigView onViewPort={()=> setState({selectedMenu:DocumentMenus.list[6].name})}/>
+            <CloneView onViewPort={()=> setState({selectedMenu:DocumentMenus.list[7].name})}/>
+            <RecentsView onViewPort={()=> setState({selectedMenu:DocumentMenus.list[8].name})}/>
+            <CreateView onViewPort={()=> setState({selectedMenu:DocumentMenus.list[9].name})}/>
         </div>
     </Fragment>
 }
