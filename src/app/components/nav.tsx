@@ -79,6 +79,11 @@ export function Nav(){
                         <a href={Routes.About} className={`no-decoration ${state.path === Routes.About?"selected-color":""}`}>About</a>
                     </div>
                 </NavItem>
+                <NavItem>
+                    <div className="px-3">
+                        <a href={Routes.Blogs} className={`no-decoration ${state.path === Routes.Blogs?"selected-color":""}`}>Blogs</a>
+                    </div>
+                </NavItem>
                 <NavItem className='flex-grow-1 text-end'>
                     <div className='pe-3 d-flex align-items-center justify-content-end'>
                         <span className='pe-2'>
