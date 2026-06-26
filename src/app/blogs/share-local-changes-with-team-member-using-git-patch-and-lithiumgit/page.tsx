@@ -119,7 +119,7 @@ export default function ShareLocalChangesWithPatch() {
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
             <div className="content bg-second-color">
                 <div className="blog-header">
-                    <h1>Share Your Local Changes With a Team Member</h1>
+                    <h1>Share Your Local Changes With a Team Member without Pushing a Branch</h1>
                     <p className="blog-meta">Published <time dateTime={DATE_PUBLISHED}>{DATE_PUBLISHED}</time> &nbsp;|&nbsp; LithiumGit Team &nbsp;|&nbsp; 4 min read</p>
                 </div>
 
@@ -147,7 +147,7 @@ export default function ShareLocalChangesWithPatch() {
                     <div className="cli-block">
                         <span className="cli-label">Sender</span>
                         <pre>
-                            <span className="cli-comment">{`# Export all uncommitted unstaged local changes to a patch file`}</span>{`
+                            <span className="cli-comment">{`# Export all uncommitted local changes to a patch file`}</span>{`
 `}<span className="cli-comment">{`# --binary includes binary files as well (png, jpg, pdf, etc.)`}</span>{`
 `}<span className="cli-cmd">{`git diff HEAD --binary > changes.patch`}</span>{`
 
