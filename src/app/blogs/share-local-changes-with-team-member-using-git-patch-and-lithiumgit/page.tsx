@@ -150,6 +150,10 @@ export default function ShareLocalChangesWithPatch() {
                     <div className="cli-block">
                         <span className="cli-label">Sender</span>
                         <pre>
+                            <span className="cli-comment">{`# stage the changes `}</span>{`
+`}<span className="cli-cmd">{`git add .`}</span>{`
+    
+`}
                             <span className="cli-comment">{`# Export all uncommitted local changes to a patch file`}</span>{`
 `}<span className="cli-comment">{`# --binary includes binary files as well (png, jpg, pdf, etc.)`}</span>{`
 `}<span className="cli-cmd">{`git diff HEAD --binary > changes.patch`}</span>{`
@@ -233,7 +237,7 @@ export default function ShareLocalChangesWithPatch() {
                             },
                             {
                                 q: "Does a patch include untracked files?",
-                                a: "Not by default. Add the file to Git first with git add -N path/to/file, or create a separate patch after staging it."
+                                a: "Not by default. Add the file to Git first with git add -N path/to/file, or create a separate patch after staging it. But LithiumGit includes untracked files as well while exporting."
                             },
                             {
                                 q: "Should I use git patch or push a branch?",
