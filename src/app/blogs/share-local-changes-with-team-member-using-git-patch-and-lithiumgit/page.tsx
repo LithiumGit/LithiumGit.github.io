@@ -152,14 +152,17 @@ export default function ShareLocalChangesWithPatch() {
                         <pre>
                             <span className="cli-comment">{`# stage the changes `}</span>{`
 `}<span className="cli-cmd">{`git add .`}</span>{`
-    
-`}
-                            <span className="cli-comment">{`# Export all uncommitted local changes to a patch file`}</span>{`
-`}<span className="cli-comment">{`# --binary includes binary files as well (png, jpg, pdf, etc.)`}</span>{`
-`}<span className="cli-cmd">{`git diff HEAD --binary > changes.patch`}</span>{`
 
-`}<span className="cli-comment">{`# Export unstaged changes only, if needed`}</span>{`
-`}<span className="cli-cmd">{`git diff --binary > changes.patch`}</span>
+`}
+                            <span className="cli-comment">{`# Export only staged changes to a patch file`}</span>{`
+`}<span className="cli-comment">{`# --binary includes binary files as well (png, jpg, pdf, etc.)`}</span>{`
+`}<span className="cli-cmd">{`git diff --cached --binary > changes.patch`}</span>{`
+
+`}<span className="cli-comment">{`# Export unstaged changes only`}</span>{`
+`}<span className="cli-cmd">{`git diff --binary > changes.patch`}</span>{`
+
+`}<span className="cli-comment">{`# Export both staged and unstaged changes (tracked files only)`}</span>{`
+`}<span className="cli-cmd">{`git diff HEAD --binary > changes.patch`}</span>
                         </pre>
                     </div>
                     <div className="cli-block">
