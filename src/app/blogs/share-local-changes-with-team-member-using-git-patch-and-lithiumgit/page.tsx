@@ -126,7 +126,9 @@ export default function ShareLocalChangesWithPatch() {
                 <p className="blog-intro">
                     A branch is not always the fastest way to share work. When your changes are local, unfinished, or too
                     small for a pull request, a <strong>git patch</strong> is a clean handoff: one file, reviewable diff,
-                    no remote branch required. LithiumGit makes the same flow visual with import and export actions.
+                    no remote branch required. Many developers still copy changed files manually or zip the full codebase
+                    just to share local changes, but that is noisy, error-prone, time-consuming, and hard to review. LithiumGit makes the
+                    same flow visual with import and export actions.
                 </p>
 
                 <section className="blog-section">
@@ -138,7 +140,8 @@ export default function ShareLocalChangesWithPatch() {
                     </div>
                     <p>
                         Do not use patches as a replacement for pull requests. Use them when you need a lightweight way to
-                        transfer a local diff before the work becomes permanent team history.
+                        transfer a local diff before the work becomes permanent team history. A patch is usually cleaner
+                        than sending loose files because it preserves the exact diff your teammate needs to apply.
                     </p>
                 </section>
 
