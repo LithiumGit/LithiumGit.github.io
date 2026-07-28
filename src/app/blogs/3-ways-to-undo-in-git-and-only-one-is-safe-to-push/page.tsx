@@ -1,9 +1,9 @@
 import { Config } from '../../../config';
 import { IMetadataParams } from '../../../lib/interfaces';
 import { UiUtils } from '../../../lib/utilities/UiUtils';
-import '../../styles/blogs/git_reset_vs_revert_vs_restore.scss';
+import '../../styles/blogs/3_ways_to_undo_in_git.scss';
 
-const PAGE_URL = "https://lithiumgit.com/blogs/git-reset-vs-revert-vs-restore";
+const PAGE_URL = "https://lithiumgit.com/blogs/3-ways-to-undo-in-git-and-only-one-is-safe-to-push";
 const DATE_PUBLISHED = "2026-07-28";
 const DATE_MODIFIED = Config.PublishedDate;
 const CURRENT_YEAR = new Date().getFullYear();
@@ -89,7 +89,7 @@ const faqSchema = {
 };
 
 export function generateMetadata(args: IMetadataParams) {
-    const data = UiUtils.getCommonHeaderInfo(args, "blogs/git-reset-vs-revert-vs-restore");
+    const data = UiUtils.getCommonHeaderInfo(args, "blogs/3-ways-to-undo-in-git-and-only-one-is-safe-to-push");
     data.title = `3 Ways to Undo in Git — And Only One Is Safe to Push (${CURRENT_YEAR})`;
     data.description = `Git reset, git revert, and git restore all "undo" something — but they work in completely different ways. Learn what each command actually does, when it rewrites history, and which is safe to use in ${CURRENT_YEAR}.`;
     data.keywords = `git reset vs revert vs restore, git reset vs revert, git restore vs checkout, git reset soft mixed hard, git reset --hard, git revert commit, git restore file, undo git commit, undo last commit, undo staged changes, discard local changes git, git reflog, is git reset dangerous, LithiumGit, git GUI client`;

@@ -9,7 +9,7 @@ const DATE_MODIFIED = Config.PublishedDate;
 const blogs = [
     {
         title: "3 Ways to Undo in Git - And Only One Is Safe to Push",
-        href: "/blogs/git-reset-vs-revert-vs-restore",
+        href: "/blogs/3-ways-to-undo-in-git-and-only-one-is-safe-to-push",
         category: "Git Workflow",
         description: "What git reset, git revert, and git restore each actually undo, when they rewrite history, and which one is safe on branches you've already pushed.",
         note: "Read this before you run --hard on anything.",
