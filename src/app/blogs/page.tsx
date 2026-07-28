@@ -115,8 +115,12 @@ export default function Blogs() {
                 </div>
 
                 <section className="blog-grid" aria-label="Blog posts">
-                    {blogs.map((blog) => (
-                        <a className="blog-card" href={blog.href} key={blog.href}>
+                    {blogs.map((blog, index) => (
+                        <a
+                            className={`blog-card${index === 0 && blogs.length % 2 !== 0 ? ' blog-card-featured' : ''}`}
+                            href={blog.href}
+                            key={blog.href}
+                        >
                             <span className="blog-card-kicker">{blog.category}</span>
                             <h2>{blog.title}</h2>
                             <p>{blog.description}</p>

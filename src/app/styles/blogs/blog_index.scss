@@ -50,6 +50,10 @@
         gap: 18px;
     }
 
+    .blog-card-featured {
+        grid-column: 1 / -1;
+    }
+
     .blog-card {
         display: flex;
         flex-direction: column;
