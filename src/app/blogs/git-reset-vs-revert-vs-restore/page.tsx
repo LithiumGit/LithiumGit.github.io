@@ -50,7 +50,7 @@ const faqSchema = {
             "name": "What is the difference between git reset, git revert, and git restore?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Git reset moves the current branch pointer to a different commit, optionally changing the staging area and working directory, and rewrites history. Git revert creates a new commit that undoes the changes of a previous commit, without rewriting history. Git restore is a newer, narrower command used to discard changes in the working directory or staging area for specific files, without touching commit history or branch pointers at all."
+                "text": "Git reset deletes commits from your current branch, moving it back to an earlier point in history, and optionally changes the staging area and working directory too. Git revert creates a new commit that undoes the changes of a previous commit, without deleting anything. Git restore is a newer, narrower command used to discard changes in the working directory or staging area for specific files, without touching commit history at all."
             }
         },
         {
@@ -66,7 +66,7 @@ const faqSchema = {
             "name": "What is the difference between git reset --soft, --mixed, and --hard?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "git reset --soft moves the branch pointer but keeps all changes staged. git reset --mixed (the default) moves the branch pointer and unstages the changes, but keeps them in your working directory. git reset --hard moves the branch pointer and discards all staged and working directory changes permanently."
+                "text": "git reset --soft deletes the commit(s) but keeps all their changes staged, ready to re-commit. git reset --mixed (the default) deletes the commit(s) and unstages the changes, but keeps them in your working directory. git reset --hard deletes the commit(s) and discards all staged and working directory changes permanently."
             }
         },
         {
@@ -159,7 +159,7 @@ export default function GitResetVsRevertVsRestore() {
                     <h2>The Core Difference in One Sentence</h2>
                     <div className="concept-box">
                         <strong>Git Reset</strong>
-                        Moves your current branch pointer to a different commit, optionally rewriting the staging
+                        Deletes commits from your current branch, optionally rewriting the staging
                         area and working directory to match. Rewrites history.
                     </div>
                     <div className="concept-box">
@@ -181,24 +181,25 @@ export default function GitResetVsRevertVsRestore() {
 
                 {/* ── SECTION 2 — GIT RESET ── */}
                 <section className="blog-section">
-                    <h2>Git Reset — Rewinding the Branch Pointer</h2>
+                    <h2>Git Reset — Deleting Commits From Your Branch</h2>
                     <p>
-                        <code>git reset</code> moves your current branch to point at a different commit. What happens
-                        to the commits &quot;left behind&quot; and to your working directory depends entirely on which
-                        flag you use: <code>--soft</code>, <code>--mixed</code> (the default), or <code>--hard</code>.
+                        <code>git reset</code> deletes one or more commits from your current branch, moving it back
+                        to an earlier point in history. What happens to the changes those deleted commits contained —
+                        and to your working directory — depends entirely on which flag you use: <code>--soft</code>,{' '}
+                        <code>--mixed</code> (the default), or <code>--hard</code>.
                     </p>
 
                     <h3>The three modes of reset</h3>
                     <div className="cli-block">
                         <span className="cli-label">Terminal</span>
                         <pre>
-                            <span className="cli-comment">{`# --soft: move the branch pointer only. Changes stay staged, ready to re-commit.`}</span>{`
+                            <span className="cli-comment">{`# --soft: delete the commit(s), but keep all their changes staged, ready to re-commit.`}</span>{`
 `}<span className="cli-cmd">{`git reset --soft HEAD~1`}</span>{`
 
-`}<span className="cli-comment">{`# --mixed (default): move the pointer AND unstage changes, but keep them in your files.`}</span>{`
+`}<span className="cli-comment">{`# --mixed (default): delete the commit(s) and unstage their changes, but keep them in your files.`}</span>{`
 `}<span className="cli-cmd">{`git reset HEAD~1`}</span>{`
 
-`}<span className="cli-comment">{`# --hard: move the pointer and discard staged + working directory changes entirely.`}</span>{`
+`}<span className="cli-comment">{`# --hard: delete the commit(s) and discard staged + working directory changes entirely.`}</span>{`
 `}<span className="cli-cmd">{`git reset --hard HEAD~1`}</span>
                         </pre>
                     </div>
@@ -207,7 +208,7 @@ export default function GitResetVsRevertVsRestore() {
                         <thead>
                             <tr>
                                 <th>Mode</th>
-                                <th>Branch pointer</th>
+                                <th>Commit(s)</th>
                                 <th>Staging area</th>
                                 <th>Working directory</th>
                             </tr>
@@ -215,19 +216,19 @@ export default function GitResetVsRevertVsRestore() {
                         <tbody>
                             <tr>
                                 <td><strong>--soft</strong></td>
-                                <td>Moved</td>
+                                <td>Deleted from branch</td>
                                 <td>Unchanged (stays staged)</td>
                                 <td>Unchanged</td>
                             </tr>
                             <tr>
                                 <td><strong>--mixed</strong> (default)</td>
-                                <td>Moved</td>
+                                <td>Deleted from branch</td>
                                 <td>Reset (unstaged)</td>
                                 <td>Unchanged</td>
                             </tr>
                             <tr>
                                 <td><strong>--hard</strong></td>
-                                <td>Moved</td>
+                                <td>Deleted from branch</td>
                                 <td>Reset (unstaged)</td>
                                 <td>Reset (changes deleted)</td>
                             </tr>
@@ -244,7 +245,7 @@ export default function GitResetVsRevertVsRestore() {
 
                     <h3>Key characteristics of Git Reset</h3>
                     <ul>
-                        <li><strong>Rewrites history</strong> — commits after the reset point are detached from the branch</li>
+                        <li><strong>Deletes commits</strong> — everything after the reset point is removed from your branch history</li>
                         <li><strong>Local-only tool</strong> — safe on commits you have not pushed or shared</li>
                         <li><strong>Three modes</strong> — soft, mixed, and hard give you increasing levels of destructiveness</li>
                         <li><strong>Dangerous on shared branches</strong> — resetting a pushed branch and force-pushing can erase teammates&apos; work</li>
@@ -330,7 +331,7 @@ export default function GitResetVsRevertVsRestore() {
                         <span className="tip-label">💡 Restore vs reset --mixed</span>
                         <code>git restore --staged</code> file does roughly what <code>git reset</code> file used to do —
                         unstage a file without touching your edits. The difference is scope: <code>reset</code> can also
-                        move the branch pointer across whole commits, while <code>restore</code> only ever touches the
+                        delete whole commits from your branch, while <code>restore</code> only ever touches the
                         files you name.
                     </div>
 
@@ -358,7 +359,7 @@ export default function GitResetVsRevertVsRestore() {
                         <tbody>
                             <tr>
                                 <td>What it operates on</td>
-                                <td>Branch pointer, staging area, working directory</td>
+                                <td>Commits (deletes them), staging area, working directory</td>
                                 <td>Commit history (via a new commit)</td>
                                 <td>Working directory or staging area, per file</td>
                             </tr>
@@ -467,7 +468,7 @@ export default function GitResetVsRevertVsRestore() {
                         {[
                             {
                                 q: "What is the difference between git reset, git revert, and git restore?",
-                                a: "Git reset moves the current branch pointer to a different commit, optionally changing the staging area and working directory, and rewrites history. Git revert creates a new commit that undoes the changes of a previous commit, without rewriting history. Git restore discards changes in the working directory or staging area for specific files, without touching commit history or branch pointers at all."
+                                a: "Git reset deletes commits from your current branch, moving it back to an earlier point in history, and optionally changes the staging area and working directory too. Git revert creates a new commit that undoes the changes of a previous commit, without deleting anything. Git restore discards changes in the working directory or staging area for specific files, without touching commit history at all."
                             },
                             {
                                 q: "When should I use git revert instead of git reset?",
@@ -475,7 +476,7 @@ export default function GitResetVsRevertVsRestore() {
                             },
                             {
                                 q: "What is the difference between git reset --soft, --mixed, and --hard?",
-                                a: "git reset --soft moves the branch pointer but keeps all changes staged. git reset --mixed (the default) moves the branch pointer and unstages the changes, but keeps them in your working directory. git reset --hard moves the branch pointer and discards all staged and working directory changes permanently."
+                                a: "git reset --soft deletes the commit(s) but keeps all their changes staged, ready to re-commit. git reset --mixed (the default) deletes the commit(s) and unstages the changes, but keeps them in your working directory. git reset --hard deletes the commit(s) and discards all staged and working directory changes permanently."
                             },
                             {
                                 q: "Why did Git introduce git restore if git checkout already existed?",
