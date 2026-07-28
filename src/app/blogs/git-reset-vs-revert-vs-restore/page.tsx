@@ -12,7 +12,7 @@ const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
     "mainEntityOfPage": { "@type": "WebPage", "@id": PAGE_URL },
-    "headline": `Git Reset vs Revert vs Restore — Which One Should You Actually Use? (${CURRENT_YEAR})`,
+    "headline": `3 Ways to Undo in Git — And Only One Is Safe to Push (${CURRENT_YEAR})`,
     "description": "A clear guide to git reset, git revert, and git restore — what each command actually undoes, when they rewrite history, and which one is safe to use on shared branches.",
     "url": PAGE_URL,
     "datePublished": DATE_PUBLISHED,
@@ -37,7 +37,7 @@ const breadcrumbSchema = {
     "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://lithiumgit.com" },
         { "@type": "ListItem", "position": 2, "name": "Blogs", "item": "https://lithiumgit.com/blogs" },
-        { "@type": "ListItem", "position": 3, "name": "Git Reset vs Revert vs Restore", "item": PAGE_URL },
+        { "@type": "ListItem", "position": 3, "name": "3 Ways to Undo in Git", "item": PAGE_URL },
     ],
 };
 
@@ -90,12 +90,12 @@ const faqSchema = {
 
 export function generateMetadata(args: IMetadataParams) {
     const data = UiUtils.getCommonHeaderInfo(args, "blogs/git-reset-vs-revert-vs-restore");
-    data.title = `Git Reset vs Revert vs Restore — Which One Should You Actually Use? (${CURRENT_YEAR})`;
+    data.title = `3 Ways to Undo in Git — And Only One Is Safe to Push (${CURRENT_YEAR})`;
     data.description = `Git reset, git revert, and git restore all "undo" something — but they work in completely different ways. Learn what each command actually does, when it rewrites history, and which is safe to use in ${CURRENT_YEAR}.`;
     data.keywords = `git reset vs revert vs restore, git reset vs revert, git restore vs checkout, git reset soft mixed hard, git reset --hard, git revert commit, git restore file, undo git commit, undo last commit, undo staged changes, discard local changes git, git reflog, is git reset dangerous, LithiumGit, git GUI client`;
     data.openGraph = {
         ...data.openGraph,
-        title: `Git Reset vs Revert vs Restore — Which One Should You Actually Use? (${CURRENT_YEAR})`,
+        title: `3 Ways to Undo in Git — And Only One Is Safe to Push (${CURRENT_YEAR})`,
         description: `git reset, git revert, and git restore all undo something — but very differently. Learn exactly what each one does and which is safe on shared branches.`,
         type: 'article',
         url: PAGE_URL,
@@ -115,7 +115,7 @@ export function generateMetadata(args: IMetadataParams) {
     };
     (data as any).twitter = {
         card: 'summary_large_image',
-        title: `Git Reset vs Revert vs Restore — Which One Should You Actually Use? (${CURRENT_YEAR})`,
+        title: `3 Ways to Undo in Git — And Only One Is Safe to Push (${CURRENT_YEAR})`,
         description: `git reset, git revert, and git restore explained — what each one undoes, when it rewrites history, and which one is safe on shared branches.`,
         images: ['https://github.com/LithiumGit/LithiumGit.github.io/releases/download/v1.0.0/icon.png'],
     };
@@ -141,7 +141,7 @@ export default function GitResetVsRevertVsRestore() {
             <div className="content bg-second-color">
 
                 <div className="blog-header">
-                    <h1>Git Reset vs Revert vs Restore — Which One Should You Actually Use?</h1>
+                    <h1>3 Ways to Undo in Git — And Only One Is Safe to Push</h1>
                     <p className="blog-meta">Published <time dateTime={DATE_PUBLISHED}>{DATE_PUBLISHED}</time> &nbsp;·&nbsp; LithiumGit Team &nbsp;·&nbsp; 9 min read</p>
                 </div>
 
