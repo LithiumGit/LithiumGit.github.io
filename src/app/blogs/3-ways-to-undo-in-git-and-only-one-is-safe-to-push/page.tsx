@@ -265,10 +265,12 @@ export default function GitResetVsRevertVsRestore() {
 
                     <div className="tip-box">
                         <span className="tip-label">⚠️ Danger zone</span>
-                        <code>git reset --hard</code> permanently discards uncommitted work in your working directory.
-                        There is no undo for that part. If the commits themselves were already made, you can usually
-                        recover them from <code>git reflog</code> — but any uncommitted edits at the time of the
-                        reset are gone.
+                        Running <code>git reset --hard</code> permanently discards any uncommitted work in your
+                        working directory. There is no undo for that part. Going further back, e.g.{' '}
+                        <code>git reset --hard HEAD~2</code>, also deletes the last two commits from your branch.
+                        But you can usually recover the deleted commits by finding the old commit hash with{' '}
+                        <code>git reflog</code> and running <code>git reset --hard &lt;hash-from-reflog&gt;</code> —
+                        it's only the uncommitted edits at the time of the reset that are gone for good.
                     </div>
 
                     <h3>Key characteristics of Git Reset</h3>
