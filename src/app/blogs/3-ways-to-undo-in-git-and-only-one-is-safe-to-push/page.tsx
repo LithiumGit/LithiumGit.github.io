@@ -501,14 +501,18 @@ export default function GitResetVsRevertVsRestore() {
                             },
                             {
                                 q: "What is the difference between git reset --soft, --mixed, and --hard?",
-                                a: "git reset --soft deletes the commit(s) but keeps all their changes staged, ready to re-commit. git reset --mixed (the default) deletes the commit(s) and unstages the changes, but keeps them in your working directory. git reset --hard deletes the commit(s) and discards all staged and working directory changes permanently."
+                                a: "git reset --soft deletes the commit(s) but keeps all their changes staged, ready to re-commit. --mixed (the default) deletes the commit(s) and unstages the changes, but keeps them in your working directory. --hard deletes the commit(s) and discards all staged and working directory changes permanently."
                             },
                             {
                                 q: "Why did Git introduce git restore if git checkout already existed?",
                                 a: "Git checkout historically did too many unrelated things: switching branches, restoring files, and detaching HEAD. Git 2.23 split this into two dedicated commands — git switch for changing branches, and git restore for discarding file changes — making each command's purpose explicit."
                             },
                             {
-                                q: "Can I undo a git reset --hard?",
+                                q: "Can I recover changes removed by a git reset --hard?",
+                                a: "No, any uncommitted changes in your working directory that were discarded by --hard are gone forever."
+                            },
+                            {
+                                q: "Can I recover a git reset --hard HEAD~1 ?",
                                 a: "Often yes, as long as the commit still exists in Git's reflog. Running git reflog shows recent HEAD movements, and you can recover the lost commit with git reset --hard <commit-hash>. However, uncommitted working directory changes discarded by --hard are gone for good."
                             }
                         ].map((faq, i) => (
