@@ -9,7 +9,7 @@ import beforeRevert from '../../images/blog/reset_vs_revert_vs_restore/before_re
 import afterRevert from '../../images/blog/reset_vs_revert_vs_restore/after_revert.png';
 
 const PAGE_URL = "https://lithiumgit.com/blogs/3-ways-to-undo-in-git-and-only-one-is-safe-to-push";
-const DATE_PUBLISHED = "2026-07-28";
+const DATE_PUBLISHED = "2026-07-29";
 const DATE_MODIFIED = Config.PublishedDate;
 const CURRENT_YEAR = new Date().getFullYear();
 
