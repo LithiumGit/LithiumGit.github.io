@@ -3,6 +3,11 @@ import { IMetadataParams } from '../../../lib/interfaces';
 import { UiUtils } from '../../../lib/utilities/UiUtils';
 import '../../styles/blogs/3_ways_to_undo_in_git.scss';
 
+import beforeReset from '../../images/blog/reset_vs_revert_vs_restore/before_reset.png';
+import afterReset from '../../images/blog/reset_vs_revert_vs_restore/after_reset.png';
+import beforeRevert from '../../images/blog/reset_vs_revert_vs_restore/before_revert.png';
+import afterRevert from '../../images/blog/reset_vs_revert_vs_restore/after_revert.png';
+
 const PAGE_URL = "https://lithiumgit.com/blogs/3-ways-to-undo-in-git-and-only-one-is-safe-to-push";
 const DATE_PUBLISHED = "2026-07-28";
 const DATE_MODIFIED = Config.PublishedDate;
@@ -189,6 +194,29 @@ export default function GitResetVsRevertVsRestore() {
                         <code>--mixed</code> (the default), or <code>--hard</code>.
                     </p>
 
+                    <h3>Before and after a git reset</h3>
+                    <p>
+                        Below, <code>feature</code> has three commits (F1, F2, F3). Running{' '}
+                        <code>git reset HEAD~1</code> moves <code>feature</code> back one commit — F3 is deleted
+                        from the branch entirely.
+                    </p>
+                    <div className="blog-image-row">
+                        <div className="blog-image-block">
+                            <img
+                                src={beforeReset.src}
+                                alt="Commit graph showing the feature branch with commits F1, F2, F3 before running git reset"
+                            />
+                            <p className="image-caption">Before — feature has three commits: F1, F2, F3</p>
+                        </div>
+                        <div className="blog-image-block">
+                            <img
+                                src={afterReset.src}
+                                alt="Commit graph after git reset HEAD~1 showing F3 deleted and feature now ending at F2"
+                            />
+                            <p className="image-caption">After git reset HEAD~1 — F3 is deleted; feature now ends at F2</p>
+                        </div>
+                    </div>
+
                     <h3>The three modes of reset</h3>
                     <div className="cli-block">
                         <span className="cli-label">Terminal</span>
@@ -261,6 +289,29 @@ export default function GitResetVsRevertVsRestore() {
                         &quot;mistake&quot; commit is still there in the log, followed by a new commit that cancels
                         it out.
                     </p>
+
+                    <h3>Before and after a git revert</h3>
+                    <p>
+                        Starting from the same three commits, running <code>git revert</code> on one of them adds a
+                        brand-new commit — F4 — on top. F1, F2, and F3 are untouched; the log simply gains an
+                        additional commit that cancels out the change.
+                    </p>
+                    <div className="blog-image-row">
+                        <div className="blog-image-block">
+                            <img
+                                src={beforeRevert.src}
+                                alt="Commit graph showing the feature branch with commits F1, F2, F3 before running git revert"
+                            />
+                            <p className="image-caption">Before — feature has three commits: F1, F2, F3</p>
+                        </div>
+                        <div className="blog-image-block">
+                            <img
+                                src={afterRevert.src}
+                                alt="Commit graph after git revert showing a new commit F4 added on top that undoes an earlier change"
+                            />
+                            <p className="image-caption">After git revert — F4 is added to undo the change; F1–F3 stay intact</p>
+                        </div>
+                    </div>
 
                     <h3>Reverting a single commit</h3>
                     <div className="cli-block">
