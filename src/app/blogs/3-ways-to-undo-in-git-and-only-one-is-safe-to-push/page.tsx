@@ -97,7 +97,7 @@ export function generateMetadata(args: IMetadataParams) {
     const data = UiUtils.getCommonHeaderInfo(args, "blogs/3-ways-to-undo-in-git-and-only-one-is-safe-to-push");
     data.title = `3 Ways to Undo in Git — And Only One Is Safe to Push (${CURRENT_YEAR})`;
     data.description = `Git reset, git revert, and git restore all "undo" something — but they work in completely different ways. Learn what each command actually does, when it rewrites history, and which is safe to use in ${CURRENT_YEAR}.`;
-    data.keywords = `git reset vs revert vs restore, git reset vs revert, git restore vs checkout, git reset soft mixed hard, git reset --hard, git revert commit, git restore file, undo git commit, undo last commit, undo staged changes, discard local changes git, git reflog, is git reset dangerous, LithiumGit, git GUI client`;
+    data.keywords = `git reset vs revert vs restore, git reset vs revert, git restore vs checkout, git reset soft mixed hard, git reset --hard, git revert commit, git restore file, undo git commit, undo last commit, undo staged changes, discard local changes git, is git reset dangerous, LithiumGit, git GUI client`;
     data.openGraph = {
         ...data.openGraph,
         title: `3 Ways to Undo in Git — And Only One Is Safe to Push (${CURRENT_YEAR})`,
@@ -267,10 +267,8 @@ export default function GitResetVsRevertVsRestore() {
                         <span className="tip-label">⚠️ Danger zone</span>
                         Running <code>git reset --hard</code> permanently discards any uncommitted work in your
                         working directory. There is no undo for that part. Going further back, e.g.{' '}
-                        <code>git reset --hard HEAD~2</code>, also deletes the last two commits from your branch.
-                        But you can usually recover the deleted commits by finding the old commit hash with{' '}
-                        <code>git reflog</code> and running <code>git reset --hard &lt;hash-from-reflog&gt;</code> —
-                        it's only the uncommitted edits at the time of the reset that are gone for good.
+                        <code>git reset --hard HEAD~2</code>, also permanently removes those commits from your
+                        branch history.
                     </div>
 
                     <h3>Key characteristics of Git Reset</h3>
@@ -486,32 +484,6 @@ export default function GitResetVsRevertVsRestore() {
                         still local and only yours, <strong>reset</strong>. If nothing has been committed yet,{' '}
                         <strong>restore</strong>.
                     </div>
-                </section>
-
-                {/* ── SECTION 7 — RECOVERY ── */}
-                <section className="blog-section">
-                    <h2>What If You Made a Mistake? Recovering With the Reflog</h2>
-                    <p>
-                        Both <code>git reset --hard</code> and history rewrites can feel irreversible, but Git keeps a
-                        local safety net called the <strong>reflog</strong> — a log of everywhere <code>HEAD</code> has
-                        pointed recently. As long as the commit was made at some point, it usually is not gone yet.
-                    </p>
-                    <div className="cli-block">
-                        <span className="cli-label">Terminal</span>
-                        <pre>
-                            <span className="cli-comment">{`# List recent HEAD movements, including ones "erased" by reset`}</span>{`
-`}<span className="cli-cmd">{`git reflog`}</span>{`
-
-`}<span className="cli-comment">{`# Recover by resetting back to the commit you find in the reflog`}</span>{`
-`}<span className="cli-cmd">{`git reset --hard <commit-hash-from-reflog>`}</span>
-                        </pre>
-                    </div>
-                    <p>
-                        This safety net only covers <strong>committed</strong> work. Uncommitted changes discarded by
-                        <code> git reset --hard</code> or <code>git restore</code> never entered the reflog and cannot
-                        be recovered this way — which is exactly why it is worth committing or stashing anything you
-                        are not sure about before running either command.
-                    </p>
                 </section>
 
                 {/* ── FAQ ── */}
