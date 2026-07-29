@@ -383,12 +383,12 @@ export default function GitResetVsRevertVsRestore() {
                         <code>git restore --staged</code> file does roughly what <code>git reset</code> file used to do —
                         unstage a file without touching your edits. The difference is scope: <code>reset</code> can also
                         delete whole commits from your branch, while <code>restore</code> only ever touches the
-                        files you name.
+                        uncommitted changes in the files.
                     </div>
 
                     <h3>Key characteristics of Git Restore</h3>
                     <ul>
-                        <li><strong>Never touches commit history</strong> — no branch pointer is ever moved</li>
+                        <li><strong>Never touches commit history</strong> — branch is never affected</li>
                         <li><strong>File-scoped</strong> — you target specific files or paths, not the whole commit graph</li>
                         <li><strong>Two targets</strong> — the working directory (default) or the staging area (<code>--staged</code>)</li>
                         <li><strong>Destructive to uncommitted edits</strong> — discarded working directory changes cannot be recovered</li>
@@ -412,7 +412,7 @@ export default function GitResetVsRevertVsRestore() {
                                 <td>What it operates on</td>
                                 <td>Commits (deletes them), staging area, working directory</td>
                                 <td>Commit history (via a new commit)</td>
-                                <td>Working directory or staging area, per file</td>
+                                <td>Working directory or staging area</td>
                             </tr>
                             <tr>
                                 <td>Rewrites history?</td>
