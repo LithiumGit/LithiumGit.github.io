@@ -9,7 +9,7 @@ import selectPatchFile from '../../images/blog/import_export_changes/select_patc
 
 const PAGE_URL = "https://lithiumgit.com/blogs/share-local-changes-with-team-member-using-git-patch-and-lithiumgit";
 const DATE_PUBLISHED = "2026-06-27";
-const DATE_MODIFIED = Config.PublishedDate;
+const DATE_MODIFIED = "2026-06-27";
 const CURRENT_YEAR = new Date().getFullYear();
 
 const articleSchema = {

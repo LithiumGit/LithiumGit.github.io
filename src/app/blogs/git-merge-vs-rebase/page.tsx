@@ -13,7 +13,7 @@ import afterRebase from '../../images/blog/rebase/after_rebase.png';
 
 const PAGE_URL = "https://lithiumgit.com/blogs/git-merge-vs-rebase";
 const DATE_PUBLISHED = "2026-04-25";
-const DATE_MODIFIED = Config.PublishedDate;
+const DATE_MODIFIED = "2026-04-25";
 const CURRENT_YEAR = new Date().getFullYear();
 
 const articleSchema = {

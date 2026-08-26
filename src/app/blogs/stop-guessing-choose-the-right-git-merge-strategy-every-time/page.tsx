@@ -18,7 +18,7 @@ import afterSubtree from '../../images/blog/merge_stategies/after_merge_subtree.
 
 const PAGE_URL = "https://lithiumgit.com/blogs/stop-guessing-choose-the-right-git-merge-strategy-every-time";
 const DATE_PUBLISHED = "2026-05-31";
-const DATE_MODIFIED = Config.PublishedDate;
+const DATE_MODIFIED = "2026-05-31";
 const CURRENT_YEAR = new Date().getFullYear();
 
 const articleSchema = {

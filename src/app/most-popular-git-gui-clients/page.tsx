@@ -10,7 +10,7 @@ import { FaqSection } from './faqSection';
 
 const PAGE_URL = "https://lithiumgit.com/most-popular-git-gui-clients";
 const DATE_PUBLISHED = "2025-01-01";
-const DATE_MODIFIED = Config.PublishedDate;
+const DATE_MODIFIED = "2025-01-01";
 const CURRENT_YEAR = new Date().getFullYear();
 
 const itemListSchema = {

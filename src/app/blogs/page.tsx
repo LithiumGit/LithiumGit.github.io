@@ -4,9 +4,16 @@ import { UiUtils } from '../../lib/utilities/UiUtils';
 import '../styles/blogs/blog_index.scss';
 
 const PAGE_URL = "https://lithiumgit.com/blogs";
-const DATE_MODIFIED = Config.PublishedDate;
+const DATE_MODIFIED = "2026-08-26";
 
 const blogs = [
+    {
+        title: "Understanding Git's Working Directory, Staging Area, and HEAD",
+        href: "/blogs/understanding-git-working-directory-staging-area-and-head",
+        category: "Git Fundamentals",
+        description: "What Git's three areas actually hold, which one every common command touches, and how to read git status and git diff without guessing.",
+        note: "The mental model that makes the rest of Git make sense.",
+    },
     {
         title: "3 Ways to Undo in Git - And Only One Is Safe to Push",
         href: "/blogs/3-ways-to-undo-in-git-and-only-one-is-safe-to-push",
