@@ -3,6 +3,11 @@ import { IMetadataParams } from '../../../lib/interfaces';
 import { UiUtils } from '../../../lib/utilities/UiUtils';
 import '../../styles/blogs/working_directory_staging_area_head.scss';
 
+import modifiedStagedSideBySide from '../../images/blog/workingtree_stagingarea_head/modified_staged_side_by_side.png';
+import diffWorkingTreeVsIndex from '../../images/blog/workingtree_stagingarea_head/diff_view_working_tree_vs_index.png';
+import diffIndexVsHead from '../../images/blog/workingtree_stagingarea_head/diff_view_index_vs_head.png';
+import graph from '../../images/blog/workingtree_stagingarea_head/graph.png';
+
 const PAGE_URL = "https://lithiumgit.com/blogs/understanding-git-working-directory-staging-area-and-head";
 const DATE_PUBLISHED = "2026-08-26";
 const DATE_MODIFIED = "2026-08-26";
@@ -744,16 +749,69 @@ Untracked files:                `}<span className="cli-comment">{`# on disk, in 
                         the distinction the <code>git status</code> headings describe is visible at a glance rather
                         than inferred from indentation.
                     </p>
-                    <ul>
-                        <li><strong>Staged and unstaged, side by side</strong> — a file that appears in both lists is instantly recognisable as &quot;staged, then edited again.&quot;</li>
-                        <li><strong>Diff against the right pair</strong> — selecting an unstaged entry diffs it against the index; selecting a staged entry diffs it against HEAD.</li>
-                        <li><strong>Line-level staging</strong> — stage individual lines or hunks without hand-driving <code>git add -p</code>.</li>
-                        <li><strong>HEAD in the graph</strong> — the interactive commit graph marks where HEAD currently sits, which makes a detached HEAD obvious instead of surprising.</li>
-                    </ul>
+                    <h3>Two lists: your working directory and your staging area</h3>
                     <p>
-                        The concepts are identical either way. A GUI just removes the need to keep all three snapshots
-                        in your head while you work.
+                        The <strong>Modified</strong> and <strong>Staged</strong> tabs are the first two areas. Below,
+                        two files have been edited and one of them has been staged — the counts{' '}
+                        <code>Modified (2)</code> and <code>Staged (1)</code> tell you at a glance how far each change
+                        has travelled.
                     </p>
+                    <div className="blog-image-block">
+                        <img
+                            src={modifiedStagedSideBySide.src}
+                            alt="LithiumGit changes panel showing a Modified tab with two files and a Staged tab with one file"
+                        />
+                        <p className="image-caption">
+                            Modified (2) is your working directory; Staged (1) is your staging area
+                        </p>
+                    </div>
+
+                    <h3>Each list diffs against a different area</h3>
+                    <p>
+                        This is where the three-area model pays off, because LithiumGit names the pair it is comparing
+                        in the title bar. Select a file from <strong>Modified</strong> and you get{' '}
+                        <code>Index ↔ Working Directory</code> — the same comparison as{' '}
+                        <code>git diff</code>. Select one from <strong>Staged</strong> and you get{' '}
+                        <code>HEAD ↔ Index</code> — the same comparison as <code>git diff --staged</code>.
+                    </p>
+                    <div className="blog-image-row">
+                        <div className="blog-image-block">
+                            <img
+                                src={diffWorkingTreeVsIndex.src}
+                                alt="LithiumGit diff view titled Index versus Working Directory, opened from the Modified tab"
+                            />
+                            <p className="image-caption">
+                                From Modified — <code>Index ↔ Working Directory</code>, i.e. <code>git diff</code>
+                            </p>
+                        </div>
+                        <div className="blog-image-block">
+                            <img
+                                src={diffIndexVsHead.src}
+                                alt="LithiumGit diff view titled HEAD versus Index, opened from the Staged tab"
+                            />
+                            <p className="image-caption">
+                                From Staged — <code>HEAD ↔ Index</code>, i.e. <code>git diff --staged</code>
+                            </p>
+                        </div>
+                    </div>
+                    <p>
+                        Notice that both screenshots show the same file and the same change. Only the areas differ.
+                    </p>
+
+                    <h3>HEAD in the commit graph</h3>
+                    <p>
+                        The third area is a pointer, so LithiumGit draws it as one. In the graph the current commit is
+                        marked <strong>H</strong> for HEAD, with the branches that point at it listed above.
+                    </p>
+                    <div className="blog-image-block">
+                        <img
+                            src={graph.src}
+                            alt="LithiumGit commit graph with the current commit marked H for HEAD and the master and origin/master branch labels above it"
+                        />
+                        <p className="image-caption">
+                            The commit marked H is where HEAD points; master and origin/master point at the same commit
+                        </p>
+                    </div>
                 </section>
 
                 {/* ── SECTION 9 — GOTCHAS ── */}
