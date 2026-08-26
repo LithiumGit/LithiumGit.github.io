@@ -174,15 +174,15 @@ export default function GitThreeTrees() {
                 <section className="blog-section">
                     <h2>The Three Areas in One Picture</h2>
                     <p>
-                        Git does not store one copy of your project — it juggles three. Each one holds a complete
-                        snapshot of every tracked file, and at any moment they can disagree with one another.
+                        Git does not store one copy of your project — it maintains three at once. Each one holds a
+                        complete snapshot of every tracked file, and at any moment they can disagree with one another.
                         Git&apos;s own documentation calls these the <strong>three trees</strong>.
                     </p>
 
                     <div className="concept-box">
                         <strong>1. Working Directory</strong>
                         The real files on your disk — the ones your editor opens and your compiler reads. This is the
-                        only area you can change directly, and the only one where an idea can be lost forever.
+                        only area you can change directly.
                     </div>
                     <div className="concept-box">
                         <strong>2. Staging Area (the index)</strong>
