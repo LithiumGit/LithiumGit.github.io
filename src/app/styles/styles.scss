@@ -49,6 +49,7 @@ html {
   --bg-change-accepted: #b9d5f6;
   --color-h1:#282828;
   --color-white-2: #c4c2c2;
+  --blog-link-color: #563d7c;
 }
 
 html[data-theme='dark'] {
@@ -89,6 +90,7 @@ html[data-theme='dark'] {
   --bg-change-accepted: #b9d5f6;
   --color-h1:#a3a3a3;
   --color-white-2: #dad9d9;
+  --blog-link-color: #a992e0;
 }
 
 input[type="text"],
@@ -565,6 +567,25 @@ h1{
         padding: 20px;
         border-radius: 10px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    // Inline links in prose need to look like links; the global `a` rule
+    // strips colour and underline so nav/footer/cards can inherit.
+    .blog-intro,
+    .blog-section,
+    .concept-box,
+    .tip-box,
+    .faq-section {
+        a {
+            color: var(--blog-link-color);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+
+            &:hover,
+            &:focus-visible {
+                color: #198754;
+            }
+        }
     }
 
     .blog-header {

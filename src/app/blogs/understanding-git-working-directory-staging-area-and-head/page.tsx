@@ -187,7 +187,7 @@ export default function GitThreeTrees() {
                     <div className="concept-box">
                         <strong>2. Staging Area (the index)</strong>
                         A draft of your <em>next</em> commit. It is not a list of filenames — it is a full snapshot,
-                        stored in the binary file <code>.git/index</code>. Nothing reaches history without passing
+                        stored in the binary file <code>.git/index</code>. Nothing can be committed without passing
                         through here first.
                     </div>
                     <div className="concept-box">
@@ -274,8 +274,8 @@ export default function GitThreeTrees() {
                     <p>
                         The one folder that is <em>not</em> part of your working directory is <code>.git/</code>. That
                         is the repository itself: object database, refs, and the index. Delete <code>.git/</code> and
-                        you still have your files but no history; delete your files and <code>.git/</code> can give
-                        every committed version back.
+                        you keep your files but lose all history. Delete your files except <code>.git/</code> and <code>.git/</code> can restore
+                        every committed version.
                     </p>
 
                     <h3>Tracked, modified, staged, untracked</h3>
@@ -296,7 +296,7 @@ export default function GitThreeTrees() {
                             <span className="cli-comment">{`# What differs between the working directory and the staging area?`}</span>{`
 `}<span className="cli-cmd">{`git diff`}</span>{`
 
-`}<span className="cli-comment">{`# List every file Git is currently tracking (i.e. present in the index)`}</span>{`
+`}<span className="cli-comment">{`# List every file that is currently presents in the git index`}</span>{`
 `}<span className="cli-cmd">{`git ls-files`}</span>{`
 
 `}<span className="cli-comment">{`# Compact machine-readable status, including untracked files`}</span>{`
@@ -307,9 +307,8 @@ export default function GitThreeTrees() {
                     <div className="tip-box">
                         <span className="tip-label">⚠️ The only area with no safety net</span>
                         A commit can be recovered from the reflog. A staged snapshot can often be recovered from
-                        dangling blobs. But a working-directory edit that was never staged or committed has no copy
-                        anywhere in <code>.git/</code> — <code>git restore</code> and{' '}
-                        <code>git reset --hard</code> erase it for good.
+                        dangling blobs. But an edit that you never staged or committed exists only on disk, {' '}
+                        <code>git restore</code> and <code>git reset --hard</code> will erase it forever.
                     </div>
                 </section>
 
@@ -317,28 +316,24 @@ export default function GitThreeTrees() {
                 <section className="blog-section">
                     <h2>The Staging Area — Your Commit, Still in Draft</h2>
                     <p>
-                        The staging area is the part of Git most other version-control systems do not have, and the
-                        part people most often try to route around. It is worth understanding on its own terms,
-                        because it is the reason Git can produce a clean history out of a messy afternoon of editing.
+                        Most other version-control systems have nothing like the staging area: you commit, and your
+                        changes go straight into history. Git puts one step in between. That extra step lets you pick
+                        exactly which changes go into the commit, instead of committing everything you have edited.
                     </p>
                     <p>
                         Three names refer to the exact same thing: <strong>staging area</strong>,{' '}
-                        <strong>index</strong>, and <strong>cache</strong>. That is why one command says{' '}
-                        <code>--staged</code> and another says <code>--cached</code> — historical accident, one
-                        concept.
+                        <strong>index</strong>, and <strong>cache</strong>. So when you see <code>--staged</code> in
+                        one command and <code>--cached</code> in another, both flags mean the same thing.
                     </p>
 
                     <h3>It is a snapshot, not a to-do list</h3>
                     <p>
-                        A common misconception is that <code>git add</code> marks a file to be included later. It does
-                        not. <code>git add</code> reads the file&apos;s current contents, writes them into Git&apos;s
-                        object database as a blob, and records that blob in <code>.git/index</code>. The staged
-                        content is frozen at the moment you ran <code>add</code>.
+                        <code>git add</code> does not mark a file for later. It copies the file&apos;s contents into
+                        the staging area straight away.
                     </p>
                     <p>
-                        This is exactly why editing a file after staging it makes it appear twice in{' '}
-                        <code>git status</code> — and why committing then records the older, staged version rather
-                        than what is on disk.
+                        So if you edit the file after staging it, the staging area still holds the older version — and
+                        that is the version <code>git commit</code> will record.
                     </p>
 
                     <div className="cli-block">
@@ -371,9 +366,8 @@ export default function GitThreeTrees() {
 
                     <div className="tip-box">
                         <span className="tip-label">💡 About git commit -a</span>
-                        <code>git commit -a</code> does not bypass the staging area — it stages for you, then commits.
-                        It also only picks up modifications and deletions to <strong>already-tracked</strong> files, so
-                        a brand-new file is silently left out unless you <code>git add</code> it first.
+                        <code>git commit -a</code> saves you a step: it stages your changes and commits them in one
+                        command. But it only includes files Git already tracks. A file you just created is left out.
                     </div>
                 </section>
 
@@ -402,9 +396,9 @@ ref: refs/heads/main
                     </div>
 
                     <p>
-                        So the full chain is <strong>HEAD → branch → commit</strong>. This indirection is what makes
-                        committing work: when you commit, Git creates the new commit and then advances{' '}
-                        <em>the branch</em> that HEAD names. HEAD itself never changes — it still says{' '}
+                        So the full chain is <strong>HEAD → branch → commit</strong>. That is what makes committing
+                        work: when you commit, Git creates the new commit and then moves <em>your branch</em> forward
+                        to point at it. HEAD itself never changes — it still says{' '}
                         <code>ref: refs/heads/main</code>, and <code>main</code> now points somewhere new.
                     </p>
 
@@ -427,8 +421,8 @@ ref: refs/heads/main
                             <circle className="dg-node" cx="700" cy="150" r="28" />
                             <text className="dg-node-label" x="700" y="155" textAnchor="middle">C3</text>
 
-                            <path className="dg-arrow" d="M670,150 H534" markerEnd="url(#dgArrow2)" />
-                            <path className="dg-arrow" d="M470,150 H334" markerEnd="url(#dgArrow2)" />
+                            <path className="dg-arrow" d="M334,150 H466" markerEnd="url(#dgArrow2)" />
+                            <path className="dg-arrow" d="M534,150 H666" markerEnd="url(#dgArrow2)" />
 
                             <rect className="dg-ref" x="655" y="62" width="90" height="32" rx="6" />
                             <text className="dg-ref-label" x="700" y="83" textAnchor="middle">main</text>
@@ -451,8 +445,8 @@ ref: refs/heads/main
                             <circle className="dg-node" cx="700" cy="340" r="28" />
                             <text className="dg-node-label" x="700" y="345" textAnchor="middle">C3</text>
 
-                            <path className="dg-arrow" d="M670,340 H534" markerEnd="url(#dgArrow2)" />
-                            <path className="dg-arrow" d="M470,340 H334" markerEnd="url(#dgArrow2)" />
+                            <path className="dg-arrow" d="M334,340 H466" markerEnd="url(#dgArrow2)" />
+                            <path className="dg-arrow" d="M534,340 H666" markerEnd="url(#dgArrow2)" />
 
                             <rect className="dg-ref" x="655" y="252" width="90" height="32" rx="6" />
                             <text className="dg-ref-label" x="700" y="273" textAnchor="middle">main</text>
@@ -463,16 +457,16 @@ ref: refs/heads/main
                             <path className="dg-arrow" d="M500,284 V308" markerEnd="url(#dgArrow2)" />
                         </svg>
                         <p className="diagram-caption">
-                            Commit arrows point backward to parents. Normally HEAD points at a branch; when it points
-                            straight at a commit, HEAD is detached.
+                            Commits run left to right, oldest to newest. Normally HEAD points at a branch; when it
+                            points straight at a commit, HEAD is detached.
                         </p>
                     </div>
 
                     <h3>Detached HEAD, demystified</h3>
                     <p>
                         Run <code>git checkout 3a9f1c2</code> and Git writes the raw hash into{' '}
-                        <code>.git/HEAD</code> instead of a <code>ref:</code> line. You can look around and even
-                        commit, but those commits have no branch pointing at them — move away and they become
+                        <code>.git/HEAD</code> instead of a <code>ref:</code> line. You can still make commits, but
+                        those commits have no branch pointing at them — move away and they become
                         unreachable, which is exactly what the alarming warning message is trying to tell you. The fix
                         is never dramatic: <code>git switch -c my-branch</code> creates a branch at your current
                         position, or <code>git switch main</code> walks away.
@@ -728,10 +722,11 @@ Untracked files:                `}<span className="cli-comment">{`# on disk, in 
 
                     <div className="tip-box">
                         <span className="tip-label">💡 Why reset has three flags</span>
-                        <code>git reset</code> always moves the branch pointer. The flag simply decides how far
-                        leftward the reset propagates: <code>--soft</code> stops at HEAD, <code>--mixed</code>{' '}
-                        continues into the staging area, and <code>--hard</code> goes all the way into your working
-                        directory. Same operation, three depths. Our{' '}
+                        <code>git reset &lt;commit&gt;</code> moves your branch back to that commit. The flag decides
+                        what else changes: <code>--soft</code> stops there, <code>--mixed</code> also resets the
+                        staging area, and <code>--hard</code> resets your working directory too. Same operation, three
+                        depths. Give it file paths instead of a commit — <code>git reset -- &lt;file&gt;</code> — and it
+                        does something different: it only unstages those files and leaves your branch alone. Our{' '}
                         <a href="/blogs/3-ways-to-undo-in-git-and-only-one-is-safe-to-push" rel="noopener">
                             guide to reset, revert, and restore
                         </a>{' '}
