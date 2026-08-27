@@ -159,6 +159,14 @@ export default function GitResetVsRevertVsRestore() {
                     each command touches, when it is safe, and which one you should reach for in every common situation.
                 </p>
 
+                <p className="blog-prereq">
+                    New to Git&apos;s three areas? Start with{' '}
+                    <a href="/blogs/understanding-git-working-directory-staging-area-and-head">
+                        the difference between Git&apos;s working directory, index (staging area), and HEAD
+                    </a>{' '}
+                    — every command below is far easier to reason about once those three are clear.
+                </p>
+
                 {/* ── SECTION 1 — THE CORE CONCEPT ── */}
                 <section className="blog-section">
                     <h2>The Core Difference in One Sentence</h2>
