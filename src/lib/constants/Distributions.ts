@@ -8,7 +8,17 @@ export class Distributions{
             os:OSType.Windows,
             releases:[                
                 {
-                    version:"1.0.8(latest)",
+                    version:"1.0.9(latest)",
+                    files:[
+                        {
+                            type:FileType.EXE,
+                            url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v1.0.9/LithiumGit_Installer.exe",
+                            arch:ArchType.x64,
+                        },                                                
+                    ]
+                },
+                {
+                    version:"1.0.8",
                     files:[
                         {
                             type:FileType.EXE,
