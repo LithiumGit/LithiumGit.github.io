@@ -229,7 +229,22 @@ export class Distributions{
             os:OSType.Linux,
             releases:[
                 {
-                    version:"1.0.8(latest)",
+                    version:"1.0.9(latest)",
+                    files:[
+                        {
+                            type:FileType.DEV,
+                            url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v1.0.9/LithiumGit-Setup-linux-amd64-1.0.9.deb",
+                            arch:ArchType.x64,
+                        },
+                        {
+                            type:FileType.AppImage,
+                            url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v1.0.9/LithiumGit-Setup-linux-x86_64-1.0.9.AppImage",
+                            arch:ArchType.x64,
+                        },
+                    ],                    
+                },
+                {
+                    version:"1.0.8",
                     files:[
                         {
                             type:FileType.DEV,
