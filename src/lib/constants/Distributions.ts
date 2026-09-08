@@ -113,7 +113,22 @@ export class Distributions{
             os:OSType.Mac,
             releases:[
                 {
-                    version:"1.0.7(latest)",
+                    version:"1.0.9(latest)",
+                    files:[
+                        {
+                            type:FileType.DMG,
+                            url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v1.0.9/LithiumGit-Setup-mac-arm64-1.0.9.dmg",
+                            arch:ArchType.arm64,
+                        },
+                        {
+                            type:FileType.DMG,
+                            url:"https://github.com/TulshiDas39/LithiumGit/releases/download/v1.0.9/LithiumGit-Setup-mac-x64-1.0.9.dmg",
+                            arch:ArchType.x64,
+                        }
+                    ]
+                },
+                {
+                    version:"1.0.7",
                     files:[
                         {
                             type:FileType.DMG,
