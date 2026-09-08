@@ -7,7 +7,7 @@ import { IMetadataParams } from "../../lib/interfaces";
 export function generateMetadata(args:IMetadataParams){    
     const data = UiUtils.getCommonHeaderInfo(args,"docs");
     data.title = "LithiumGit Documentation | Git GUI Client User Guide";
-    data.description = "Full documentation for LithiumGit — learn how to clone repositories, view the interactive graph, manage commits, resolve merge conflicts, use stashes, and more.";
+    data.description = "Full documentation for LithiumGit — learn how to clone repositories, view the interactive graph, stage and commit changes, resolve merge conflicts, use stashes, and more.";
     data.openGraph!.title = "LithiumGit Documentation | Git GUI Client User Guide";
     data.openGraph!.description = "Full documentation for LithiumGit. Learn how to use the interactive graph, manage commits, resolve conflicts, and more.";
     (data as any).twitter = {
