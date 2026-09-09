@@ -75,11 +75,11 @@ export function PageChild(){
             <Dropdown className=''>
                 <DropdownToggle variant="" id="" className="rounded-0">
                     {/* <FaEllipsisH /> */}
-                    {state.selectedVersion?.version || "Not available"}
+                    {StringUtils.getVersionLabel(state.selectedVersion?.version!,state.selectedVersion?.isLatest) || "Not available"}
                 </DropdownToggle>
                 <Dropdown.Menu className="no-radius">
                     {versions.map(o=>(
-                        <DropdownItem key={o.version} onClick={()=> setState({selectedVersion:o})} className="">{o.version}</DropdownItem>
+                        <DropdownItem key={o.version} onClick={()=> setState({selectedVersion:o})} className="">{StringUtils.getVersionLabel(o.version,o.isLatest)}</DropdownItem>
                     ))}                
                 </Dropdown.Menu>
             </Dropdown>        

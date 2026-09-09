@@ -4,7 +4,7 @@ import { Fragment, useEffect, useMemo } from "react";
 import { Carousel, CarouselItem } from "react-bootstrap";
 import { FaWindows, FaApple, FaCodeBranch, FaLayerGroup, FaList, FaArchive } from "react-icons/fa";
 import { FaDebian } from "react-icons/fa6";
-import { useMultiState, OSType, Distributions, Routes } from "../lib";
+import { useMultiState, OSType, Distributions, Routes, StringUtils } from "../lib";
 import { FileType, ArchType } from "../lib/interfaces";
 import { UiUtils } from "../lib/utilities/UiUtils";
 import { ExampleCarouselImage } from "./components";
@@ -93,7 +93,7 @@ export function PageChild(){
       return latestRelease.files.find(_=>_.type  === FileType.DEV && _.arch === ArchType.x64)!;
   },[state.osType])
   
-  const latestVersion = latestRelease.version;
+  const latestVersion = StringUtils.getVersionLabel(latestRelease.version,latestRelease.isLatest);
 
   const getOsIcon = ()=>{
     if(state.osType === OSType.Windows)

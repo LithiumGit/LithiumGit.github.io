@@ -3,6 +3,7 @@ import { OSType } from "../enums";
 export interface IReleaseItem{
     version:string;
     files:IFile[];
+    isLatest?:boolean;
 }
 
 export interface IDistribution{

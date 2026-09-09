@@ -8,7 +8,8 @@ export class Distributions{
             os:OSType.Windows,
             releases:[                
                 {
-                    version:"1.0.9(latest)",
+                    version:"1.0.9",
+                    isLatest:true,
                     files:[
                         {
                             type:FileType.EXE,
@@ -113,7 +114,8 @@ export class Distributions{
             os:OSType.Mac,
             releases:[
                 {
-                    version:"1.0.9(latest)",
+                    version:"1.0.9",
+                    isLatest:true,
                     files:[
                         {
                             type:FileType.DMG,
@@ -244,7 +246,8 @@ export class Distributions{
             os:OSType.Linux,
             releases:[
                 {
-                    version:"1.0.9(latest)",
+                    version:"1.0.9",
+                    isLatest:true,
                     files:[
                         {
                             type:FileType.DEV,
