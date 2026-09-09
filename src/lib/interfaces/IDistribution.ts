@@ -10,6 +10,14 @@ export interface IDistribution{
     releases:IReleaseItem[];
 }
 
+export interface IChangeLog{
+    version:string;
+    newChanges:{
+        type:string;
+        description:string;
+    }[];
+}
+
 export interface IFile{
     type:FileType;
     url:string;
