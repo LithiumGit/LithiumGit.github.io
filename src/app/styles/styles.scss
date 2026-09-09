@@ -28,7 +28,6 @@ html {
   --bg-fourth-color: rgb(141, 160, 141);
   --bg-select-color: rgb(192, 193, 201);
   --active-color: #ffff;
-  --white: #ffff;
   --highlight-color: rgb(92, 92, 243);
   --search-bg: #ffff;
   --svg-dark: #606060;
@@ -58,7 +57,7 @@ html[data-theme='dark'] {
   --nav-color:#563D7C;
   --brand-color:#563D7C;
   --bg-default-button: #76a198;
-  --border-color: rgba(0, 0, 0, .2);
+  --border-color: rgba(255, 255, 255, .2);
   --gs-normal: black;
   --gs-primary: rgb(81, 165, 144);
   --gs-secondary: rgb(86, 86, 230);
@@ -70,7 +69,6 @@ html[data-theme='dark'] {
   --bg-fourth-color: rgb(126, 117, 156);
   --bg-select-color: rgb(130, 124, 212);
   --active-color: #333333;
-  --white: #181818;
   --highlight-color: rgb(92, 92, 243);
   --svg-lite: #E5E6EB;
   --hover: #56a696;

@@ -6,4 +6,66 @@
         max-width: 500px;
         height: auto;
     }
+
+    .download-divider{
+        border-top: 1px solid var(--border-color);
+        margin-bottom: 2.5rem;
+    }
+
+    .change-log{
+        border: 1px solid var(--border-color);
+        background-color: var(--bg-second-color);
+
+        &__title{
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin: 0;
+            padding: 0.85rem 1rem;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--color-h1);
+        }
+
+        &__list{
+            list-style: none;
+            margin: 0;
+            padding: 0.6rem 0;
+        }
+
+        &__item{
+            display: flex;
+            align-items: baseline;
+            gap: 0.65rem;
+            padding: 0.45rem 1rem;
+        }
+
+        &__type{
+            flex: 0 0 auto;
+            min-width: 7rem;
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            background-color: var(--brand-color);
+            border-radius: 3px;
+            padding: 0.2rem 0.45rem;
+        }
+
+        &__description{
+            color: var(--font-color);
+            line-height: 1.55;
+        }
+
+        @media (max-width: 576px) {
+            &__item{
+                flex-direction: column;
+                gap: 0.3rem;
+            }
+
+            &__type{
+                min-width: 0;
+                align-self: flex-start;
+            }
+        }
+    }
 }

@@ -47,7 +47,13 @@ export function PageChild(){
         const osType = UiUtils.getOSPlatform();
         const os = osses.find(_=>_.os === osType);
         setState({selectedOS:os});
-    },[]) 
+    },[])
+
+    const changeLog = useMemo(()=>{
+        if(!state.selectedVersion)
+            return undefined;
+        return Distributions.changeLogs.find(_=> _.version === state.selectedVersion!.version);
+    },[state.selectedVersion])
     
     const getOsIcon = ()=>{
         if(state.selectedOS.os === OSType.Windows)
@@ -108,5 +114,24 @@ export function PageChild(){
             
             <div className='col-md-3' />
         </div>
+
+        {!!changeLog && <div className='row g-0 pb-5'>
+            <div className='col-md-3' />
+            <div className='col-12 col-md-6 px-2'>
+                <div className='download-divider' />
+                <div className='change-log'>
+                    <h2 className='change-log__title'>What&apos;s new in {changeLog.version}</h2>
+                    <ul className='change-log__list'>
+                        {changeLog.newChanges.map((c,i)=>(
+                            <li key={i} className='change-log__item'>
+                                <span className='change-log__type'>{c.type}</span>
+                                <span className='change-log__description'>{c.description}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
+            <div className='col-md-3' />
+        </div>}
     </Fragment>
 }

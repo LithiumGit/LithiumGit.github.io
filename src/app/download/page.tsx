@@ -1,6 +1,5 @@
 import '../styles/download.scss';
 import { UiUtils } from '../../lib/utilities/UiUtils';
-import { Metadata } from 'next';
 import { PageChild } from './pageChild';
 import { IMetadataParams } from '../../lib/interfaces';
 
