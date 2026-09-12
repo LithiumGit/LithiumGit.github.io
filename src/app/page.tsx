@@ -23,7 +23,7 @@ const softwareAppSchema = {
     "@type": "Person",
     "name": "Tulshi Chandra Das"
   },
-  "license": "https://github.com/TulshiDas39/LithiumGit/blob/master/LICENSE"
+  "license": "https://github.com/LithiumGit/LithiumGit/blob/master/LICENSE"
 };
 
 export function generateMetadata(args:IMetadataParams){    

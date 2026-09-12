@@ -44,11 +44,11 @@ export default function About(){
                     <p>LithiumGit does not execute any git process itself. It uses the installed git on user computer to perform the tasks.
                         So git installation is required to use LithiumGit.
                     </p>
-                    <p>Registration or login is not required to use LithiumGit. It is open source and free. The <a className="text-primary" target="_blank" href="https://github.com/TulshiDas39/LithiumGit">source code</a> is available at Github and contribution is welcomed.</p>
+                    <p>Registration or login is not required to use LithiumGit. It is open source and free. The <a className="text-primary" target="_blank" href="https://github.com/LithiumGit/LithiumGit">source code</a> is available at Github and contribution is welcomed.</p>
                     <br />
 
                     <h3>How to Contribute</h3>
-                    <p>To integrate any new changes or bug fixing to LithiumGit please submit a <a className="text-primary" href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request">pull request</a> to Github <a className="text-primary" target="_blank" href="https://github.com/TulshiDas39/LithiumGit">repository</a>.</p>
+                    <p>To integrate any new changes or bug fixing to LithiumGit please submit a <a className="text-primary" href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request">pull request</a> to Github <a className="text-primary" target="_blank" href="https://github.com/LithiumGit/LithiumGit">repository</a>.</p>
 
                     <br />
                     <h3>Background</h3>

@@ -87,7 +87,7 @@ export function Nav(){
                 <NavItem className='flex-grow-1 text-end'>
                     <div className='pe-3 d-flex align-items-center justify-content-end'>
                         <span className='pe-2'>
-                            <a target='_blank' href="https://github.com/TulshiDas39/LithiumGit"><FaGithub /></a>
+                            <a target='_blank' href="https://github.com/LithiumGit/LithiumGit"><FaGithub /></a>
                         </span>
                         <span className='ps-5'>
                             <FaBahai onClick={()=> toogleTheme()} title={`Switch to ${state.theme == EnumTheme.Dark?"light":"dark"} theme.`} className={`h3 cur-point border border-secondary rounded-circle p-1 ${state.theme === EnumTheme.Light?"":"text-slight"}`} />
