@@ -50,7 +50,7 @@ const faqSchema = {
             "name": "What is the best free Git desktop application?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "LithiumGit is the best free Git desktop application — it is 100% free, open-source, and works on Windows, Mac, and Linux with no registration required. GitHub Desktop and Sourcetree are also excellent free options."
+                "text": "LithiumGit is the best free Git desktop application — it is 100% free and works on Windows, Mac, and Linux with no registration required. GitHub Desktop and Sourcetree are also excellent free options."
             }
         },
         {
@@ -74,7 +74,7 @@ const faqSchema = {
             "name": "What is the best Git desktop application for Linux?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "LithiumGit and GitKraken are the best Git desktop applications with Linux support. LithiumGit is free and open-source; GitKraken offers a free tier for public repositories."
+                "text": "LithiumGit and GitKraken are the best Git desktop applications with Linux support. LithiumGit is free to use; GitKraken offers a free tier for public repositories."
             }
         },
         {

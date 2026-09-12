@@ -154,7 +154,7 @@ export default function GitRebaseVsMerge() {
                     but they do it in fundamentally different ways, with very different effects on your project history.
                     Understanding the <strong>difference between git merge and git rebase</strong> will make you a more
                     confident developer and help you choose the right tool for every situation. The examples below use
-                    <a href="https://lithiumgit.com" rel="noopener"> LithiumGit</a>, a free open-source Git GUI client,
+                    <a href="https://lithiumgit.com" rel="noopener"> LithiumGit</a>, a free Git GUI client,
                     to visualise each operation.
                 </p>
 

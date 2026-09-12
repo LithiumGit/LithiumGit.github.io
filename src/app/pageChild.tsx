@@ -110,7 +110,7 @@ export function PageChild(){
         <div className="home-hero__text">
           <h1 className="home-hero__headline">No fear,<br />just play with Git.</h1>
           <p className="home-hero__sub">
-            LithiumGit is a free, open-source Git GUI for Windows, macOS, and Linux.
+            LithiumGit is a free Git GUI for Windows, macOS, and Linux.
             Powerful enough for pros, simple enough for beginners.
           </p>
           <div className="home-hero__cta">

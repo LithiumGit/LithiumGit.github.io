@@ -12,14 +12,14 @@ import { IMetadataParams } from '../../lib/interfaces';
 
 export function generateMetadata(args: IMetadataParams){
     const data = UiUtils.getCommonHeaderInfo(args,"about");
-    data.title = "About LithiumGit | Free Open-Source Git GUI Client";
-    data.description = "Meet the team behind LithiumGit, the free open-source Git GUI client for Windows, Mac, and Linux. Learn about our mission, contributors, and how you can get involved.";
-    data.openGraph!.title = "About LithiumGit | Free Open-Source Git GUI Client";
-    data.openGraph!.description = "Meet the team behind LithiumGit, the free open-source Git GUI client for Windows, Mac, and Linux. Learn about our mission, contributors, and how you can get involved.";
+    data.title = "About LithiumGit | Free Git GUI Client";
+    data.description = "Meet the team behind LithiumGit, the free Git GUI client for Windows, Mac, and Linux. Learn about our mission and the team.";
+    data.openGraph!.title = "About LithiumGit | Free Git GUI Client";
+    data.openGraph!.description = "Meet the team behind LithiumGit, the free Git GUI client for Windows, Mac, and Linux. Learn about our mission and the team.";
     (data as any).twitter = {
         ...(data as any).twitter,
-        title: "About LithiumGit | Free Open-Source Git GUI Client",
-        description: "Meet the team behind LithiumGit — a free open-source Git GUI client. Learn about our contributors and mission.",
+        title: "About LithiumGit | Free Git GUI Client",
+        description: "Meet the team behind LithiumGit — a free Git GUI client. Learn about our team and mission.",
     };
     return data;
 }
@@ -44,16 +44,16 @@ export default function About(){
                     <p>LithiumGit does not execute any git process itself. It uses the installed git on user computer to perform the tasks.
                         So git installation is required to use LithiumGit.
                     </p>
-                    <p>Registration or login is not required to use LithiumGit. It is open source and free. The <a className="text-primary" target="_blank" href="https://github.com/LithiumGit/LithiumGit">source code</a> is available at Github and contribution is welcomed.</p>
+                    <p>Registration or login is not required to use LithiumGit. It is free to use.</p>
                     <br />
 
-                    <h3>How to Contribute</h3>
-                    <p>To integrate any new changes or bug fixing to LithiumGit please submit a <a className="text-primary" href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request">pull request</a> to Github <a className="text-primary" target="_blank" href="https://github.com/LithiumGit/LithiumGit">repository</a>.</p>
+                    <h3>Bug Reports and Feature Requests</h3>
+                    <p>To report a bug or request a new feature please create an issue to the LithiumGit Github <a className="text-primary" target="_blank" href="https://github.com/LithiumGit/LithiumGit">repository</a>.</p>
 
                     <br />
                     <h3>Background</h3>
                     <p>The author of LithiumGit started development this project at jun, 2021 for personal use.
-                        By continuous development it has become a real life application and published for all as open source.
+                        By continuous development it has become a real life application and published for all, free to use.
                     </p>
                     <br />                    
 

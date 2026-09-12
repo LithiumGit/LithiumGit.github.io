@@ -17,7 +17,7 @@ const softwareAppSchema = {
   "url": "https://lithiumgit.com",
   "downloadUrl": "https://lithiumgit.com/download",
   "softwareVersion": "1.0.8",
-  "description": "LithiumGit is a free, open-source, cross-platform Git GUI client for Windows, Mac, and Linux. It provides an interactive graph view, branch management, merge conflict resolution, and full Git workflow support without requiring command-line knowledge.",
+  "description": "LithiumGit is a free, cross-platform Git GUI client for Windows, Mac, and Linux. It provides an interactive graph view, branch management, merge conflict resolution, and full Git workflow support without requiring command-line knowledge.",
   "screenshot": "https://github.com/LithiumGit/LithiumGit.github.io/releases/download/v1.0.0/icon.png",
   "author": {
     "@type": "Person",

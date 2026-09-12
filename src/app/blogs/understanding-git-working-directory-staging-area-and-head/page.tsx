@@ -744,7 +744,7 @@ Untracked files:                `}<span className="cli-comment">{`# on disk, in 
                     <h2>Seeing the Three Areas in LithiumGit</h2>
                     <p>
                         A GUI helps here because it can show all three areas at once instead of one text report at a
-                        time. In <a href="https://lithiumgit.com" rel="noopener">LithiumGit</a>, a free open-source
+                        time. In <a href="https://lithiumgit.com" rel="noopener">LithiumGit</a>, a free
                         Git GUI client, the changes panel splits staged and unstaged entries into separate lists, so
                         the distinction the <code>git status</code> headings describe is visible at a glance rather
                         than inferred from indentation.

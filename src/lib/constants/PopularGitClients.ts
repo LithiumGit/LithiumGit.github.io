@@ -4,7 +4,7 @@ export class PopularGitClients{
     static readonly list:IGitClientItem[]=[
         {
             name:"LithiumGit",
-            description:"LithiumGit is a powerful, free, and open-source Git GUI client designed to optimize your Git workflow and eliminate the fear of version control complexity. Built for Windows, Mac, and Linux, this cross-platform Git desktop application provides an intuitive graphical interface that makes Git operations accessible to developers of all skill levels. As an origin-independent Git client, LithiumGit seamlessly works with any Git hosting platform including GitHub, GitLab, BitBucket, Gerrit, and custom Git servers, offering complete flexibility for your development environment. The revolutionary interactive graph view stands as LithiumGit's signature feature, providing a comprehensive visual overview of your entire repository history where you can perform advanced Git operations like merge, rebase, cherry-pick, branch creation, checkout, and commit analysis directly from the graph interface. Unlike many Git clients, LithiumGit requires no registration or login - simply download, install, and start managing your repositories immediately. It leverages your system's existing Git installation, ensuring compatibility and reliability. The application features intelligent stash management with pop, apply, and delete operations, advanced commit searching and filtering, local changes visualization with line-by-line diff viewing, user and remote configuration management, repository cloning, and recent projects tracking for quick access. Developed by a dedicated open-source community since 2021, LithiumGit welcomes contributions on GitHub and continues to evolve with regular updates and improvements. Perfect for individual developers, small teams, and organizations seeking a reliable, feature-rich Git client without licensing costs or subscription fees. Experience Git management the way it should be - visual, intuitive, and completely free.",
+            description:"LithiumGit is a powerful, free Git GUI client designed to optimize your Git workflow and eliminate the fear of version control complexity. Built for Windows, Mac, and Linux, this cross-platform Git desktop application provides an intuitive graphical interface that makes Git operations accessible to developers of all skill levels. As an origin-independent Git client, LithiumGit seamlessly works with any Git hosting platform including GitHub, GitLab, BitBucket, Gerrit, and custom Git servers, offering complete flexibility for your development environment. The revolutionary interactive graph view stands as LithiumGit's signature feature, providing a comprehensive visual overview of your entire repository history where you can perform advanced Git operations like merge, rebase, cherry-pick, branch creation, checkout, and commit analysis directly from the graph interface. Unlike many Git clients, LithiumGit requires no registration or login - simply download, install, and start managing your repositories immediately. It leverages your system's existing Git installation, ensuring compatibility and reliability. The application features intelligent stash management with pop, apply, and delete operations, advanced commit searching and filtering, local changes visualization with line-by-line diff viewing, user and remote configuration management, repository cloning, and recent projects tracking for quick access. In continuous development since 2021, LithiumGit keeps evolving with regular updates and improvements, and bug reports and feature requests are welcomed on GitHub. Perfect for individual developers, small teams, and organizations seeking a reliable, feature-rich Git client without licensing costs or subscription fees. Experience Git management the way it should be - visual, intuitive, and completely free.",
             os:"Windows, Mac, & Linux",
             price:"Free",
             imageUrl:"https://github.com/LithiumGit/LithiumGit.github.io/releases/download/v1.0.0/icon.png",
@@ -12,7 +12,7 @@ export class PopularGitClients{
             firstReleaseYear: 2025,
             keyFeatures: [
                 "Revolutionary interactive graph view - visualize entire repository history and perform merge, rebase, cherry-pick, and branch operations directly from the graph",
-                "100% free and open-source with no registration, login, or subscription required",
+                "100% free with no registration, login, or subscription required",
                 "Origin-independent architecture - works seamlessly with GitHub, GitLab, BitBucket, Gerrit, and any Git hosting platform",
                 "Cross-platform support for Windows, Mac, and Linux with native performance",
                 "Advanced stash management - easily stash all changes, pop, apply, and delete stashes with visual interface",
@@ -22,13 +22,13 @@ export class PopularGitClients{
                 "One-click repository cloning and project initialization (git init equivalent)",
                 "Recent projects tracking for instant access to your repositories",
                 "No external dependencies - uses your system's installed Git for maximum compatibility",
-                "Active open-source development - community-driven with GitHub contributions welcomed",
+                "Actively developed - bug reports and feature requests welcomed on GitHub",
                 "Commit and amend functionality with intuitive UI",
                 "Complete branch management - create, delete, checkout, and visualize branches effortlessly",
                 "Designed by developers for developers - optimized for real-world Git workflows"
             ],
             bestFor: "Best free cross-platform Git desktop application for developers of all levels",
-            pros: ["Completely free and open-source", "Works on Windows, Mac, and Linux", "No login or registration required", "Origin-independent: GitHub, GitLab, Bitbucket, Gerrit and more", "Interactive graph for advanced Git operations"],
+            pros: ["Completely free to use", "Works on Windows, Mac, and Linux", "No login or registration required", "Origin-independent: GitHub, GitLab, Bitbucket, Gerrit and more", "Interactive graph for advanced Git operations"],
             cons: ["Newer tool with a growing community", "Fewer third-party integrations than paid alternatives"]
         },
         {
