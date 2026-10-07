@@ -4,9 +4,16 @@ import { UiUtils } from '../../lib/utilities/UiUtils';
 import '../styles/blogs/blog_index.scss';
 
 const PAGE_URL = "https://lithiumgit.com/blogs";
-const DATE_MODIFIED = "2026-08-26";
+const DATE_MODIFIED = "2026-10-07";
 
 const blogs = [
+    {
+        title: "The Danger of Rebase in Git - 7 Ways It Can Go Wrong",
+        href: "/blogs/the-danger-of-rebase-in-git",
+        category: "Git Workflow",
+        description: "How rebase duplicates commits, erases a teammate's pushed work, and hides bad conflict resolutions, plus how to recover with the reflog and rebase safely.",
+        note: "Read this before your next force push.",
+    },
     {
         title: "Understanding Git's Working Directory, Staging Area, and HEAD",
         href: "/blogs/understanding-git-working-directory-staging-area-and-head",

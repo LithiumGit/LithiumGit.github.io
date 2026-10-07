@@ -415,7 +415,8 @@ export default function GitRebaseVsMerge() {
                         <span className="tip-label">💡 Golden Rule of Rebasing</span>
                         Never rebase a branch that other people are working on. Once a branch is shared publicly
                         (pushed to a remote that others pull from), rewriting its history with rebase will cause
-                        serious problems for your teammates.
+                        serious problems for your teammates.{' '}
+                        <a href="/blogs/the-danger-of-rebase-in-git">See exactly what goes wrong, and how to recover →</a>
                     </div>
                 </section>
 

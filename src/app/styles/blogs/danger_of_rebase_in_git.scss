@@ -1,0 +1,135 @@
+@import "../styles.scss";
+
+.blog-page {
+
+    .blog-diagram {
+        margin: 28px 0;
+        text-align: center;
+
+        svg {
+            width: 100%;
+            max-width: 960px;
+            height: auto;
+            overflow: visible;
+        }
+
+        .diagram-caption {
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: #888;
+            font-style: italic;
+        }
+
+        .dg-sub,
+        .dg-note {
+            fill: #8a8a8a;
+            font-size: 11px;
+            font-style: italic;
+        }
+
+        .dg-row-label {
+            fill: var(--font-color);
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .dg-arrow {
+            stroke: var(--font-color);
+            stroke-width: 1.6;
+            fill: none;
+        }
+
+        .dg-marker {
+            fill: var(--font-color);
+            stroke: none;
+        }
+
+        .dg-divider {
+            stroke: rgba(136, 136, 136, 0.5);
+            stroke-width: 1;
+            stroke-dasharray: 6 6;
+            fill: none;
+        }
+
+        .dg-node {
+            fill: rgba(86, 61, 124, 0.12);
+            stroke: rgba(86, 61, 124, 0.6);
+            stroke-width: 1.6;
+        }
+
+        .dg-node-label {
+            fill: var(--font-color);
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .dg-ref {
+            fill: rgba(25, 135, 84, 0.12);
+            stroke: #198754;
+            stroke-width: 1.4;
+        }
+
+        .dg-ref-label {
+            fill: #198754;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        // Commits no branch points at any more — only the reflog still knows them.
+        .dg-node-ghost {
+            fill: none;
+            stroke: rgba(136, 136, 136, 0.75);
+            stroke-width: 1.6;
+            stroke-dasharray: 5 4;
+        }
+
+        .dg-node-label-ghost {
+            fill: #8a8a8a;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .dg-arrow-ghost {
+            stroke: rgba(136, 136, 136, 0.75);
+            stroke-width: 1.6;
+            stroke-dasharray: 5 4;
+            fill: none;
+        }
+
+        .dg-marker-ghost {
+            fill: rgba(136, 136, 136, 0.75);
+            stroke: none;
+        }
+
+        // Commits that end up duplicated or lost.
+        .dg-node-danger {
+            fill: rgba(220, 53, 69, 0.1);
+            stroke: #dc3545;
+            stroke-width: 1.6;
+        }
+
+        .dg-danger-note {
+            fill: #dc3545;
+            font-size: 12.5px;
+            font-weight: 600;
+        }
+    }
+}
+
+html[data-theme='dark'] .blog-page .blog-diagram {
+
+    .dg-node {
+        fill: rgba(150, 128, 214, 0.18);
+        stroke: rgba(168, 148, 224, 0.7);
+    }
+
+    .dg-node-danger {
+        fill: rgba(255, 107, 107, 0.14);
+        stroke: #ff6b6b;
+    }
+
+    .dg-danger-note {
+        fill: #ff8787;
+    }
+}

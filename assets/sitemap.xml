@@ -21,12 +21,18 @@
 </url>
 <url>
   <loc>https://lithiumgit.com/blogs</loc>
-  <lastmod>2026-08-27</lastmod>
+  <lastmod>2026-10-07</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 
 <!-- Blog articles -->
+<url>
+  <loc>https://lithiumgit.com/blogs/the-danger-of-rebase-in-git</loc>
+  <lastmod>2026-10-07</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.80</priority>
+</url>
 <url>
   <loc>https://lithiumgit.com/blogs/understanding-git-working-directory-staging-area-and-head</loc>
   <lastmod>2026-08-27</lastmod>
