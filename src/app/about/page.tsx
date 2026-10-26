@@ -1,6 +1,6 @@
 import { FaLinkedin } from 'react-icons/fa';
 import faiz from '../images/contributors/faiz.jpg';
-import zahid from '../images/contributors/zahid.jpg';
+import zahid from '../images/contributors/zahid.png';
 import shafi from '../images/contributors/shafi.jpg';
 import dip from '../images/contributors/dip.jpg';
 import tulshi from '../images/contributors/tulshi.jpg';
