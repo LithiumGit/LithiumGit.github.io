@@ -1,0 +1,172 @@
+@import "../styles.scss";
+
+.blog-page {
+
+    .source-note {
+        font-size: 0.9rem;
+        color: #888;
+        margin-top: 8px;
+
+        a {
+            color: var(--blog-link-color);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+    }
+
+    .blog-diagram {
+        margin: 28px 0;
+        text-align: center;
+        // On phones the diagrams scroll sideways instead of shrinking to unreadable text.
+        overflow-x: auto;
+
+        svg {
+            width: 100%;
+            min-width: 640px;
+            max-width: 960px;
+            height: auto;
+            overflow: visible;
+        }
+
+        .diagram-caption {
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: #888;
+            font-style: italic;
+        }
+
+        .dg-box {
+            fill: rgba(86, 61, 124, 0.07);
+            stroke: rgba(86, 61, 124, 0.45);
+            stroke-width: 1.5;
+        }
+
+        // Scion components.
+        .dg-box-scion {
+            fill: rgba(25, 135, 84, 0.08);
+            stroke: rgba(25, 135, 84, 0.6);
+            stroke-width: 1.5;
+        }
+
+        // Where git hurt at Anthropic's scale.
+        .dg-box-problem {
+            fill: rgba(220, 53, 69, 0.07);
+            stroke: rgba(220, 53, 69, 0.6);
+            stroke-width: 1.5;
+        }
+
+        .dg-box-dashed {
+            fill: none;
+            stroke: rgba(25, 135, 84, 0.6);
+            stroke-width: 1.5;
+            stroke-dasharray: 6 4;
+        }
+
+        .dg-inner {
+            fill: rgba(255, 255, 255, 0.6);
+            stroke: rgba(136, 136, 136, 0.55);
+            stroke-width: 1.2;
+        }
+
+        .dg-title {
+            fill: #198754;
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .dg-row-label {
+            fill: var(--font-color);
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .dg-sub,
+        .dg-note {
+            fill: #8a8a8a;
+            font-size: 11px;
+            font-style: italic;
+        }
+
+        .dg-file {
+            fill: var(--font-color);
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 12.5px;
+        }
+
+        .dg-cmd {
+            fill: #198754;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 12.5px;
+            font-weight: 700;
+        }
+
+        .dg-arrow {
+            stroke: var(--font-color);
+            stroke-width: 1.6;
+            fill: none;
+        }
+
+        .dg-arrow-dash {
+            stroke: #198754;
+            stroke-width: 1.4;
+            stroke-dasharray: 5 4;
+            fill: none;
+        }
+
+        .dg-marker {
+            fill: var(--font-color);
+            stroke: none;
+        }
+
+        .dg-marker-green {
+            fill: #198754;
+            stroke: none;
+        }
+
+        .dg-guide {
+            stroke: rgba(136, 136, 136, 0.7);
+            stroke-width: 1;
+            fill: none;
+        }
+
+        .dg-divider {
+            stroke: rgba(136, 136, 136, 0.5);
+            stroke-width: 1;
+            stroke-dasharray: 6 6;
+            fill: none;
+        }
+
+        .dg-danger-note {
+            fill: #dc3545;
+            font-size: 12.5px;
+            font-weight: 600;
+        }
+    }
+}
+
+html[data-theme='dark'] .blog-page .blog-diagram {
+
+    .dg-box {
+        fill: rgba(150, 128, 214, 0.14);
+        stroke: rgba(168, 148, 224, 0.55);
+    }
+
+    .dg-box-scion {
+        fill: rgba(64, 192, 128, 0.1);
+        stroke: rgba(64, 192, 128, 0.6);
+    }
+
+    .dg-box-problem {
+        fill: rgba(255, 107, 107, 0.1);
+        stroke: rgba(255, 107, 107, 0.65);
+    }
+
+    .dg-inner {
+        fill: rgba(255, 255, 255, 0.04);
+        stroke: rgba(170, 170, 170, 0.45);
+    }
+
+    .dg-danger-note {
+        fill: #ff8787;
+    }
+}

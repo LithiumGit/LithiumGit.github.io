@@ -4,9 +4,16 @@ import { UiUtils } from '../../lib/utilities/UiUtils';
 import '../styles/blogs/blog_index.scss';
 
 const PAGE_URL = "https://lithiumgit.com/blogs";
-const DATE_MODIFIED = "2026-10-07";
+const DATE_MODIFIED = "2026-10-29";
 
 const blogs = [
+    {
+        title: "Why Anthropic Replaced Git With Scion - What Broke and What Changed",
+        href: "/blogs/why-anthropic-replaced-git-with-scion",
+        category: "Git Ecosystem",
+        description: "What happened when AI agents pushed one monorepo to 30,000 merges a day, how Scion changes commits, fetching, and caching, and why Git isn't going anywhere.",
+        note: "Explained with diagrams, straight from Anthropic's own write-up.",
+    },
     {
         title: "The Danger of Rebase in Git - 7 Ways It Can Go Wrong",
         href: "/blogs/the-danger-of-rebase-in-git",
