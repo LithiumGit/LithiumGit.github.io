@@ -82,7 +82,7 @@ const faqSchema = {
 export function generateMetadata(args: IMetadataParams) {
     const data = UiUtils.getCommonHeaderInfo(args, "blogs/why-anthropic-replaced-git-with-scion");
     data.title = `Why Anthropic Replaced Git With Scion — What Broke and What Changed (${CURRENT_YEAR})`;
-    data.description = `Anthropic moved its monorepo off Git and onto Scion, an in-house version control system built for AI agents. Here is what broke, what Scion changes, how it solves the problem, and what it means for Git users — explained with diagrams.`;
+    data.description = `Anthropic moved its monorepo off Git to Scion, a version control system built for AI agents. What broke, what changed, and what it means for Git users.`;
     data.keywords = `Anthropic Scion, Anthropic replaced Git, Anthropic version control, Scion source control, Git alternative, is Git being replaced, Git monorepo scaling, Git at scale, AI agents Git, git partial clone, git sparse-checkout, scalar, LithiumGit, git GUI client`;
     data.openGraph = {
         ...data.openGraph,
@@ -359,7 +359,7 @@ export default function WhyAnthropicReplacedGitWithScion() {
                     <h2>Change 1: The Server Does the Work</h2>
                     <p>
                         In Git, you commit locally and then push to share your work. Your clone does almost everything —
-                        commits, merges, rebases, log, blame — because it has the whole history. In Scion, every commit,
+                        commits, <a href="/blogs/git-merge-vs-rebase">merges, rebases</a>, log, blame — because it has the whole history. In Scion, every commit,
                         rebase, or merge happens on the server, so there is nothing to push. The server also answers
                         questions about file history and blame.
                     </p>
@@ -448,7 +448,9 @@ export default function WhyAnthropicReplacedGitWithScion() {
                         A Git commit points at a <strong>tree</strong>: a snapshot of the entire project at that moment.
                         Git is smart about it — files that didn&apos;t change are shared between commits by their hash —
                         but every commit still describes the whole project, and finding out what changed means comparing
-                        two trees.
+                        two trees. New to how commits, trees, and HEAD fit together?{' '}
+                        <a href="/blogs/understanding-git-working-directory-staging-area-and-head">Start with our guide
+                        to Git&apos;s working directory, staging area, and HEAD</a>.
                     </p>
                     <p>
                         Scion&apos;s unit of work is a <strong>changeset</strong>, an entry in a write-ahead log. A
@@ -900,8 +902,8 @@ export default function WhyAnthropicReplacedGitWithScion() {
                         <span className="tip-label">💡 The takeaway</span>
                         Scion is a glimpse of what source control looks like when most of the &quot;developers&quot; are
                         machines. For teams of people working on normal-sized repositories, Git&apos;s distributed design
-                        is still the right one — and every Git tool you use, from the command line to a GUI like
-                        LithiumGit, keeps working exactly as before.
+                        is still the right one — and every Git tool you use, from the command line to a GUI like{' '}
+                        <a href="/">LithiumGit</a>, keeps working exactly as before.
                     </div>
                 </section>
 
