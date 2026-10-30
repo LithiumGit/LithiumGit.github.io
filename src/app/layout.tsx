@@ -1,4 +1,4 @@
-import { StorageUtils } from '../lib';
+import { Constants, StorageUtils } from '../lib';
 import { Footer } from './components/footer';
 import { Nav } from './components';
 import { HtmlIds } from '@/lib/constants/HtmlIds';
@@ -38,7 +38,7 @@ export default function RootLayout({
           height="0" width="0" style={{ display: 'none', visibility: 'hidden' }}></iframe></noscript>
         {/* <!-- End Google Tag Manager (noscript) --> */}
         <Nav />
-        <div id={HtmlIds.scrollContainer} className='overflow-auto' style={{ height: 'calc(100% - 7rem)' }}>
+        <div id={HtmlIds.scrollContainer} className='overflow-auto' style={{ height: `calc(100% - ${Constants.navHeight})` }}>
           {children}
           <Footer />
         </div>

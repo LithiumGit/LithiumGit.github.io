@@ -1,26 +1,37 @@
 "use client"
 
 import { useEffect, useRef } from 'react';
-import { Constants, EnumTheme, Routes, StorageUtils, useMultiState } from '../../lib';
+import { EnumTheme, Routes, StorageUtils, useMultiState } from '../../lib';
 import icon from '../images/icon.png';
-import { FaBahai, FaGit, FaGithub } from 'react-icons/fa';
-import { Navbar, NavItem } from 'react-bootstrap';
+import { FaGithub } from 'react-icons/fa';
+import { FiMenu, FiMoon, FiSun, FiX } from 'react-icons/fi';
 import { ZIndexes } from '../../lib/constants/ZIndexes';
 
 interface IState{
     theme:EnumTheme;
     path:string;
+    menuOpen:boolean;
 }
+
+const links = [
+    { href: Routes.Docs, label: "Docs" },
+    { href: Routes.Blogs, label: "Blogs" },
+    { href: Routes.About, label: "About" },
+];
 
 export function Nav(){
     const ref = useRef({isMounted:false});
-    const [state,setState] = useMultiState<IState>({theme:EnumTheme.Dark,path:""});
+    const [state,setState] = useMultiState<IState>({theme:EnumTheme.Dark,path:"",menuOpen:false});
 
     const toogleTheme=()=>{
-        let newTheme = state.theme === EnumTheme.Light? EnumTheme.Dark:EnumTheme.Light;        
+        let newTheme = state.theme === EnumTheme.Light? EnumTheme.Dark:EnumTheme.Light;
         setState({theme:newTheme});
     }
-    
+
+    // A section stays highlighted on its sub-pages too, e.g. Blogs on /blogs/<post>.
+    const isActive = (route:string) =>
+        state.path === route || state.path === route + ".html" || state.path.startsWith(route + "/");
+
     useEffect(()=>{
         if(!ref.current.isMounted)
             return;
@@ -42,86 +53,64 @@ export function Nav(){
         setState({path:window.location.pathname})
     },[])
 
+    useEffect(()=>{
+        if(!state.menuOpen)
+            return;
+        const closeOnEscape = (e:KeyboardEvent) => { if(e.key === "Escape") setState({menuOpen:false}); };
+        window.addEventListener("keydown", closeOnEscape);
+        return () => window.removeEventListener("keydown", closeOnEscape);
+    },[state.menuOpen])
+
+    const themeLabel = `Switch to ${state.theme === EnumTheme.Dark ? "light" : "dark"} theme`;
+
     return (
-        <Navbar collapseOnSelect expand="md" className="d-flex align-items-center position-relative" style={{zIndex:ZIndexes.Nav,height:Constants.navHeight}}>
-            <Navbar.Brand href="/" className='h-100'>
-                <div className="d-flex h-100 align-items-center no-decoration">
-                    <div className="h-100 d-flex align-items-center ps-2">
-                        <img src={icon.src} style={{height: '60%', width: 'auto'}} alt="icon.png" />
-                    </div>
-                    <div className="">
-                        <div title='The powerful git client' className="font-weight-bold" style={{fontSize: '2em'}}>
-                            <span className="font-weight-bold">Lithium</span><span><i>Git</i></span>
-                        </div>
-                        <div className='' style={{fontWeight:'normal'}}>
-                            The powerful git client
-                        </div>            
-                    </div>
+        <nav className="site-nav" aria-label="Main" style={{zIndex:ZIndexes.Nav}}>
+            <div className="site-nav-inner">
+                <a href="/" className="site-nav-brand">
+                    <span className="site-nav-logo">
+                        <img src={icon.src} alt="" />
+                    </span>
+                    LithiumGit
+                </a>
+
+                <ul className="site-nav-links">
+                    {links.map(link => (
+                        <li key={link.href}>
+                            <a href={link.href} aria-current={isActive(link.href) ? "page" : undefined}>{link.label}</a>
+                        </li>
+                    ))}
+                </ul>
+
+                <div className="site-nav-actions">
+                    <a className="site-nav-icon-btn site-nav-github" href="https://github.com/LithiumGit/LithiumGit" target="_blank" rel="noopener noreferrer" aria-label="LithiumGit on GitHub" title="LithiumGit on GitHub">
+                        <FaGithub />
+                    </a>
+                    <button type="button" className="site-nav-icon-btn" onClick={toogleTheme} aria-label={themeLabel} title={themeLabel}>
+                        {state.theme === EnumTheme.Dark ? <FiSun /> : <FiMoon />}
+                    </button>
+                    <a href={Routes.Download} className="site-nav-cta">Download</a>
+                    <button type="button" className="site-nav-icon-btn site-nav-menu-btn" onClick={()=> setState({menuOpen:!state.menuOpen})}
+                        aria-expanded={state.menuOpen} aria-controls="site-nav-menu" aria-label={state.menuOpen ? "Close menu" : "Open menu"}>
+                        {state.menuOpen ? <FiX /> : <FiMenu />}
+                    </button>
                 </div>
-            </Navbar.Brand>
-            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            </div>
 
-            <Navbar.Collapse className='' style={{top:'100%'}} id="responsive-navbar-nav" >
-                <NavItem>
-                    <div className="px-3">
-                        <a href={Routes.Docs} className={`no-decoration ${state.path === Routes.Docs?"selected-color":""}`}>Docs</a>
-                    </div>
-                </NavItem>
-
-                <NavItem>
-                    <div className="px-3 no-decoration">
-                        <a href={Routes.Download} className={`no-decoration ${state.path === Routes.Download?"selected-color":""}`}>Download</a>
-                    </div>
-                </NavItem>
-
-                <NavItem>
-                    <div className="px-3">
-                        <a href={Routes.About} className={`no-decoration ${state.path === Routes.About?"selected-color":""}`}>About</a>
-                    </div>
-                </NavItem>
-                <NavItem>
-                    <div className="px-3">
-                        <a href={Routes.Blogs} className={`no-decoration ${state.path === Routes.Blogs?"selected-color":""}`}>Blogs</a>
-                    </div>
-                </NavItem>
-                <NavItem className='flex-grow-1 text-end'>
-                    <div className='pe-3 d-flex align-items-center justify-content-end'>
-                        <span className='pe-2'>
-                            <a target='_blank' href="https://github.com/LithiumGit/LithiumGit"><FaGithub /></a>
-                        </span>
-                        <span className='ps-5'>
-                            <FaBahai onClick={()=> toogleTheme()} title={`Switch to ${state.theme == EnumTheme.Dark?"light":"dark"} theme.`} className={`h3 cur-point border border-secondary rounded-circle p-1 ${state.theme === EnumTheme.Light?"":"text-slight"}`} />
-                        </span>
-                    </div>
-                </NavItem>
-            </Navbar.Collapse>
-            {/* <NavItem className='h-100'>
-                
-            </NavItem> */}
-            
-
-            {/* <NavItem className='flex-grow-1 text-end'>
-                <div className='pe-3'>
-                    <FaBahai onClick={()=> toogleTheme()} title={`Switch to ${state.theme == EnumTheme.Dark?"light":"dark"} theme.`} className={`h3 cur-point border border-secondary rounded-circle p-1 ${state.theme === EnumTheme.Light?"":"text-slight"}`} />
+            {state.menuOpen && (
+                <div id="site-nav-menu" className="site-nav-menu">
+                    <ul>
+                        {links.map(link => (
+                            <li key={link.href}>
+                                <a href={link.href} aria-current={isActive(link.href) ? "page" : undefined}>{link.label}</a>
+                            </li>
+                        ))}
+                        <li>
+                            <a href="https://github.com/LithiumGit/LithiumGit" target="_blank" rel="noopener noreferrer">GitHub</a>
+                        </li>
+                    </ul>
+                    <a href={Routes.Download} className="site-nav-cta">Download LithiumGit</a>
                 </div>
-            </NavItem> */}
-
-            {/* <div className="nav-item px-3">
-                <a href={Routes.Docs} className={`no-decoration ${state.path === Routes.Docs?"selected-color":""}`}>Docs</a>
-            </div>
-            <div className="nav-item px-3 no-decoration">
-                <a href={Routes.Download} className={`no-decoration ${state.path === Routes.Download?"selected-color":""}`}>Download</a>
-            </div>
-            <div className="nav-item px-3">
-                <a href={Routes.About} className={`no-decoration ${state.path === Routes.About?"selected-color":""}`}>About</a>
-            </div>
-    
-            <div className='flex-grow-1 text-end'>
-                <div className='pe-3'>
-                    <FaBahai onClick={()=> toogleTheme()} title={`Switch to ${state.theme == EnumTheme.Dark?"light":"dark"} theme.`} className={`h3 cur-point border border-secondary rounded-circle p-1 ${state.theme === EnumTheme.Light?"":"text-slight"}`} />
-                </div>
-            </div> */}
-        </Navbar>    
-      );
-
+            )}
+        </nav>
+    );
 }

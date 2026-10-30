@@ -1,29 +1,219 @@
-nav{
-    background-color: #563D7C;
-    color: #1a033c;
-    
-    .nav-item{
-        font-size: 1.3em;
-        font-weight: bold;    
+// Top navigation. The bar takes the page's own surface colour in each theme;
+// brand purple is kept for the accents: logo tile, active link and Download.
+.site-nav {
+    --nav-bg: #ffffff;
+    --nav-border: rgba(40, 30, 60, 0.1);
+    --nav-text: #4b4754;
+    --nav-text-strong: #1f1b26;
+    --nav-accent: #563d7c;
+    --nav-hover-bg: rgba(86, 61, 124, 0.07);
+    --nav-cta-bg: #563d7c;
+
+    position: relative;
+    height: 4rem; // keep in sync with Constants.navHeight
+    background-color: var(--nav-bg);
+    border-bottom: 1px solid var(--nav-border);
+    font-size: 1rem;
+
+    // :where() keeps this reset weaker than the list classes below.
+    :where(ul) {
+        list-style: none;
+        margin: 0;
+        padding: 0;
     }
-    .navbar-collapse{
-        background-color: inherit;
+
+    a:focus-visible,
+    button:focus-visible {
+        outline: 2px solid var(--nav-accent);
+        outline-offset: 2px;
     }
 }
 
-@include media-breakpoint-up(sm) {
-    nav {      
-        .navbar-collapse{
-            position: absolute;
-            width: 100%;
+html[data-theme='dark'] .site-nav {
+    --nav-bg: #181818;
+    --nav-border: rgba(255, 255, 255, 0.08);
+    --nav-text: #b9b5c0;
+    --nav-text-strong: #f2f0f5;
+    --nav-accent: #b9a2ea;
+    --nav-hover-bg: rgba(255, 255, 255, 0.06);
+    --nav-cta-bg: #6a4d97;
+}
+
+.site-nav-inner {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 6vw; // lines up with the page sections below
+}
+
+.site-nav-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--nav-text-strong);
+
+    &:hover {
+        color: var(--nav-text-strong);
+    }
+}
+
+.site-nav-logo {
+    display: inline-grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    background-color: #563d7c;
+
+    img {
+        width: 18px;
+        height: 18px;
+        filter: invert(1); // the source icon is black
+    }
+}
+
+.site-nav-links {
+    display: flex;
+    align-self: stretch;
+    margin-left: 2.5rem;
+
+    li {
+        display: flex;
+    }
+
+    a {
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding: 0 0.85rem;
+        color: var(--nav-text);
+
+        &:hover {
+            color: var(--nav-text-strong);
         }
+
+        &[aria-current="page"] {
+            color: var(--nav-text-strong);
+            font-weight: 700;
+
+            &::after {
+                content: "";
+                position: absolute;
+                left: 0.85rem;
+                right: 0.85rem;
+                bottom: -1px;
+                height: 2px;
+                border-radius: 2px;
+                background-color: var(--nav-accent);
+            }
+        }
+    }
+}
+
+.site-nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin-left: auto;
+}
+
+.site-nav-icon-btn {
+    display: inline-grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: 0;
+    border-radius: 6px;
+    background-color: transparent;
+    color: var(--nav-text);
+    font-size: 1.15rem;
+    cursor: pointer;
+
+    &:hover {
+        background-color: var(--nav-hover-bg);
+        color: var(--nav-text-strong);
+    }
+}
+
+.site-nav-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+    margin-left: 0.5rem;
+    padding: 0 1.1rem;
+    border-radius: 6px;
+    background-color: var(--nav-cta-bg);
+    color: #ffffff;
+    font-weight: 600;
+
+    &:hover {
+        color: #ffffff;
+        filter: brightness(115%);
+    }
+}
+
+.site-nav-menu-btn {
+    display: none;
+}
+
+.site-nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 0.25rem 1.25rem 1.25rem;
+    background-color: var(--nav-bg);
+    border-bottom: 1px solid var(--nav-border);
+    box-shadow: 0 16px 24px -12px rgba(0, 0, 0, 0.25);
+
+    li a {
+        display: block;
+        padding: 0.8rem 0.25rem;
+        border-bottom: 1px solid var(--nav-border);
+        color: var(--nav-text-strong);
+
+        &[aria-current="page"] {
+            color: var(--nav-accent);
+            font-weight: 700;
+        }
+    }
+
+    .site-nav-cta {
+        display: flex;
+        height: 44px;
+        margin: 1rem 0 0;
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .site-nav a,
+    .site-nav button {
+        transition: color 0.15s ease, background-color 0.15s ease, filter 0.15s ease;
+    }
+}
+
+@include media-breakpoint-down(md) {
+    .site-nav-inner {
+        padding: 0 1.25rem;
+    }
+
+    .site-nav-links,
+    .site-nav-github,
+    .site-nav-actions > .site-nav-cta {
+        display: none;
+    }
+
+    .site-nav-menu-btn {
+        display: inline-grid;
     }
 }
 
 @include media-breakpoint-up(md) {
-    nav {      
-        .navbar-collapse{
-            position: static;            
-        }
+    .site-nav-menu {
+        display: none;
     }
 }
