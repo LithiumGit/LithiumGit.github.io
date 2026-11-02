@@ -15,6 +15,7 @@ interface IState{
 
 const links = [
     { href: Routes.Docs, label: "Docs" },
+    { href: Routes.Pricing, label: "Pricing" },
     { href: Routes.Blogs, label: "Blogs" },
     { href: Routes.About, label: "About" },
 ];

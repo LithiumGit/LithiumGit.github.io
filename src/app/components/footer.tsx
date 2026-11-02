@@ -8,6 +8,7 @@ export function Footer(){
             <span className="px-2">&copy;2021-Present LithiumGit Contributors.</span>
             <a href={Routes.Privacy} className="underline px-2 hover">Privacy Policy</a>
             <a href={Routes.Terms} className="underline px-2 hover">Terms of Use</a>
+            <a href={Routes.Pricing} className="underline px-2 hover">Pricing</a>
             {/* <div className="px-5"></div> */}
             {/* Social Media Icons */}
             <span className="ps-5"></span>

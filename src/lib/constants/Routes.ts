@@ -1,6 +1,7 @@
 export class Routes{
     static readonly Docs = "/docs";
     static readonly Download = "/download";
+    static readonly Pricing = "/pricing";
     static readonly Blogs = "/blogs";
     static readonly About = "/about";
     static readonly Privacy = "/privacy";

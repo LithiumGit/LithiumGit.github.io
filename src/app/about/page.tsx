@@ -44,7 +44,7 @@ export default function About(){
                     <p>LithiumGit does not execute any git process itself. It uses the installed git on user computer to perform the tasks.
                         So git installation is required to use LithiumGit.
                     </p>
-                    <p>Registration or login is not required to use LithiumGit. It is free to use.</p>
+                    <p>LithiumGit’s core Git workflows are free to use. Premium features, including Insights and Diff Checker, will require a subscription. See our <a className="text-primary" href={"/pricing"}>pricing page</a> for plan details.</p>
                     <br />
 
                     <h3>Bug Reports and Feature Requests</h3>
