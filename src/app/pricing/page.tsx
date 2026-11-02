@@ -6,7 +6,7 @@ import "../styles/pricing.scss";
 export function generateMetadata(args: IMetadataParams) {
     const data = UiUtils.getCommonHeaderInfo(args, "pricing");
     data.title = "LithiumGit Pricing | Free Git Client and Premium Features";
-    data.description = "LithiumGit keeps core Git workflows free. Premium adds Insights and Diff Checker, proposed at US$2.99 monthly or US$24.99 yearly.";
+    data.description = "LithiumGit keeps core Git workflows free. Premium adds Insights and Diff Checker for US$2.99 monthly or US$24.99 yearly.";
     data.openGraph!.title = data.title;
     data.openGraph!.description = data.description;
     return data;
@@ -50,7 +50,7 @@ export default function PricingPage() {
                 </article>
 
                 <article className="pricing-card pricing-card-premium">
-                    <div className="pricing-badge">Proposed launch pricing</div>
+                    <div className="pricing-badge">Premium</div>
                     <div className="pricing-card-heading">
                         <div>
                             <h2>Premium</h2>
@@ -68,7 +68,7 @@ export default function PricingPage() {
                 </article>
             </section>
 
-            <p className="pricing-note">These are proposed prices; checkout is not available yet. You can download and use LithiumGit’s free Git features today.</p>
+            <p className="pricing-note">Premium subscriptions and checkout are not available yet. You can download and use LithiumGit’s free Git features today.</p>
         </main>
     );
 }
