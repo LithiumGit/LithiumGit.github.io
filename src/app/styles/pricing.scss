@@ -137,8 +137,25 @@
   }
 }
 
-.pricing-price-soon span {
-  font-size: 1.15rem;
+.pricing-price-premium {
+  gap: 0.75rem;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  span {
+    font-size: 1.35rem;
+  }
+}
+
+.pricing-savings {
+  margin: -0.35rem 0 0;
+  color: var(--hover);
+  font-size: 0.85rem;
+  font-weight: 600;
 }
 
 .pricing-button {
@@ -174,6 +191,11 @@
   color: #fff;
   opacity: 0.72;
   cursor: not-allowed;
+}
+
+.pricing-card-premium .pricing-button-primary,
+.pricing-card-premium .pricing-button-primary:disabled {
+  margin-top: 0.85rem;
 }
 
 .pricing-note {

@@ -6,7 +6,7 @@ import "../styles/pricing.scss";
 export function generateMetadata(args: IMetadataParams) {
     const data = UiUtils.getCommonHeaderInfo(args, "pricing");
     data.title = "LithiumGit Pricing | Free Git Client and Premium Features";
-    data.description = "Compare LithiumGit Free and Premium plans. Core Git workflows stay free, with Insights and Diff Checker planned for Premium.";
+    data.description = "LithiumGit keeps core Git workflows free. Premium adds Insights and Diff Checker, proposed at US$2.99 monthly or US$24.99 yearly.";
     data.openGraph!.title = data.title;
     data.openGraph!.description = data.description;
     return data;
@@ -50,21 +50,25 @@ export default function PricingPage() {
                 </article>
 
                 <article className="pricing-card pricing-card-premium">
-                    <div className="pricing-badge">Planned</div>
+                    <div className="pricing-badge">Proposed launch pricing</div>
                     <div className="pricing-card-heading">
                         <div>
                             <h2>Premium</h2>
                             <p>More insight and a dedicated way to compare text.</p>
                         </div>
-                        <div className="pricing-price pricing-price-soon"><span>Coming</span><small>pricing soon</small></div>
+                        <div className="pricing-price pricing-price-premium">
+                            <div><span>US$24.99</span><small>per year</small></div>
+                            <div><span>US$2.99</span><small>per month</small></div>
+                        </div>
                     </div>
-                    <button className="pricing-button pricing-button-primary" type="button" disabled>Subscriptions coming soon</button>
+                    <p className="pricing-savings">Save about 30% with annual billing.</p>
+                    <button className="pricing-button pricing-button-primary" type="button" disabled>Subscriptions not available yet</button>
                     <h3>Free, plus</h3>
                     <ul>{premiumFeatures.map(feature => <li key={feature}><span aria-hidden="true">✓</span>{feature}</li>)}</ul>
                 </article>
             </section>
 
-            <p className="pricing-note">Premium availability and pricing are being prepared. You can download and use LithiumGit’s free Git features today.</p>
+            <p className="pricing-note">These are proposed prices; checkout is not available yet. You can download and use LithiumGit’s free Git features today.</p>
         </main>
     );
 }
