@@ -65,6 +65,7 @@ export default function PricingPage() {
                     <button className="pricing-button pricing-button-primary" type="button" disabled>Subscriptions not available yet</button>
                     <h3>Free, plus</h3>
                     <ul>{premiumFeatures.map(feature => <li key={feature}><span aria-hidden="true">✓</span>{feature}</li>)}</ul>
+                    <p className="pricing-upcoming">More Premium features are on the way.</p>
                 </article>
             </section>
 
