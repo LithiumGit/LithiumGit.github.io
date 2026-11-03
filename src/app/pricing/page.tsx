@@ -1,6 +1,7 @@
 import { Constants, Routes } from "../../lib";
 import { IMetadataParams } from "../../lib/interfaces";
 import { UiUtils } from "../../lib/utilities/UiUtils";
+import PaddleCheckout from "./PaddleCheckout";
 import "../styles/pricing.scss";
 
 export function generateMetadata(args: IMetadataParams) {
@@ -32,7 +33,7 @@ export default function PricingPage() {
             <header className="pricing-hero">
                 <span className="pricing-eyebrow">Simple plans for your Git workflow</span>
                 <h1>Powerful Git tools, with room to grow.</h1>
-                <p>Keep using LithiumGit’s core Git workflows for free. Get more context and compare changes with Premium.</p>
+                <p>Keep using LithiumGitâ€™s core Git workflows for free. Get more context and compare changes with Premium.</p>
             </header>
 
             <section className="pricing-plans" aria-label="LithiumGit plans">
@@ -46,7 +47,7 @@ export default function PricingPage() {
                     </div>
                     <a className="pricing-button pricing-button-secondary" href={Routes.Download}>Download LithiumGit</a>
                     <h3>Included features</h3>
-                    <ul>{freeFeatures.map(feature => <li key={feature}><span aria-hidden="true">✓</span>{feature}</li>)}</ul>
+                    <ul>{freeFeatures.map(feature => <li key={feature}><span aria-hidden="true">âœ“</span>{feature}</li>)}</ul>
                 </article>
 
                 <article className="pricing-card pricing-card-premium">
@@ -62,14 +63,14 @@ export default function PricingPage() {
                         </div>
                     </div>
                     <p className="pricing-savings">Save about 30% with annual billing.</p>
-                    <button className="pricing-button pricing-button-primary" type="button" disabled>Subscriptions not available yet</button>
+                    <PaddleCheckout />
                     <h3>Free, plus</h3>
-                    <ul>{premiumFeatures.map(feature => <li key={feature}><span aria-hidden="true">✓</span>{feature}</li>)}</ul>
+                    <ul>{premiumFeatures.map(feature => <li key={feature}><span aria-hidden="true">âœ“</span>{feature}</li>)}</ul>
                     <p className="pricing-upcoming">More Premium features are on the way.</p>
                 </article>
             </section>
 
-            <p className="pricing-note">Premium subscriptions and checkout are not available yet. You can download and use LithiumGit’s free Git features today.</p>
+            <p className="pricing-note">Payments are processed securely through Paddle. Premium access is linked to your LithiumGit account.</p>
         </main>
     );
 }

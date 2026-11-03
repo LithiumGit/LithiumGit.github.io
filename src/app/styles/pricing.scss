@@ -193,12 +193,18 @@
   }
 }
 
-.pricing-button-primary,
-.pricing-button-primary:disabled {
+.pricing-button-primary {
   background: var(--brand-color);
   color: #fff;
-  opacity: 0.72;
-  cursor: not-allowed;
+
+  &:hover:not(:disabled) {
+    filter: brightness(1.08);
+  }
+
+  &:disabled {
+    opacity: 0.72;
+    cursor: not-allowed;
+  }
 }
 
 .pricing-card-premium .pricing-button-primary,
@@ -212,6 +218,33 @@
   color: var(--svg-dark);
   font-size: 0.92rem;
   text-align: center;
+}
+
+.pricing-web-checkout {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin-top: 1rem;
+
+  p {
+    margin: 0 0 0.35rem;
+    color: var(--svg-dark);
+    font-size: 0.9rem;
+  }
+
+  label {
+    font-size: 0.88rem;
+    font-weight: 650;
+  }
+
+  input {
+    min-height: 42px;
+    padding: 0.5rem 0.65rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: var(--bg-second-color);
+    color: var(--font-color);
+  }
 }
 
 @media (max-width: 700px) {
