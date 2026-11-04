@@ -2,6 +2,7 @@
     static readonly Docs = "/docs";
     static readonly Download = "/download";
     static readonly Pricing = "/pricing";
+    static readonly Checkout = "/checkout";
     static readonly SignIn = "/sign-in";
     static readonly SignUp = "/sign-up";
     static readonly Blogs = "/blogs";

@@ -1,7 +1,6 @@
 import { Constants, Routes } from "../../lib";
 import { IMetadataParams } from "../../lib/interfaces";
 import { UiUtils } from "../../lib/utilities/UiUtils";
-import PaddleCheckout from "./PaddleCheckout";
 import "../styles/pricing.scss";
 
 export function generateMetadata(args: IMetadataParams) {
@@ -63,7 +62,7 @@ export default function PricingPage() {
                         </div>
                     </div>
                     <p className="pricing-savings">Save about 30% with annual billing.</p>
-                    <PaddleCheckout />
+                    <a className="pricing-button pricing-button-primary" href={Routes.Checkout}>Buy now</a>
                     <h3>Free, plus</h3>
                     <ul>{premiumFeatures.map(feature => <li key={feature}><span aria-hidden="true">âœ“</span>{feature}</li>)}</ul>
                     <p className="pricing-upcoming">More Premium features are on the way.</p>
