@@ -48,7 +48,7 @@ export default function SignInForm() {
                 {error && <p className="text-danger" role="alert">{error}</p>}
                 <button className="pricing-button pricing-button-primary" type="submit" disabled={busy}>{busy ? "Signing in…" : "Sign in"}</button>
             </form>
-            <p className="signin-pricing-link">New to Premium? <a href={Routes.Pricing}>View plans</a></p>
+            <p className="signin-pricing-link">New to LithiumGit? <a href={`${Routes.SignUp}?returnTo=${encodeURIComponent(returnTo)}`}>Create an account</a></p>
         </section>
     </main>;
 }

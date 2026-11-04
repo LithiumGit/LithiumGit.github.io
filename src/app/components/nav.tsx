@@ -108,7 +108,9 @@ export function Nav(){
                             </li>
                         ))}
                         <li><a href={Routes.SignIn} aria-current={isActive(Routes.SignIn) ? "page" : undefined}>Sign in</a></li>
-                        <li><a href="https://github.com/LithiumGit/LithiumGit" target="_blank" rel="noopener noreferrer">GitHub</a></li>                    </ul>
+                        <li><a href={Routes.SignUp} aria-current={isActive(Routes.SignUp) ? "page" : undefined}>Sign up</a></li>
+                        <li><a href="https://github.com/LithiumGit/LithiumGit" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                    </ul>
                     <a href={Routes.Download} className="site-nav-cta">Download LithiumGit</a>
                 </div>
             )}
