@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { useEffect, useRef } from 'react';
 import { EnumTheme, Routes, StorageUtils, useMultiState } from '../../lib';
@@ -16,6 +16,7 @@ interface IState{
 const links = [
     { href: Routes.Docs, label: "Docs" },
     { href: Routes.Pricing, label: "Pricing" },
+
     { href: Routes.Blogs, label: "Blogs" },
     { href: Routes.About, label: "About" },
 ];
@@ -89,6 +90,7 @@ export function Nav(){
                     <button type="button" className="site-nav-icon-btn" onClick={toogleTheme} aria-label={themeLabel} title={themeLabel}>
                         {state.theme === EnumTheme.Dark ? <FiSun /> : <FiMoon />}
                     </button>
+                    <a href={Routes.SignIn} className="site-nav-sign-in" aria-current={isActive(Routes.SignIn) ? "page" : undefined}>Sign in</a>
                     <a href={Routes.Download} className="site-nav-cta">Download</a>
                     <button type="button" className="site-nav-icon-btn site-nav-menu-btn" onClick={()=> setState({menuOpen:!state.menuOpen})}
                         aria-expanded={state.menuOpen} aria-controls="site-nav-menu" aria-label={state.menuOpen ? "Close menu" : "Open menu"}>
@@ -105,10 +107,8 @@ export function Nav(){
                                 <a href={link.href} aria-current={isActive(link.href) ? "page" : undefined}>{link.label}</a>
                             </li>
                         ))}
-                        <li>
-                            <a href="https://github.com/LithiumGit/LithiumGit" target="_blank" rel="noopener noreferrer">GitHub</a>
-                        </li>
-                    </ul>
+                        <li><a href={Routes.SignIn} aria-current={isActive(Routes.SignIn) ? "page" : undefined}>Sign in</a></li>
+                        <li><a href="https://github.com/LithiumGit/LithiumGit" target="_blank" rel="noopener noreferrer">GitHub</a></li>                    </ul>
                     <a href={Routes.Download} className="site-nav-cta">Download LithiumGit</a>
                 </div>
             )}

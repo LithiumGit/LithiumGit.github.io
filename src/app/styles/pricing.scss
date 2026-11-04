@@ -1,4 +1,4 @@
-@import "./styles.scss";
+﻿@import "./styles.scss";
 
 .pricing-page {
   padding: 4rem 1.25rem 3rem;
@@ -272,3 +272,27 @@
     align-items: flex-start;
   }
 }
+
+.signin-page {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.signin-card {
+  width: min(100%, 440px);
+  margin: 1rem auto;
+  padding: 2rem;
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  background: var(--bg-color);
+  box-shadow: 0 12px 34px var(--shadow-1);
+
+  h1 { margin: 0.65rem 0; color: var(--color-h1); font-size: 2rem; }
+  > p { color: var(--svg-dark); }
+
+  .pricing-web-checkout { margin-top: 1.5rem; }
+  .pricing-web-checkout .pricing-button { margin-top: 0.8rem; }
+}
+
+.signin-pricing-link { margin: 1.25rem 0 0; text-align: center; }

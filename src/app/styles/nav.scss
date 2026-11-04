@@ -1,4 +1,4 @@
-// Top navigation. The bar takes the page's own surface colour in each theme;
+﻿// Top navigation. The bar takes the page's own surface colour in each theme;
 // brand purple is kept for the accents: logo tile, active link and Download.
 .site-nav {
     --nav-bg: #ffffff;
@@ -138,6 +138,16 @@ html[data-theme='dark'] .site-nav {
     }
 }
 
+.site-nav-sign-in {
+    display: inline-flex;
+    align-items: center;
+    height: 36px;
+    padding: 0 0.75rem;
+    color: var(--nav-text);
+    font-weight: 600;
+    &:hover { color: var(--nav-text-strong); }
+}
+
 .site-nav-cta {
     display: inline-flex;
     align-items: center;
@@ -175,20 +185,11 @@ html[data-theme='dark'] .site-nav {
         padding: 0.8rem 0.25rem;
         border-bottom: 1px solid var(--nav-border);
         color: var(--nav-text-strong);
-
-        &[aria-current="page"] {
-            color: var(--nav-accent);
-            font-weight: 700;
-        }
+        &[aria-current="page"] { color: var(--nav-accent); font-weight: 700; }
     }
 
-    .site-nav-cta {
-        display: flex;
-        height: 44px;
-        margin: 1rem 0 0;
-    }
+    .site-nav-cta { display: flex; height: 44px; margin: 1rem 0 0; }
 }
-
 @media (prefers-reduced-motion: no-preference) {
     .site-nav a,
     .site-nav button {
@@ -197,23 +198,14 @@ html[data-theme='dark'] .site-nav {
 }
 
 @include media-breakpoint-down(md) {
-    .site-nav-inner {
-        padding: 0 1.25rem;
-    }
-
+    .site-nav-inner { padding: 0 1.25rem; }
     .site-nav-links,
     .site-nav-github,
-    .site-nav-actions > .site-nav-cta {
-        display: none;
-    }
-
-    .site-nav-menu-btn {
-        display: inline-grid;
-    }
+    .site-nav-actions > .site-nav-sign-in,
+    .site-nav-actions > .site-nav-cta { display: none; }
+    .site-nav-menu-btn { display: inline-grid; }
 }
 
 @include media-breakpoint-up(md) {
-    .site-nav-menu {
-        display: none;
-    }
+    .site-nav-menu { display: none; }
 }
