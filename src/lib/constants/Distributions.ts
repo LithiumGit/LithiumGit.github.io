@@ -8,8 +8,19 @@ export class Distributions{
             os:OSType.Windows,
             releases:[                
                 {
-                    version:"1.0.9",
+                    version:"1.1.0",
                     isLatest:true,
+                    files:[
+                        {
+                            type:FileType.EXE,
+                            url:"https://github.com/LithiumGit/LithiumGit/releases/download/v1.1.0/LithiumGitInstaller.exe",
+                            arch:ArchType.x64,
+                        },                                                
+                    ]
+                },
+                {
+                    version:"1.0.9",
+                    isLatest:false,
                     files:[
                         {
                             type:FileType.EXE,
@@ -65,6 +76,39 @@ export class Distributions{
     ];
 
     static readonly changeLogs:IChangeLog[]=[
+        {
+            version:"1.1.0",
+            newChanges:[
+                {
+                    type:"New Feature",
+                    description:"Unified diff view with an option to switch to split view from any diff panel.",
+                },
+                {
+                    type:"New Feature",
+                    description:"File tree view for changed files, with folder-level stage, unstage, and discard actions.",
+                },
+                {
+                    type:"Improvement",
+                    description:"Diff view and file list preferences saved separately for each panel.",
+                },
+                {
+                    type:"New Feature",
+                    description:"One-click terminal opening at the repository path.",
+                },
+                {
+                    type:"New Feature",
+                    description:"Copy the path of any changed or committed file.",
+                },
+                {
+                    type:"UI/UX",
+                    description:"User interface improvements.",
+                },
+                {
+                    type:"Stability",
+                    description:"Bug fixes and stability improvements.",
+                },
+            ]
+        },
         {
             version:"1.0.9",
             newChanges:[
