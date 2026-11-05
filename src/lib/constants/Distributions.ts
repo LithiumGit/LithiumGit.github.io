@@ -35,8 +35,24 @@ export class Distributions{
             os:OSType.Mac,
             releases:[
                 {
-                    version:"1.0.9",
+                    version:"1.1.0",
                     isLatest:true,
+                    files:[
+                        {
+                            type:FileType.DMG,
+                            url:"https://github.com/LithiumGit/LithiumGit/releases/download/v1.1.0/LithiumGit-Setup-mac-arm64-1.1.0.dmg",
+                            arch:ArchType.arm64,
+                        },
+                        {
+                            type:FileType.DMG,
+                            url:"https://github.com/LithiumGit/LithiumGit/releases/download/v1.1.0/LithiumGit-Setup-mac-x64-1.1.0.dmg",
+                            arch:ArchType.x64,
+                        }
+                    ]
+                },
+                {
+                    version:"1.0.9",
+                    isLatest:false,
                     files:[
                         {
                             type:FileType.DMG,
@@ -56,8 +72,24 @@ export class Distributions{
             os:OSType.Linux,
             releases:[
                 {
-                    version:"1.0.9",
+                    version:"1.1.0",
                     isLatest:true,
+                    files:[
+                        {
+                            type:FileType.DEV,
+                            url:"https://github.com/LithiumGit/LithiumGit/releases/download/v1.1.0/LithiumGit-Setup-linux-amd64-1.1.0.deb",
+                            arch:ArchType.x64,
+                        },
+                        {
+                            type:FileType.AppImage,
+                            url:"https://github.com/LithiumGit/LithiumGit/releases/download/v1.1.0/LithiumGit-Setup-linux-x86_64-1.1.0.AppImage",
+                            arch:ArchType.x64,
+                        },
+                    ],                    
+                },
+                {
+                    version:"1.0.9",
+                    isLatest:false,
                     files:[
                         {
                             type:FileType.DEV,
