@@ -24,7 +24,7 @@ export default function SignInForm() {
         event.preventDefault(); setBusy(true); setError("");
         try {
             if (!apiUrl) throw new Error("Sign in is not configured yet.");
-            const response = await fetch(`${apiUrl}/Auth`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ userName, password }) });
+            const response = await fetch(`${apiUrl}/Auth`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ userName, password, returnTo }) });
             const envelope = await response.json() as IEnvelope<ILogin>;
             const account = envelope.data || envelope.Data;
             const token = account?.token || account?.Token;
@@ -48,6 +48,7 @@ export default function SignInForm() {
                 {error && <p className="text-danger" role="alert">{error}</p>}
                 <button className="pricing-button pricing-button-primary" type="submit" disabled={busy}>{busy ? "Signing in…" : "Sign in"}</button>
             </form>
+            <p className="signin-pricing-link"><a href={Routes.ForgotPassword}>Forgot your password?</a></p>
             <p className="signin-pricing-link">New to LithiumGit? <a href={`${Routes.SignUp}?returnTo=${encodeURIComponent(returnTo)}`}>Create an account</a></p>
         </section>
     </main>;
