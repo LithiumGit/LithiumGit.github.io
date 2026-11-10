@@ -15,11 +15,37 @@ export default function ResetPasswordForm() {
     const [busy, setBusy] = useState(false);
     const [error, setError] = useState("");
     const [done, setDone] = useState(false);
+    const [tokenStatus,setTokenStatus]=useState<"checking"|"valid"|"invalid"|"error">("checking");
 
     useEffect(() => {
         const params = new URLSearchParams(window.location.search);
-        setUserId(params.get("userId") || "");
-        setToken(params.get("token") || "");
+        const currentUserId=params.get("userId")||"";
+        const currentToken=params.get("token")||"";
+        setUserId(currentUserId);
+        setToken(currentToken);
+
+        (async()=>{
+            try{
+                if(!apiUrl) throw new Error("Password reset is not configured yet.");
+                if(!currentUserId||!currentToken){
+                    setTokenStatus("invalid");
+                    return;
+                }
+                const response=await fetch(`${apiUrl}/Auth/validate-reset-password`,{
+                    method:"POST",headers:{"Content-Type":"application/json"},
+                    body:JSON.stringify({userId:currentUserId,token:currentToken}),
+                });
+                const envelope=await response.json() as IEnvelope<boolean>;
+                if(!response.ok || !(envelope.isSuccess??envelope.IsSuccess))
+                    throw new Error(envelope.message||envelope.Message||"Could not verify the reset link.");
+                const isValid=envelope.data??envelope.Data??false;
+                setTokenStatus(isValid?"valid":"invalid");
+            }
+            catch(validationError){
+                setError(validationError instanceof Error?validationError.message:"Could not verify the reset link.");
+                setTokenStatus("error");
+            }
+        })();
     }, []);
 
     const resetPassword = async (event: FormEvent) => {
@@ -50,6 +76,13 @@ export default function ResetPasswordForm() {
                 <h1>Password changed</h1>
                 <p>Your password has been updated. Sign in with your new password.</p>
                 <a className="pricing-button pricing-button-primary" href={Routes.SignIn}>Sign in</a>
+            </> : tokenStatus==="checking" ? <>
+                <h1>Checking reset link</h1>
+                <p>Please wait while we verify this link.</p>
+            </> : tokenStatus!=="valid" ? <>
+                <h1>{tokenStatus==="error"?"Couldn’t verify link":"Invalid link"}</h1>
+                <p className="text-danger" role="alert">{tokenStatus==="error"?error:"This password reset link is invalid or has already been used."}</p>
+                <a className="pricing-button pricing-button-secondary" href={Routes.ForgotPassword}>Request a new link</a>
             </> : <>
                 <h1>Choose a new password</h1>
                 <form className="pricing-web-checkout" onSubmit={resetPassword}>

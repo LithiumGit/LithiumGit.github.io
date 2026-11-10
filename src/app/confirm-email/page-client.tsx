@@ -5,6 +5,7 @@ import { Constants, Routes } from "../../lib";
 import "../styles/pricing.scss";
 
 interface IEnvelope<T> { isSuccess?: boolean; IsSuccess?: boolean; data?: T; Data?: T; message?: string; Message?: string; }
+interface ILogin { token?:string; Token?:string; emailAddress?:string; EmailAddress?:string; fullName?:string; FullName?:string; }
 const apiUrl = process.env.NEXT_PUBLIC_LITHIUMGIT_API_URL?.replace(/\/+$/, "") || "";
 
 export default function ConfirmEmail() {
@@ -15,7 +16,8 @@ export default function ConfirmEmail() {
     useEffect(() => {
         const params = new URLSearchParams(window.location.search);
         const requested = params.get("returnTo");
-        if (requested?.startsWith("/") && !requested.startsWith("//")) setReturnTo(requested);
+        const safeReturnTo=requested?.startsWith("/") && !requested.startsWith("//") ? requested : Routes.Pricing;
+        setReturnTo(safeReturnTo);
         const userId = params.get("userId");
         const token = params.get("token");
 
@@ -27,10 +29,38 @@ export default function ConfirmEmail() {
                     method: "POST", headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ userId, token }),
                 });
-                const envelope = await response.json() as IEnvelope<boolean>;
-                if (!response.ok || !(envelope.isSuccess ?? envelope.IsSuccess))
+                const envelope = await response.json() as IEnvelope<ILogin>;
+                const account=envelope.data||envelope.Data;
+                const accessToken=account?.token||account?.Token;
+                if (!response.ok || !(envelope.isSuccess ?? envelope.IsSuccess) || !accessToken)
                     throw new Error(envelope.message || envelope.Message || "Could not confirm your email.");
+                sessionStorage.setItem("lithiumgit.accessToken",accessToken);
+                const email=account?.emailAddress||account?.EmailAddress;
+                if(email) sessionStorage.setItem("lithiumgit.accountEmail",email);
+                const fullName=account?.fullName||account?.FullName;
+                if(fullName) sessionStorage.setItem("lithiumgit.accountName",fullName);
+
+                const resumeUrl=new URL(safeReturnTo,window.location.origin);
+                if(resumeUrl.pathname===Routes.SignIn && resumeUrl.searchParams.get("desktop")==="1"){
+                    const state=resumeUrl.searchParams.get("state")||"";
+                    const challenge=resumeUrl.searchParams.get("code_challenge")||"";
+                    if(!/^[A-Za-z0-9_-]{43}$/.test(state) || !/^[A-Za-z0-9_-]{43}$/.test(challenge))
+                        throw new Error("The desktop sign-in request is invalid. Return to LithiumGit and try again.");
+                    const codeResponse=await fetch(`${apiUrl}/Auth/desktop-code`,{
+                        method:"POST",
+                        headers:{"Content-Type":"application/json",Authorization:`Bearer ${accessToken}`},
+                        body:JSON.stringify({codeChallenge:challenge}),
+                    });
+                    const codeEnvelope=await codeResponse.json() as IEnvelope<{code?:string;Code?:string}>;
+                    const codeData=codeEnvelope.data||codeEnvelope.Data;
+                    const code=codeData?.code||codeData?.Code;
+                    if(!codeResponse.ok || !(codeEnvelope.isSuccess??codeEnvelope.IsSuccess) || !code)
+                        throw new Error(codeEnvelope.message||codeEnvelope.Message||"Could not finish signing in to LithiumGit.");
+                    window.location.assign(`lithiumgit://auth/callback?code=${encodeURIComponent(code)}&state=${encodeURIComponent(state)}`);
+                    return;
+                }
                 setStatus("confirmed");
+                window.location.assign(safeReturnTo);
             } catch (confirmError) {
                 setError(confirmError instanceof Error ? confirmError.message : "Could not confirm your email.");
                 setStatus("failed");
@@ -38,7 +68,9 @@ export default function ConfirmEmail() {
         })();
     }, []);
 
-    const signInLink = `${Routes.SignIn}?returnTo=${encodeURIComponent(returnTo)}`;
+    const signInLink = returnTo.startsWith(`${Routes.SignIn}?desktop=1&`)
+        ? returnTo
+        : `${Routes.SignIn}?returnTo=${encodeURIComponent(returnTo)}`;
 
     return <main className="pricing-page signin-page" style={{ minHeight: `calc(100vh - ${Constants.navHeight} - ${Constants.footerHeight})` }}>
         <section className="signin-card">
@@ -46,7 +78,7 @@ export default function ConfirmEmail() {
             {status === "working" && <><h1>Confirming your email…</h1><p>This only takes a moment.</p></>}
             {status === "confirmed" && <>
                 <h1>Email confirmed</h1>
-                <p>Your LithiumGit account is ready. Sign in to continue.</p>
+                <p>Your LithiumGit account is ready and you are now signed in.</p>
                 <a className="pricing-button pricing-button-primary" href={signInLink}>Sign in</a>
             </>}
             {status === "failed" && <>

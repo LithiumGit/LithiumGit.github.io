@@ -35,7 +35,7 @@ export default function ForgotPasswordForm() {
         <section className="signin-card">
             <span className="pricing-eyebrow">LithiumGit account</span><h1>Forgot your password?</h1>
             {sent ? <>
-                <p>If a confirmed LithiumGit account uses <strong>{email}</strong>, we&apos;ve sent it a link to choose a new password. Check your inbox and spam folder.</p>
+                <p>If an account matches that email, we&apos;ve sent a password reset link. Check your inbox.</p>
                 <a className="pricing-button pricing-button-secondary" href={Routes.SignIn}>Back to sign in</a>
             </> : <>
                 <p>Enter the email address of your account and we&apos;ll send you a link to choose a new password.</p>

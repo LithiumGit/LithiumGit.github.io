@@ -1,6 +1,7 @@
 ﻿"use client"
 
 import { useEffect, useRef } from 'react';
+import type { MouseEvent } from 'react';
 import { EnumTheme, Routes, StorageUtils, useMultiState } from '../../lib';
 import icon from '../images/icon.png';
 import { FaGithub } from 'react-icons/fa';
@@ -11,6 +12,9 @@ interface IState{
     theme:EnumTheme;
     path:string;
     menuOpen:boolean;
+    accountEmail:string;
+    accountName:string;
+    profileOpen:boolean;
 }
 
 const links = [
@@ -23,7 +27,8 @@ const links = [
 
 export function Nav(){
     const ref = useRef({isMounted:false});
-    const [state,setState] = useMultiState<IState>({theme:EnumTheme.Dark,path:"",menuOpen:false});
+    const profileRef=useRef<HTMLDivElement>(null);
+    const [state,setState] = useMultiState<IState>({theme:EnumTheme.Dark,path:"",menuOpen:false,accountEmail:"",accountName:"",profileOpen:false});
 
     const toogleTheme=()=>{
         let newTheme = state.theme === EnumTheme.Light? EnumTheme.Dark:EnumTheme.Light;
@@ -52,16 +57,40 @@ export function Nav(){
             setState({theme});
         }
 
-        setState({path:window.location.pathname})
+        setState({
+            path:window.location.pathname,
+            accountEmail:window.sessionStorage.getItem("lithiumgit.accountEmail") || "",
+            accountName:window.sessionStorage.getItem("lithiumgit.accountName") || "",
+        })
     },[])
 
+    const signOut=(event:MouseEvent<HTMLButtonElement | HTMLAnchorElement>)=>{
+        event.preventDefault();
+        window.sessionStorage.removeItem("lithiumgit.accessToken");
+        window.sessionStorage.removeItem("lithiumgit.accountEmail");
+        window.sessionStorage.removeItem("lithiumgit.accountName");
+        setState({accountEmail:"",accountName:"",menuOpen:false,profileOpen:false});
+        window.location.assign(Routes.SignIn);
+    };
+
     useEffect(()=>{
-        if(!state.menuOpen)
+        if(!state.profileOpen)
             return;
-        const closeOnEscape = (e:KeyboardEvent) => { if(e.key === "Escape") setState({menuOpen:false}); };
+        const closeOnOutsideClick=(event:PointerEvent)=>{
+            if(!profileRef.current?.contains(event.target as Node))
+                setState({profileOpen:false});
+        };
+        window.addEventListener("pointerdown",closeOnOutsideClick);
+        return ()=>window.removeEventListener("pointerdown",closeOnOutsideClick);
+    },[state.profileOpen]);
+
+    useEffect(()=>{
+        if(!state.menuOpen && !state.profileOpen)
+            return;
+        const closeOnEscape = (e:KeyboardEvent) => { if(e.key === "Escape") setState({menuOpen:false,profileOpen:false}); };
         window.addEventListener("keydown", closeOnEscape);
         return () => window.removeEventListener("keydown", closeOnEscape);
-    },[state.menuOpen])
+    },[state.menuOpen,state.profileOpen])
 
     const themeLabel = `Switch to ${state.theme === EnumTheme.Dark ? "light" : "dark"} theme`;
 
@@ -90,7 +119,20 @@ export function Nav(){
                     <button type="button" className="site-nav-icon-btn" onClick={toogleTheme} aria-label={themeLabel} title={themeLabel}>
                         {state.theme === EnumTheme.Dark ? <FiSun /> : <FiMoon />}
                     </button>
-                    <a href={Routes.SignIn} className="site-nav-sign-in" aria-current={isActive(Routes.SignIn) ? "page" : undefined}>Sign in</a>
+                    {state.accountEmail ? <div className="site-nav-profile" ref={profileRef}>
+                        <button type="button" className="site-nav-avatar" aria-label="Account menu"
+                            aria-expanded={state.profileOpen} aria-haspopup="true"
+                            onClick={()=>setState({profileOpen:!state.profileOpen})}>
+                            {(state.accountName || state.accountEmail).trim().charAt(0).toUpperCase() || "U"}
+                        </button>
+                        {state.profileOpen && <div className="site-nav-profile-card" role="group" aria-label="Account menu">
+                            <div className="site-nav-profile-details">
+                                <strong>{state.accountName || state.accountEmail}</strong>
+                                {state.accountName && <span>{state.accountEmail}</span>}
+                            </div>
+                            <button type="button" className="site-nav-profile-signout" onClick={signOut}>Sign out</button>
+                        </div>}
+                    </div> : <a href={Routes.SignIn} className="site-nav-sign-in" aria-current={isActive(Routes.SignIn) ? "page" : undefined}>Sign in</a>}
                     <a href={Routes.Download} className="site-nav-cta">Download</a>
                     <button type="button" className="site-nav-icon-btn site-nav-menu-btn" onClick={()=> setState({menuOpen:!state.menuOpen})}
                         aria-expanded={state.menuOpen} aria-controls="site-nav-menu" aria-label={state.menuOpen ? "Close menu" : "Open menu"}>
@@ -107,8 +149,13 @@ export function Nav(){
                                 <a href={link.href} aria-current={isActive(link.href) ? "page" : undefined}>{link.label}</a>
                             </li>
                         ))}
-                        <li><a href={Routes.SignIn} aria-current={isActive(Routes.SignIn) ? "page" : undefined}>Sign in</a></li>
-                        <li><a href={Routes.SignUp} aria-current={isActive(Routes.SignUp) ? "page" : undefined}>Sign up</a></li>
+                        {state.accountEmail ? <>
+                            <li><span>Signed in as {state.accountName || state.accountEmail}</span></li>
+                            <li><a href={Routes.SignIn} onClick={signOut}>Sign out</a></li>
+                        </> : <>
+                            <li><a href={Routes.SignIn} aria-current={isActive(Routes.SignIn) ? "page" : undefined}>Sign in</a></li>
+                            <li><a href={Routes.SignUp} aria-current={isActive(Routes.SignUp) ? "page" : undefined}>Sign up</a></li>
+                        </>}
                         <li><a href="https://github.com/LithiumGit/LithiumGit" target="_blank" rel="noopener noreferrer">GitHub</a></li>
                     </ul>
                     <a href={Routes.Download} className="site-nav-cta">Download LithiumGit</a>

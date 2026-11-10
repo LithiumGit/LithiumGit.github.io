@@ -11,7 +11,6 @@ const apiUrl = process.env.NEXT_PUBLIC_LITHIUMGIT_API_URL?.replace(/\/+$/, "") |
 export default function SignUpForm() {
     const [fullName, setFullName] = useState("");
     const [email, setEmail] = useState("");
-    const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [busy, setBusy] = useState(false);
@@ -32,7 +31,7 @@ export default function SignUpForm() {
             if (!apiUrl) throw new Error("Account creation is not configured yet.");
             const response = await fetch(`${apiUrl}/Auth/register`, {
                 method: "POST", headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ fullName, email, userName, password, returnTo }),
+                body: JSON.stringify({ fullName, email, password, returnTo }),
             });
             const envelope = await response.json() as IEnvelope<IAccount>;
             const account = envelope.data || envelope.Data;
@@ -45,12 +44,14 @@ export default function SignUpForm() {
         }
     };
 
-    const signInLink = `${Routes.SignIn}?returnTo=${encodeURIComponent(returnTo)}`;
+    const signInLink = returnTo.startsWith(`${Routes.SignIn}?desktop=1&`)
+        ? returnTo
+        : `${Routes.SignIn}?returnTo=${encodeURIComponent(returnTo)}`;
 
     if (sentTo) return <main className="pricing-page signin-page" style={{ minHeight: `calc(100vh - ${Constants.navHeight} - ${Constants.footerHeight})` }}>
         <section className="signin-card">
             <span className="pricing-eyebrow">LithiumGit account</span><h1>Check your email</h1>
-            <p>We sent a confirmation link to <strong>{sentTo}</strong>. Open it to activate your account, then sign in.</p>
+            <p>We sent a confirmation link to <strong>{sentTo}</strong>. Open it to activate your account and you&apos;ll be signed in automatically.</p>
             <p>Can&apos;t find it? Check your spam folder. Signing in also sends a new link.</p>
             <a className="pricing-button pricing-button-primary" href={signInLink}>Go to sign in</a>
         </section>
@@ -63,7 +64,6 @@ export default function SignUpForm() {
             <form className="pricing-web-checkout" onSubmit={signUp}>
                 <label htmlFor="signup-fullname">Full name</label><input id="signup-fullname" autoComplete="name" value={fullName} onChange={e => setFullName(e.target.value)} minLength={2} maxLength={100} required />
                 <label htmlFor="signup-email">Email</label><input id="signup-email" type="email" autoComplete="email" value={email} onChange={e => setEmail(e.target.value)} maxLength={256} required />
-                <label htmlFor="signup-username">Username</label><input id="signup-username" autoComplete="username" value={userName} onChange={e => setUserName(e.target.value)} pattern="[a-zA-Z0-9._-]{3,32}" title="Use 3–32 letters, numbers, periods, underscores, or hyphens." required />
                 <label htmlFor="signup-password">Password</label><input id="signup-password" type="password" autoComplete="new-password" value={password} onChange={e => setPassword(e.target.value)} minLength={4} maxLength={100} required />
                 <label htmlFor="signup-confirm-password">Confirm password</label><input id="signup-confirm-password" type="password" autoComplete="new-password" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} minLength={4} maxLength={100} required />
                 {error && <p className="text-danger" role="alert">{error}</p>}
