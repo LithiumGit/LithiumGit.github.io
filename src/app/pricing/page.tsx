@@ -32,7 +32,7 @@ export default function PricingPage() {
             <header className="pricing-hero">
                 <span className="pricing-eyebrow">Simple plans for your Git workflow</span>
                 <h1>Powerful Git tools, with room to grow.</h1>
-                <p>Keep using LithiumGitâ€™s core Git workflows for free. Get more context and compare changes with Premium.</p>
+                <p>Keep using LithiumGit&apos;s core Git workflows for free. Get more context and compare changes with Premium.</p>
             </header>
 
             <section className="pricing-plans" aria-label="LithiumGit plans">
@@ -46,7 +46,7 @@ export default function PricingPage() {
                     </div>
                     <a className="pricing-button pricing-button-secondary" href={Routes.Download}>Download LithiumGit</a>
                     <h3>Included features</h3>
-                    <ul>{freeFeatures.map(feature => <li key={feature}><span aria-hidden="true">âœ“</span>{feature}</li>)}</ul>
+                    <ul>{freeFeatures.map(feature => <li key={feature}><span aria-hidden="true">{"\u2713"}</span>{feature}</li>)}</ul>
                 </article>
 
                 <article className="pricing-card pricing-card-premium">
@@ -64,7 +64,7 @@ export default function PricingPage() {
                     <p className="pricing-savings">Save about 30% with annual billing.</p>
                     <a className="pricing-button pricing-button-primary" href={Routes.Checkout}>Buy now</a>
                     <h3>Free, plus</h3>
-                    <ul>{premiumFeatures.map(feature => <li key={feature}><span aria-hidden="true">âœ“</span>{feature}</li>)}</ul>
+                    <ul>{premiumFeatures.map(feature => <li key={feature}><span aria-hidden="true">{"\u2713"}</span>{feature}</li>)}</ul>
                     <p className="pricing-upcoming">More Premium features are on the way.</p>
                 </article>
             </section>

@@ -39,28 +39,12 @@ export default function ConfirmEmail() {
                 if(email) sessionStorage.setItem("lithiumgit.accountEmail",email);
                 const fullName=account?.fullName||account?.FullName;
                 if(fullName) sessionStorage.setItem("lithiumgit.accountName",fullName);
-
-                const resumeUrl=new URL(safeReturnTo,window.location.origin);
-                if(resumeUrl.pathname===Routes.SignIn && resumeUrl.searchParams.get("desktop")==="1"){
-                    const state=resumeUrl.searchParams.get("state")||"";
-                    const challenge=resumeUrl.searchParams.get("code_challenge")||"";
-                    if(!/^[A-Za-z0-9_-]{43}$/.test(state) || !/^[A-Za-z0-9_-]{43}$/.test(challenge))
-                        throw new Error("The desktop sign-in request is invalid. Return to LithiumGit and try again.");
-                    const codeResponse=await fetch(`${apiUrl}/Auth/desktop-code`,{
-                        method:"POST",
-                        headers:{"Content-Type":"application/json",Authorization:`Bearer ${accessToken}`},
-                        body:JSON.stringify({codeChallenge:challenge}),
-                    });
-                    const codeEnvelope=await codeResponse.json() as IEnvelope<{code?:string;Code?:string}>;
-                    const codeData=codeEnvelope.data||codeEnvelope.Data;
-                    const code=codeData?.code||codeData?.Code;
-                    if(!codeResponse.ok || !(codeEnvelope.isSuccess??codeEnvelope.IsSuccess) || !code)
-                        throw new Error(codeEnvelope.message||codeEnvelope.Message||"Could not finish signing in to LithiumGit.");
-                    window.location.assign(`lithiumgit://auth/callback?code=${encodeURIComponent(code)}&state=${encodeURIComponent(state)}`);
-                    return;
-                }
                 setStatus("confirmed");
-                window.location.assign(safeReturnTo);
+                const resumeUrl=new URL(safeReturnTo,window.location.origin);
+                const destination=resumeUrl.pathname===Routes.SignIn && resumeUrl.searchParams.get("desktop")==="1"
+                    ? Routes.Pricing
+                    : safeReturnTo;
+                window.location.assign(destination);
             } catch (confirmError) {
                 setError(confirmError instanceof Error ? confirmError.message : "Could not confirm your email.");
                 setStatus("failed");

@@ -211,6 +211,15 @@ html[data-theme='dark'] .site-nav {
     &:hover { background: var(--nav-hover-bg); }
 }
 
+.site-nav-profile-link {
+    display: block;
+    padding: 0.6rem 0.75rem;
+    border-radius: 0.5rem;
+    color: var(--nav-text-strong);
+
+    &:hover { background: var(--nav-hover-bg); color: var(--nav-text-strong); }
+}
+
 .site-nav-cta {
     display: inline-flex;
     align-items: center;

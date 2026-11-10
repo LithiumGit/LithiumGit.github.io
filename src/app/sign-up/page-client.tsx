@@ -51,8 +51,7 @@ export default function SignUpForm() {
     if (sentTo) return <main className="pricing-page signin-page" style={{ minHeight: `calc(100vh - ${Constants.navHeight} - ${Constants.footerHeight})` }}>
         <section className="signin-card">
             <span className="pricing-eyebrow">LithiumGit account</span><h1>Check your email</h1>
-            <p>We sent a confirmation link to <strong>{sentTo}</strong>. Open it to activate your account and you&apos;ll be signed in automatically.</p>
-            <p>Can&apos;t find it? Check your spam folder. Signing in also sends a new link.</p>
+            <p>We sent a confirmation link to <strong>{sentTo}</strong>. Confirm your email to sign in.</p>
             <a className="pricing-button pricing-button-primary" href={signInLink}>Go to sign in</a>
         </section>
     </main>;

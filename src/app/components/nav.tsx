@@ -130,6 +130,7 @@ export function Nav(){
                                 <strong>{state.accountName || state.accountEmail}</strong>
                                 {state.accountName && <span>{state.accountEmail}</span>}
                             </div>
+                            <a className="site-nav-profile-link" href={Routes.AccountSettings} onClick={()=>setState({profileOpen:false})}>Account settings</a>
                             <button type="button" className="site-nav-profile-signout" onClick={signOut}>Sign out</button>
                         </div>}
                     </div> : <a href={Routes.SignIn} className="site-nav-sign-in" aria-current={isActive(Routes.SignIn) ? "page" : undefined}>Sign in</a>}
@@ -151,6 +152,7 @@ export function Nav(){
                         ))}
                         {state.accountEmail ? <>
                             <li><span>Signed in as {state.accountName || state.accountEmail}</span></li>
+                            <li><a href={Routes.AccountSettings} aria-current={isActive(Routes.AccountSettings) ? "page" : undefined}>Account settings</a></li>
                             <li><a href={Routes.SignIn} onClick={signOut}>Sign out</a></li>
                         </> : <>
                             <li><a href={Routes.SignIn} aria-current={isActive(Routes.SignIn) ? "page" : undefined}>Sign in</a></li>
