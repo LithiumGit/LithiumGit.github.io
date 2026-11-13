@@ -9,6 +9,7 @@
     static readonly ConfirmEmail = "/confirm-email";
     static readonly ForgotPassword = "/forgot-password";
     static readonly ResetPassword = "/reset-password";
+    static readonly DesktopSession = "/desktop-session";
     static readonly Blogs = "/blogs";
     static readonly About = "/about";
     static readonly Privacy = "/privacy";
