@@ -18,7 +18,7 @@ export default function CheckoutPage() {
         <section className="signin-card">
             <span className="pricing-eyebrow">LithiumGit Premium</span>
             <h1>Checkout</h1>
-            <p>Choose a billing option. You’ll continue to secure checkout with Paddle.</p>
+            <p>On Windows, checkout continues in LithiumGit through Microsoft Store. On other platforms, you’ll continue through Paddle.</p>
             <PaddleCheckout />
         </section>
     </main>;

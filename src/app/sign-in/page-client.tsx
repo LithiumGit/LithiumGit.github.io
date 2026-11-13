@@ -14,7 +14,7 @@ export default function SignInForm() {
     const [busy, setBusy] = useState(false);
     const [error, setError] = useState("");
     const [returnTo, setReturnTo] = useState(Routes.Pricing);
-    const [desktopParams, setDesktopParams] = useState<{state:string;challenge:string}|null>(null);
+    const [desktopParams, setDesktopParams] = useState<{state:string;challenge:string;callbackScheme:"lithiumgit"|"lithiumgit-dev"}|null>(null);
 
     useEffect(() => {
         const params=new URLSearchParams(window.location.search);
@@ -23,8 +23,10 @@ export default function SignInForm() {
         if(params.get("desktop")==="1"){
             const state=params.get("state")||"";
             const challenge=params.get("code_challenge")||"";
-            if(/^[A-Za-z0-9_-]{43}$/.test(state) && /^[A-Za-z0-9_-]{43}$/.test(challenge))
-                setDesktopParams({state,challenge});
+            const callbackScheme=params.get("callback_scheme")||"lithiumgit";
+            if(/^[A-Za-z0-9_-]{43}$/.test(state) && /^[A-Za-z0-9_-]{43}$/.test(challenge)
+                && (callbackScheme === "lithiumgit" || callbackScheme === "lithiumgit-dev"))
+                setDesktopParams({state,challenge,callbackScheme});
             else setError("The desktop sign-in request is invalid. Return to LithiumGit and try again.");
         }
     }, []);
@@ -34,7 +36,7 @@ export default function SignInForm() {
         try {
             if (!apiUrl) throw new Error("Sign in is not configured yet.");
             const resumePath=desktopParams
-                ? `${Routes.SignIn}?desktop=1&state=${encodeURIComponent(desktopParams.state)}&code_challenge=${encodeURIComponent(desktopParams.challenge)}`
+                ? `${Routes.SignIn}?desktop=1&state=${encodeURIComponent(desktopParams.state)}&code_challenge=${encodeURIComponent(desktopParams.challenge)}&callback_scheme=${encodeURIComponent(desktopParams.callbackScheme)}`
                 : returnTo;
             const response = await fetch(`${apiUrl}/Auth`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ userName, password, returnTo:resumePath }) });
             const envelope = await response.json() as IEnvelope<ILogin>;
@@ -57,7 +59,7 @@ export default function SignInForm() {
                 const code=codeData?.code||codeData?.Code;
                 if(!codeResponse.ok || !(codeEnvelope.isSuccess??codeEnvelope.IsSuccess) || !code)
                     throw new Error(codeEnvelope.message||codeEnvelope.Message||"Could not complete desktop sign-in.");
-                window.location.assign(`lithiumgit://auth/callback?code=${encodeURIComponent(code)}&state=${encodeURIComponent(desktopParams.state)}`);
+                window.location.assign(`${desktopParams.callbackScheme}://auth/callback?code=${encodeURIComponent(code)}&state=${encodeURIComponent(desktopParams.state)}`);
                 return;
             }
             window.location.assign(returnTo);
@@ -77,7 +79,7 @@ export default function SignInForm() {
                 <button className="pricing-button pricing-button-primary" type="submit" disabled={busy}>{busy ? "Signing in…" : "Sign in"}</button>
             </form>
             <p className="signin-pricing-link"><a href={Routes.ForgotPassword}>Forgot your password?</a></p>
-            <p className="signin-pricing-link">New to LithiumGit? <a href={`${Routes.SignUp}?returnTo=${encodeURIComponent(desktopParams ? `${Routes.SignIn}?desktop=1&state=${desktopParams.state}&code_challenge=${desktopParams.challenge}` : returnTo)}`}>Create an account</a></p>
+            <p className="signin-pricing-link">New to LithiumGit? <a href={`${Routes.SignUp}?returnTo=${encodeURIComponent(desktopParams ? `${Routes.SignIn}?desktop=1&state=${desktopParams.state}&code_challenge=${desktopParams.challenge}&callback_scheme=${desktopParams.callbackScheme}` : returnTo)}`}>Create an account</a></p>
         </section>
     </main>;
 }
