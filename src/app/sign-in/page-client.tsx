@@ -13,6 +13,7 @@ export default function SignInForm() {
     const [password, setPassword] = useState("");
     const [busy, setBusy] = useState(false);
     const [error, setError] = useState("");
+    const [desktopHandoffUrl, setDesktopHandoffUrl] = useState("");
     const [returnTo, setReturnTo] = useState(Routes.Pricing);
     const [desktopParams, setDesktopParams] = useState<{state:string;challenge:string;callbackScheme:"lithiumgit"|"lithiumgit-dev"}|null>(null);
 
@@ -59,7 +60,10 @@ export default function SignInForm() {
                 const code=codeData?.code||codeData?.Code;
                 if(!codeResponse.ok || !(codeEnvelope.isSuccess??codeEnvelope.IsSuccess) || !code)
                     throw new Error(codeEnvelope.message||codeEnvelope.Message||"Could not complete desktop sign-in.");
-                window.location.assign(`${desktopParams.callbackScheme}://auth/callback?code=${encodeURIComponent(code)}&state=${encodeURIComponent(desktopParams.state)}`);
+                const callbackUrl=`${desktopParams.callbackScheme}://auth/callback?code=${encodeURIComponent(code)}&state=${encodeURIComponent(desktopParams.state)}`;
+                setDesktopHandoffUrl(callbackUrl);
+                setBusy(false);
+                window.location.assign(callbackUrl);
                 return;
             }
             window.location.assign(returnTo);
@@ -67,6 +71,17 @@ export default function SignInForm() {
             setError(signInError instanceof Error ? signInError.message : "Sign in failed."); setBusy(false);
         }
     };
+
+    if(desktopHandoffUrl){
+        return <main className="pricing-page signin-page" style={{ minHeight: `calc(100vh - ${Constants.navHeight} - ${Constants.footerHeight})` }}>
+            <section className="signin-card">
+                <span className="pricing-eyebrow">LithiumGit account</span>
+                <h1>Sign-in complete</h1>
+                <p>Return to LithiumGit to continue. If the app didn’t open, use the button below.</p>
+                <a className="pricing-button pricing-button-primary" href={desktopHandoffUrl}>Open LithiumGit</a>
+            </section>
+        </main>;
+    }
 
     return <main className="pricing-page signin-page" style={{ minHeight: `calc(100vh - ${Constants.navHeight} - ${Constants.footerHeight})` }}>
         <section className="signin-card">
