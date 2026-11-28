@@ -6,10 +6,21 @@ export class Distributions{
     static readonly list:IDistribution[]=[
         {
             os:OSType.Windows,
-            releases:[                
+            releases:[
+                {
+                    version:"1.2.0",
+                    isLatest:true,
+                    files:[
+                        {
+                            type:FileType.EXE,
+                            url:"https://github.com/LithiumGit/LithiumGit/releases/download/v1.2.0/LithiumGitInstaller.exe",
+                            arch:ArchType.x64,
+                        },                                                
+                    ]
+                },                
                 {
                     version:"1.1.0",
-                    isLatest:true,
+                    isLatest:false,
                     files:[
                         {
                             type:FileType.EXE,
@@ -108,6 +119,35 @@ export class Distributions{
     ];
 
     static readonly changeLogs:IChangeLog[]=[
+        {
+            version:"1.2.0",
+            newChanges:[
+                {
+                    type:"Premium",
+                    description:"LithiumGit Premium: an optional monthly or yearly subscription, bought securely through the Microsoft Store. Sign in with your LithiumGit account to subscribe. All other features remain free.",
+                },
+                {
+                    type:"Premium",
+                    description:"Insights: repository summary, code growth, additions and deletions, languages and contributors, with CSV export.",
+                },
+                {
+                    type:"Premium",
+                    description:"Diff Checker: compare any two texts or files side by side and jump between changes.",
+                },
+                {
+                    type:"New Feature",
+                    description:"Advanced commit filters: search by commit message and filter by author, branch, date range and merge commits.",
+                },
+                {
+                    type:"UI/UX",
+                    description:"Enhanced user interface for a better user experience.",
+                },
+                {
+                    type:"Stability",
+                    description:"Bug fixes and stability improvements.",
+                },
+            ]
+        },
         {
             version:"1.1.0",
             newChanges:[
